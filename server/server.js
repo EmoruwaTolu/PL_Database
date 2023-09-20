@@ -37,33 +37,17 @@ app.get('/calculate-percentiles', async (req, res) => {
     const db = client.db(dbName);
     // Your MongoDB aggregation pipeline code to calculate percentiles
     console.log("here")
-    // const result = await db.collection('PremierLeague2022-21Big6').aggregate([
-    //   {
-    //     $sort: {"shooting_stats.shots90": 1}
-    //   },
-    //   {
-    //     $group: {
-    //       _id: null,
-    //       data: { $push: "$shooting_stats.shots90" },
-    //       count: { $sum: 1 }
-    //     }
-    //   },
-      
-    // ]).toArray();
-
     const result = await db.collection('PremierLeague2022-21Big6').aggregate([
       {
+        $sort: {"shooting_stats.shots90": 1}
+      },
+      {
         $group: {
-           _id: null,
-           testing_percentiles: {
-              $percentile: {
-                 input: "$shooting_stats.shots90",
-                 p: [ 0.95 ],
-                 method: 'approximate'
-              }
-           },
+          _id: null,
+          data: { $push: "$shooting_stats.shots90" },
+          count: { $sum: 1 }
         }
-     }
+      },
       
     ]).toArray();
 
