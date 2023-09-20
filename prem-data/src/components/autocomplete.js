@@ -43,7 +43,7 @@ const Autocompletion = ({setPlayer}) => {
             options={options}
             sx={
                 {
-                    width: "100%"
+                    width: "100%",
                 }
             }
             onChange={(event, newChange) => {

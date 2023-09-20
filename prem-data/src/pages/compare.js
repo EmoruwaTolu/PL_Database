@@ -11,7 +11,17 @@ function Compare(){
 
     const [chartMode, setChartMode] =  useState([]);
 
-    const getValue = (value) => (typeof value === 'undefined' || value === null) ? 0 : value;
+    //const getValue = (value) => (typeof value === 'undefined' || value === null) ? 0 : value;
+
+    const getValue = (value) => {
+        if(typeof value === 'undefined' || value === null ){
+            return 0;
+        }
+        else{
+
+            return value
+        }
+    }
 
     var dataGoalContributions = [
         {
@@ -76,6 +86,45 @@ function Compare(){
         },
     ]
 
+    var progressiveStats = [
+        {
+            subject: "ProgressiveCarries/90",
+            A: getValue(player1?.standard_stats?.progCarries90),
+            B: getValue(player2?.standard_stats?.progCarries90)
+        },
+        {
+            subject: "ProgressivePassesReceived/90",
+            A: getValue(player1?.standard_stats?.progPassRec90),
+            B: getValue(player2?.standard_stats?.progPassRec90)
+        },
+        {
+            subject: "ProgressivePasses/90",
+            A: getValue(player1?.standard_stats?.progressivePass90),
+            B: getValue(player2?.standard_stats?.progressivePass90)
+        },
+        {
+            subject: "PassesFinalThird/90",
+            A: getValue(player1?.passing_stats?.passesFinalThird90),
+            B: getValue(player2?.passing_stats?.passesFinalThird90)
+        },
+        {
+            subject: "KeyPasses/90",
+            A: getValue(player1?.passing_stats?.keyPasses90),
+            B: getValue(player2?.passing_stats?.keyPasses90)
+        },
+        {
+            subject: "carriesIntoFinal3rd90",
+            A: getValue(player1?.possession_stats?.carriesIntoFinal3rd90),
+            B: getValue(player2?.possession_stats?.carriesIntoFinal3rd90)
+        },
+        {
+            subject: "touchesInAttack3rd90",
+            A: getValue(player1?.possession_stats?.touchesInAttack3rd90),
+            B: getValue(player2?.possession_stats?.touchesInAttack3rd90)
+        }
+
+    ]
+
     const fetchData = async () => {
         const response = await fetch(`http://localhost:3001/calculate-percentiles`);
         const data = await response.json();
@@ -88,7 +137,7 @@ function Compare(){
             <SearchTaskbar />
             <div className='compare-details-wrapper'>
                 <ComparePlayerSection setPlayer={setPlayer1}/>
-                <RadarPlayerChart players={dataGoalContributions} playerNames={[player1?.name, player2?.name]}/>
+                {/* <RadarPlayerChart players={progressiveStats} playerNames={[player1?.name, player2?.name]}/> */}
                 <ComparePlayerSection setPlayer={setPlayer2}/>
             </div>
             <button onClick={() => {fetchData()}}>Here</button>
