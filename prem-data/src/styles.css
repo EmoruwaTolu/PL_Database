@@ -1,0 +1,86 @@
+body{
+    box-sizing: border-box;
+}
+
+.taskbar{
+    height: 10vh;
+    width: 100vw;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    align-items: stretch;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+.taskbar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+}
+
+
+.taskbar a {
+    color: inherit;
+    text-decoration: none;
+    padding: 2em;
+    height: 100%;
+    display: flex;
+}
+
+.taskbar li.active {
+    background-color: #555;
+}
+  
+.taskbar li:hover {
+    background-color: #777;
+}
+
+.herobody{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color: white;
+}
+
+.search-container{
+    width: 100%;
+    display: flex;
+}
+
+.search-container button{
+    flex: 1;
+}
+
+.search-container input{
+    flex:  2;
+}
+
+.autosuggest-results{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 0 1em 1em 1em;
+    overflow: hidden;
+    height: 300px;
+}
+
+.autosuggest-results ul {
+    list-style: none;
+    padding: 0;
+}

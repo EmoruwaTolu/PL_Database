@@ -1,0 +1,65 @@
+.search-taskbar{
+    height: 10vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: stretch;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+.search-taskbar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+}
+
+
+.search-taskbar a {
+    color: inherit;
+    text-decoration: none;
+    padding: 2em;
+    height: 100%;
+    display: flex;
+}
+
+.taskbar li.active {
+    background-color: #555;
+}
+  
+.taskbar li:hover {
+    background-color: #777;
+}
+
+.search-container{
+    width: 100%;
+    display: flex;
+}
+
+.search-container button{
+    flex: 1;
+}
+
+.search-container input{
+    flex:  2;
+}
+
+.autosuggest-results{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 0 1em 1em 1em;
+    overflow: hidden;
+    height: 300px;
+}
+
+.autosuggest-results ul {
+    list-style: none;
+    padding: 0;
+}
