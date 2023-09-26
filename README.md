@@ -5,7 +5,7 @@ DISCLAIMER: I do not own any of these statistics. This is data collected by Opta
 
 The website's frontend does not display any data as I am working on the backend and making changes to provide users with the best experience on the site. 
 
-I am also currently working on a way to make the database I am using publicly accessible with MongoDB. If that is not possible, I can provide a folder with all the data, and users could create their own MongoDB database with the files.
+The MongoDB database should now be able to be accessed from any address.
 
 The search bar on the landing page should take you to a player's page when they are selected. However, I am currently not displaying any data yet.
 
