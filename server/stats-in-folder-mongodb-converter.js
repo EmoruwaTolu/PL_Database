@@ -297,7 +297,6 @@ files.forEach(file => {
     var clubName = clubNameHyphen.replace("-"," ")
     for (let i = 1; i < data.length - 1; i += 2) {
         const name = data[i];
-        var statsStore;
         var playerPosition;
         if(data[i+1]!==null){
             const stats = data[i+1].split(/\s+/);
@@ -361,7 +360,7 @@ console.log(seasons.length)
 
 module.exports = seasons;
 
-let jsonString = JSON.stringify(seasons[2]);
+let jsonString = JSON.stringify(seasons);
 
 // Write the JSON string to a file
 
