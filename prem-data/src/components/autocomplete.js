@@ -41,9 +41,11 @@ const Autocompletion = ({setPlayer}) => {
             disablePortal
             loading={isLoading}
             options={options}
+            limitTags={5}
             sx={
                 {
                     width: "100%",
+                    height: "200px"
                 }
             }
             onChange={(event, newChange) => {
@@ -55,7 +57,10 @@ const Autocompletion = ({setPlayer}) => {
                 }
             }}
             getOptionLabel={(option) => option.name}
-            renderInput={(params) => <TextField {...params} label="Players" />}
+            renderInput={(params) => 
+                <TextField {...params} label="Players" 
+                    sx={{backgroundColor: "#ffe6a7", borderRadius: "8px"}}
+                />}
         />
     )
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Taskbar from '../components/taskbar';
 // import image from '../images/hero2.jpg';
 import Hero from '../components/hero';
+import { RecommendPlayers } from "../components/recommend-players";
 
 function Home(){
     return(
@@ -12,6 +13,7 @@ function Home(){
                         backgroundSize: "cover", backgroundPosition: "center"}}>
             <Taskbar />
             <Hero />
+            <RecommendPlayers title={"Trending Players"}/>
             </div>
         </div>
     )
