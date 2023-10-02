@@ -1,6 +1,6 @@
 .search-taskbar{
     height: 10vh;
-    width: 100vw;
+    width: 100%;
     background-color: black;
     color: white;
     display: flex;

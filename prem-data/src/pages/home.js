@@ -6,14 +6,13 @@ import { RecommendPlayers } from "../components/recommend-players";
 
 function Home(){
     return(
-        <div>
-            <div style={{
-                //backgroundImage: `url(${image})`, 
-            height: "100vh", objectFit: "contain", backgroundRepeat: "no-repeat", 
-                        backgroundSize: "cover", backgroundPosition: "center"}}>
+        <div className="home">
+            <div style={{height: "100vh", boxSizing: "border-box", width: "100%"}}>
             <Taskbar />
-            <Hero />
-            <RecommendPlayers title={"Trending Players"}/>
+            <div className="home-content">
+                <Hero />
+                <RecommendPlayers title={"Trending Players"}/>
+            </div>
             </div>
         </div>
     )

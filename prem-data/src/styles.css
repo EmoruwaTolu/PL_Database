@@ -1,17 +1,17 @@
 .taskbar{
-    height: 10vh;
-    width: 100vw;
+    height: 10%;
+    width: 100%;
     background-color: #99582a;
     color: #fefae0;
     display: flex;
-    align-items: stretch;
     gap: 2em;
     box-sizing: border-box;
     position: sticky;
+    justify-content: space-around;
 }
 
 .taskbar ul {
-    padding: 0;
+    padding-right: 2em;
     margin: 0;
     list-style: none;
     display: flex;
@@ -19,15 +19,35 @@
     align-items: center;
     justify-content: right;
     width: 100%;
+    height: 100%;
+    flex: 1;
+    box-sizing: border-box;
 }
 
+.taskbar .logo{
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex: 2;
+    box-sizing: border-box;
+    padding-left: 2em;
+}
+
+.taskbar li{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .taskbar a {
     color: inherit;
     text-decoration: none;
-    padding: 2em;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .taskbar li.active {
@@ -37,6 +57,19 @@
 .taskbar li:hover {
     background-color: #777;
 }
+
+.home{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.home-content{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2em;
+}
+
+
 
 .herobody{
     width: 100%;

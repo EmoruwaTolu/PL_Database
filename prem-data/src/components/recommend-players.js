@@ -28,8 +28,8 @@ export const RecommendPlayers = ({title}) => {
     console.log(title)
 
     return(
-        <div style={{padding: "4em", width: "100%", boxSizing: "border-box", height:"60vh"}}>
-            <div style={{backgroundColor: "#ffe6a7", width: "100%", height:"100%", borderRadius: "8px", padding: "2em", boxSizing: "border-box"}}>
+        <div style={{ width: "100%", boxSizing: "border-box", height:"45vh"}}>
+            <div style={{backgroundColor: "#ffe6a7", width: "100%", height:"100%", borderRadius: "8px", padding: "1em 2em", boxSizing: "border-box"}}>
                 <div style={{width: "100%", height: "20%", color: "#6f1d1b", alignItems:"center", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #6f1d1b"}}>
                     {title}
                 </div>
