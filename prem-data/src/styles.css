@@ -1,7 +1,7 @@
 .taskbar{
     height: 10%;
     width: 100%;
-    background-color: #99582a;
+    background-color: #495867;
     color: #fefae0;
     display: flex;
     gap: 2em;
@@ -64,12 +64,52 @@
 }
 
 .home-content{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.home-blog{
+    width: 100%;
+    border: 1px solid green;
+    height: 200px
+}
+
+.home-search-trending{
     box-sizing: border-box;
     width: 100%;
     padding: 2em;
 }
 
+.trending{
+    height: 40vh;
+    padding: 2em;
+}
 
+.player-container{
+    margin-top: 1em;
+}
+
+@media screen and (max-width: 600px) {
+    .home-content {
+      flex-direction: column;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    .player-container{
+        padding-top: 1em;
+        flex-direction: column;
+        gap: 1em;
+        box-sizing: border-box;
+    }
+    .player-card{
+        width: 100%;
+    }
+    .trending{
+        height: 50vh;
+    }
+}
 
 .herobody{
     width: 100%;

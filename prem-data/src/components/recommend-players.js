@@ -1,39 +1,21 @@
 import React from "react";
-
-export const teamColours = [
-    ["Arsenal", "#EF0107"],
-    ["Liverpool", "#C8102E"],
-    ["Manchester United", "#DA291C"],
-    ["Manchester City", "#6CABDD"],
-    ["Chelsea", "#034694"],
-    ["Brighton and Hove Albion", "#005DAA"],
-    ["Newcastle United", "#000000"],
-    ["Tottenham Hotspur", "#132257"],
-    ["Aston Villa", "#670E36"],
-    ["Brentford", "#E30613"],
-    ["Fulham", "#000000"],
-    ["Crystal Palace", ["#1B458F", "#C4122E"]],
-    ["Wolverhampton Wanderers", "#FDB913"],
-    ["West Ham United", "#7A263A"],
-    ["AFC Bournemouth", ["#DA291C", "#000000"]],
-    ["Nottingham Forest", "#DD0000"],
-    ["Everton", "#003399"],
-    ["Leicester City", "#003090"],
-    ["Leeds United", ["#FFCD00", "#1D428A"]],
-    ["Southampton", "#D71920"]
-] 
+import { PlayerTab } from "./player-tab";
+import '../styles.css';
 
 export const RecommendPlayers = ({title}) => {
 
     console.log(title)
 
     return(
-        <div style={{ width: "100%", boxSizing: "border-box", height:"45vh"}}>
-            <div style={{backgroundColor: "#ffe6a7", width: "100%", height:"100%", borderRadius: "8px", padding: "1em 2em", boxSizing: "border-box"}}>
-                <div style={{width: "100%", height: "20%", color: "#6f1d1b", alignItems:"center", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #6f1d1b"}}>
+        <div className="trending" style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#bdd5ea", width: "100%", borderRadius: "8px", boxSizing: "border-box", flexDirection: "column"}}>
+                <div style={{width: "100%", height: "20%", color: "#495867", alignItems:"center", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #495867"}}>
                     {title}
                 </div>
-            </div>
+                <div className="player-container" style={{width: "100%", height:"80%", display: "flex", justifyContent:"space-between", alignItems: "center"}}>
+                    <PlayerTab player={""}/>
+                    <PlayerTab player={""}/>
+                    <PlayerTab player={""}/>
+                </div>
         </div>
     )
 }

@@ -59,7 +59,7 @@ const Autocompletion = ({setPlayer}) => {
             getOptionLabel={(option) => option.name}
             renderInput={(params) => 
                 <TextField {...params} label="Players" 
-                    sx={{backgroundColor: "#ffe6a7", borderRadius: "8px"}}
+                    sx={{backgroundColor: "#bdd5ea", borderRadius: "8px"}}
                 />}
         />
     )

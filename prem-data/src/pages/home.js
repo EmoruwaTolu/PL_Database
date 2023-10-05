@@ -1,8 +1,8 @@
 import React from "react";
 import Taskbar from '../components/taskbar';
-// import image from '../images/hero2.jpg';
 import Hero from '../components/hero';
 import { RecommendPlayers } from "../components/recommend-players";
+import '../styles.css';
 
 function Home(){
     return(
@@ -10,9 +10,15 @@ function Home(){
             <div style={{height: "100vh", boxSizing: "border-box", width: "100%"}}>
             <Taskbar />
             <div className="home-content">
-                <Hero />
-                <RecommendPlayers title={"Trending Players"}/>
+                <div className="home-blog">
+
+                </div>
+                <div className="home-search-trending">
+                    <Hero />
+                    <RecommendPlayers title={"Trending Players"}/>
+                </div>
             </div>
+            
             </div>
         </div>
     )
