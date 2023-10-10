@@ -171,7 +171,7 @@ def specificSeason(url):
     
 #     file1.close()
 
-link = "https://fbref.com/en/squads/cff3d9bb/2022-2023/Chelsea-Stats"
+link = "https://fbref.com/en/squads/a2d435b3/2022-2023/Leicester-City-Stats"
 namingInfo = link.split("/")
 file1 = open(namingInfo[-1]+".txt", "w")
 teamInfo = teamRosterCreator(link)

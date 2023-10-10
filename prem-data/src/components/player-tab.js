@@ -27,8 +27,8 @@ export const teamColours = [
 export const PlayerTab = ({player}) => {
 
     return(
-        <div className='player-card' style={{border: "1px solid green", width:"100%", height: "100%", borderRadius: "8px", backgroundColor:"white"}}>
-            Hello
+        <div className='player-card' style={{border: "1px solid green", width:"100%", height: "100%", borderRadius: "8px", backgroundColor:"white", boxSizing: "border-box", display:"flex", alignItems: "center"}}>
+            <img src='https://fbref.com/req/202302030/images/headshots/bc7dc64d_2022.jpg' style={{width: "30%", height:"100%", borderRadius:"8px"}}/>
         </div>
     )
 

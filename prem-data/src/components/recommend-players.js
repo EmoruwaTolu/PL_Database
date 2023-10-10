@@ -7,7 +7,7 @@ export const RecommendPlayers = ({title}) => {
     console.log(title)
 
     return(
-        <div className="trending" style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#bdd5ea", width: "100%", borderRadius: "8px", boxSizing: "border-box", flexDirection: "column"}}>
+        <div className="trending" >
                 <div style={{width: "100%", height: "20%", color: "#495867", alignItems:"center", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #495867"}}>
                     {title}
                 </div>
