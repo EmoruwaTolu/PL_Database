@@ -36,7 +36,7 @@ class keepingStatistics{
 class SeasonPerformance{
 
   constructor(name, club, season, position, standard_stats, shooting_stats, passing_stats, pass_types, shot_goalCreation, defensive_stats,
-    possession_stats, other_stats, league){
+    possession_stats, other_stats, league, image){
       this.name = name,
       this.club = club,
       this.season = season,
@@ -49,7 +49,8 @@ class SeasonPerformance{
       this.shot_goalCreation = shot_goalCreation,
       this.defensive_stats = defensive_stats,
       this.possession_stats = possession_stats,
-      this.other_stats = other_stats
+      this.other_stats = other_stats,
+      this.image = image
   }
 }
 
@@ -258,8 +259,9 @@ class OtherStatistics{
       this.offsides90 = offsides90.split(",").map(x => parseFloat(x, 10)),
       this.penaltiesWon90 = penaltiesWon90.split(",").map(x => parseFloat(x, 10)),
       this.penaltiesGivenAway90 = penaltiesGivenAway90.split(",").map(x => parseFloat(x, 10)),
-      this.ownGoals90 = ownGoals90.split(",").map(x => parseFloat(x, 10)),
-      this.ballRecoveries90 = ballRecoveries90.split(",").map(x => parseFloat(x, 10)),
+      this.ownGoals90 = ownGoals90.split(",").map(x => parseFloat(x, 10))
+      console.log(typeof ballRecoveries90)
+      this.ballRecoveries90 = ballRecoveries90.split(',').map(x => parseFloat(x, 10))
       this.aerialsWon90 = aerialsWon90.split(",").map(x => parseFloat(x, 10)),
       this.aerialsLost90 = aerialsLost90.split(",").map(x => parseFloat(x, 10)),
       this.percentAerialsWon = percentAerialsWon.split(",")
@@ -282,10 +284,10 @@ function isPlayerInArray(playerArray, player) {
   return playerArray.some((p) => p.name === player.name);
 }
 
-const players = [];
+var players = [];
 const seasons = [];
 
-const directoryPath = './new_perc/';
+const directoryPath = './prem2022-23_with_pictures/';
 const files = fs.readdirSync(directoryPath);
 
 const season = "2022-23"
@@ -297,16 +299,13 @@ files.forEach(file => {
     var clubName = clubNameHyphen.replace("-"," ")
     for (let i = 1; i < data.length - 1; i += 2) {
         const name = data[i];
+        console.log(name)
         var playerPosition;
         if(data[i+1]!==null){
             const stats = data[i+1].split(/\s+/);
             if(stats[0]!=="GK" && stats[1]!==undefined){//the undefined part makes sure players with no data don't slide through
 
               playerPosition = stats[0];
-
-              if(playerPosition.includes(",")){
-                console.log(stats[1])
-              }
 
               var standard_stats = new StandardStats(name, clubName, season, stats[1], stats[2], stats[3], stats[4], stats[5], stats[6],
               stats[7], stats[8], stats[9], stats[10], stats[11], stats[12], stats[13], stats[14], stats[15], playerPosition, league);
@@ -335,7 +334,7 @@ files.forEach(file => {
               stats[114], stats[115], stats[116], stats[117], stats[118], playerPosition, league)
 
               var playerSeason = new SeasonPerformance(name, clubName, season, playerPosition, standard_stats, shooting_stats, passing_stats, pass_types,
-              shot_goalCreation, defensive_stats, possession_stats, other_stats)
+              shot_goalCreation, defensive_stats, possession_stats, stats[119])
 
               var player = new Player(name, playerPosition)
               player.addSeason(playerSeason)
@@ -351,6 +350,18 @@ files.forEach(file => {
             }
         }
     }
+
+    // let jsonString = JSON.stringify(players);
+
+    // fs.writeFile(`${clubName}.json`, jsonString, (err) => {
+    //   if (err) {
+    //     console.error(err);
+    //     return;
+    //   }
+    //   console.log('JSON file has been saved.');
+    // });
+
+    // players = []
     
 });
 
@@ -364,7 +375,7 @@ let jsonString = JSON.stringify(seasons);
 
 // Write the JSON string to a file
 
-fs.writeFile('playersBig6_2021-22.json', jsonString, (err) => {
+fs.writeFile('players_2022-23.json', jsonString, (err) => {
   if (err) {
     console.error(err);
     return;

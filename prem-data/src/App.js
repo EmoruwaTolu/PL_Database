@@ -11,7 +11,6 @@ function App() {
   const handlePositionClick = async (position) => {
     const response = await fetch(`http://localhost:3001/PremierLeague2022-21Big6/${position}`);
     const data = await response.json();
-    console.log(data)
     setPlayers(data);
   };
 

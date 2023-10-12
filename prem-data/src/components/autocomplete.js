@@ -42,12 +42,12 @@ const Autocompletion = ({setPlayer}) => {
             loading={isLoading}
             options={options}
             limitTags={5}
-            sx={
-                {
-                    width: "100%",
-                    height: "200px"
-                }
-            }
+            // sx={
+            //     {
+            //         width: "100%",
+            //         height: "200px",
+            //     }
+            // }
             onChange={(event, newChange) => {
                 if(location.pathname !== "/compare"){
                     handleClick(newChange);
@@ -59,7 +59,7 @@ const Autocompletion = ({setPlayer}) => {
             getOptionLabel={(option) => option.name}
             renderInput={(params) => 
                 <TextField {...params} label="Players" 
-                    sx={{backgroundColor: "#bdd5ea", borderRadius: "8px"}}
+                    sx={{backgroundColor: "white", borderRadius:"8px"}}
                 />}
         />
     )

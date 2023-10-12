@@ -8,12 +8,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  background-color: #577399;
+  /* background-color: #577399; */
+  background-color: #313237;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media screen and (max-width: 400px){
+  body {
+    font-size: 0.75em;
+  }
 }

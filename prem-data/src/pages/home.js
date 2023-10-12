@@ -10,12 +10,17 @@ function Home(){
             <div style={{height: "100vh", boxSizing: "border-box", width: "100%"}}>
             <Taskbar />
             <div className="home-content">
-                <div className="home-blog">
+                <div className="home-layer-1">
 
                 </div>
-                <div className="home-search-trending">
-                    <Hero />
-                    <RecommendPlayers title={"Trending Players"}/>
+                <div className="home-layer-2">
+                    <div className="home-blog">
+
+                    </div>
+                    <div className="home-search-trending">
+                        <Hero />
+                        <RecommendPlayers title={"Trending Players"}/>
+                    </div>
                 </div>
             </div>
             

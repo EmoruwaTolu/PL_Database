@@ -16,7 +16,7 @@ app.get('/searchSuggest', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-21Big6');
+    const collection = db.collection('PremierLeague2022-23');
 
     const data = await collection.find({}).toArray();
     res.json(data)
@@ -26,7 +26,7 @@ app.get('/searchSuggest', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
   finally {
-    client.close(); // Close the connection when done
+    //client.close(); // Close the connection when done
   }
 })
 
@@ -37,7 +37,7 @@ app.get('/calculate-percentiles', async (req, res) => {
     const db = client.db(dbName);
     // Your MongoDB aggregation pipeline code to calculate percentiles
     console.log("here")
-    const result = await db.collection('PremierLeague2022-21Big6').aggregate([
+    const result = await db.collection('PremierLeague2022-23').aggregate([
       {
         $sort: {"shooting_stats.shots90": 1}
       },
@@ -66,7 +66,9 @@ app.get('/player/:name', async (req, res) => {
     const playerName = req.params.name;
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-21Big6');
+    const collection = db.collection('PremierLeague2022-23');
+
+    console.log(playerName)
 
     const data = await collection.find({name: playerName}).toArray();
     console.log(data)
@@ -81,14 +83,14 @@ app.get('/player/:name', async (req, res) => {
   }
 })
 
-app.get('/PremierLeague2022-21Big6/:position', async (req, res) => {
+app.get('/PremierLeague2022-23/:position', async (req, res) => {
   try {
     await client.connect();
 
     const position = req.params.position;
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-21Big6'); // Replace with your collection name
+    const collection = db.collection('PremierLeague2022-23'); // Replace with your collection name
 
     if(position === "Attackers"){
       const data = await collection.find({ $or: [{position: "FW"}, {position: "AM"}] }).toArray();

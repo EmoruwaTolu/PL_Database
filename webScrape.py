@@ -142,6 +142,7 @@ def specificSeason(url):
     uls = hold.find_all('ul')[-1]
 
     links = uls.find_all('a')
+    print(links)
 
     for a in links:
         if(a.text == '2022-2023 Premier League'):
@@ -171,7 +172,7 @@ def specificSeason(url):
     
 #     file1.close()
 
-link = "https://fbref.com/en/squads/a2d435b3/2022-2023/Leicester-City-Stats"
+link = "https://fbref.com/en/squads/4ba7cbea/2022-2023/Bournemouth-Stats"
 namingInfo = link.split("/")
 file1 = open(namingInfo[-1]+".txt", "w")
 teamInfo = teamRosterCreator(link)
@@ -180,6 +181,7 @@ for players in teamInfo:
     time.sleep(1)
     print(players)
     specSeasonLink = "https://fbref.com/" + specificSeason(players)
+    # print(specSeasonLink)
     if (specificSeason(players) != ""):
         playerStandardStatsMaker(specSeasonLink, file1)
 
