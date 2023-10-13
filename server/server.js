@@ -59,6 +59,24 @@ app.get('/calculate-percentiles', async (req, res) => {
   }
 });
 
+app.get('/explore-players', async(req,res) => {
+  try {
+    await client.connect()
+
+    const db = client.db(dbName);
+    const collection = db.collection('PremierLeague2022-23');
+
+    console.log('jam')
+
+    const data = await collection.aggregate([{$match: {"image":{$ne:null}}}, {$sample: {size: 3}}]).toArray();
+    res.json(data)
+  }
+  catch(error){
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+})
+
 app.get('/player/:name', async (req, res) => {
   try {
     await client.connect();

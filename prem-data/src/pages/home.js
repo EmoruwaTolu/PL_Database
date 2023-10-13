@@ -19,7 +19,7 @@ function Home(){
                     </div>
                     <div className="home-search-trending">
                         <Hero />
-                        <RecommendPlayers title={"Trending Players"}/>
+                        <RecommendPlayers title={"Explore Players"}/>
                     </div>
                 </div>
             </div>
