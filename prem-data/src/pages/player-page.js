@@ -28,8 +28,9 @@ function PlayerPage() {
 
     return(
         <div>
-            <h1>{player.playerName}</h1>
-            <div>{playerInfo[0].position}</div>
+          <img src={playerInfo[0].image} style={{width:"200px", height:"200px"}}/>
+          <h1>{player.playerName}</h1>
+          <div>{playerInfo[0].position}</div>
         </div>
     )
 }

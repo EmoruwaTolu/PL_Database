@@ -4,8 +4,6 @@ import '../styles.css';
 
 export const RecommendPlayers = ({title}) => {
 
-    console.log(title)
-
     return(
         <div className="trending" >
                 <div style={{width: "100%", height: "20%", color: "#495867", alignItems:"center", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #495867"}}>

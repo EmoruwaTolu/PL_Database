@@ -42,12 +42,6 @@ const Autocompletion = ({setPlayer}) => {
             loading={isLoading}
             options={options}
             limitTags={5}
-            // sx={
-            //     {
-            //         width: "100%",
-            //         height: "200px",
-            //     }
-            // }
             onChange={(event, newChange) => {
                 if(location.pathname !== "/compare"){
                     handleClick(newChange);

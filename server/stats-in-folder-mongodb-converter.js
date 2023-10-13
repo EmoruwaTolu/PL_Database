@@ -334,7 +334,7 @@ files.forEach(file => {
               stats[114], stats[115], stats[116], stats[117], stats[118], playerPosition, league)
 
               var playerSeason = new SeasonPerformance(name, clubName, season, playerPosition, standard_stats, shooting_stats, passing_stats, pass_types,
-              shot_goalCreation, defensive_stats, possession_stats, stats[119])
+              shot_goalCreation, defensive_stats, possession_stats, other_stats, league, stats[119])
 
               var player = new Player(name, playerPosition)
               player.addSeason(playerSeason)
