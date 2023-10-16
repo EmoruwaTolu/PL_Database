@@ -189,3 +189,7 @@ for players in teamInfo:
         playerStandardStatsMaker(specSeasonLink, file1)
 
 print("done done done done done done we are done")
+
+##------- PLEASE NOTE THERE WILL BE SOME CHANGES THAT WILL NEED TO BE MADE TO LINES OF CODE WHEN SWITCHING BETWEEN SEASONS
+##------- THESE CHANGES ARE SMALL AND JUST INVOLVE RENAMING SOME OF THE IDs YOU ARE LOOKING FOR
+##------- SO FOR EXAMPLE, IN THE 2021-22 SEASON ID WOULD NEED TO BE EQAUL TO `results2021-202291_overall`
