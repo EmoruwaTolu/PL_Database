@@ -8,7 +8,7 @@ def leagueRosterCreator(url):
     html = requests.get(url)
     s = BeautifulSoup(html.content, 'html.parser')
 
-    leagueyearid = s.find(id="results2021-202291_overall")
+    leagueyearid = s.find(id="results2022-202391_overall")
     leagues = leagueyearid.find("tbody")
 
     teamInLeague = leagues.find_all("tr")
@@ -19,7 +19,6 @@ def leagueRosterCreator(url):
 
     print(linksToTeams)
     return linksToTeams
-    
 
 def teamRosterCreator(url):
 
@@ -38,6 +37,25 @@ def teamRosterCreator(url):
 
     return(playerLinks)
 
+
+def specificSeason(url):
+
+    html = requests.get(url)
+    s = BeautifulSoup(html.content, 'html.parser')
+    final_link = ""
+
+    hold = s.find(id="bottom_nav_container")
+    uls = hold.find_all('ul')[-1]
+
+    links = uls.find_all('a')
+    print(links)
+
+    for a in links:
+        if(a.text == '2022-2023 Premier League'):
+            final_link = a['href']
+    
+    print(final_link)
+    return(final_link)
 
 def playerStandardStatsMaker(url, file):
     print(url)
@@ -131,103 +149,32 @@ def playerStandardStatsMaker(url, file):
         file.write(' ' + image['src'])
         print(image['src'])
 
-
-def specificSeason(url):
-
-    html = requests.get(url)
-    s = BeautifulSoup(html.content, 'html.parser')
-    final_link = ""
-
-    hold = s.find(id="bottom_nav_container")
-    uls = hold.find_all('ul')[-1]
-
-    links = uls.find_all('a')
-    print(links)
-
-    for a in links:
-        if(a.text == '2022-2023 Premier League'):
-            final_link = a['href']
-    
-    print(final_link)
-    return(final_link)
+##------- THERE ARE TWO WAYS I HAVE INCLUDED TO GET FILES WITH PLAYER STATISTICAL INFORMATION -------##
+##------- STEP 1
+##------- PROVIDE THE `leagueRosterCreator` METHOD WITH A LINK TO THE PREMIER LEAGUE SEASON ON FBREF
+##------- This will print the information from EVERY team's players for that season
 
 
-def seasonTeamStatistics(url, file, file1):
+teamLinks = leagueRosterCreator("https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats")
+for link in teamLinks:
+    namingInfo = link.split("/")
+    file1 = open(namingInfo[5]+".txt", "w")
 
-    html = requests.get(url)
-    s = BeautifulSoup(html.content, 'html.parser')
+    teamInfo = teamRosterCreator("https://fbref.com"+link)
 
-    teamStats = s.find(id="switcher_results2022-202391")
-
-    teamOverall = teamStats.find("table", id="results2022-202391_overall")
-    teamHomeAway = teamStats.find("table", id="results2022-202391_home_away")
-
-    overallInfo = teamOverall.find("tbody")
-    overallRows = overallInfo.find_all("tr")
-
-    homeAwayInfo = teamHomeAway.find("tbody")
-    homeAwayRows = homeAwayInfo.find_all("tr")
-
-    for tr in overallRows:
-
-        teamRowInfo = tr.find_all("td")
-        i = 1
-        print(teamRowInfo[0].a.text)
-
-        file.write(teamRowInfo[0].a.text +  "       ")
-
-        while(i < len(teamRowInfo)):
-            file.write(teamRowInfo[i].text + "       ")
-            print(teamRowInfo[i].text)
-            i += 1
-        
-        file.write("\n")
-        
-    for tr in homeAwayRows:
-
-        teamRowInfo = tr.find_all("td")
-        i = 1
-        print(teamRowInfo[0].a.text)
-
-        file1.write(teamRowInfo[0].a.text)
-
-        while(i < len(teamRowInfo)):     
-            if(len(teamRowInfo[i].get('class')) == 2):
-                if(teamRowInfo[i].get('class')[1] == 'group_start'):
-                    file1.write("\n")
-                file1.write(teamRowInfo[i].text + "       ")
-                print(teamRowInfo[i].text)
-            else:
-                file1.write(teamRowInfo[i].text + "       ")
-                print(teamRowInfo[i].text)
-                print(teamRowInfo[i].get('class') == 'group_start')
-            i += 1
-        
-        file1.write("\n")
-
-# f = open("playerStats.txt", "a")
-# playerStandardStatsMaker("https://fbref.com/en/players/79300479/Martin-Odegaard", f)
-# teamLinks = leagueRosterCreator("https://fbref.com/en/comps/9/2021-2022/2021-2022-Premier-League-Stats")
-
-# for link in teamLinks:
-#     namingInfo = link.split("/")
-#     file1 = open(namingInfo[5]+".txt", "w")
-
-#     teamInfo = teamRosterCreator("https://fbref.com"+link)
-
-#     for players in teamInfo:
-#         time.sleep(3)
-#         print(players)
-#         specSeasonLink = "https://fbref.com/" + specificSeason(players)
-#         if (specificSeason(players) != ""):
-#             playerStandardStatsMaker(specSeasonLink, file1)
+    for players in teamInfo:
+        time.sleep(3)
+        print(players)
+        specSeasonLink = "https://fbref.com/" + specificSeason(players)
+        if (specificSeason(players) != ""):
+            playerStandardStatsMaker(specSeasonLink, file1)
         
     
-#     file1.close()
+    file1.close()
 
-file2 = open("PremierLeague2022-23Overall.txt", "w")
-file3 = open("PremierLeague2022-23HomeAway.txt", "w")
-seasonTeamStatistics("https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats", file2, file3)
+##------- STEP 2
+##------- PROVIDE THE `teamRosterCreator` METHOD WITH A LINK TO THE PARTICULAR PREMIER LEAGUE TEAM
+##------- This will print the information from the SPECIFIED team's players for that season
 
 link = "https://fbref.com/en/squads/4ba7cbea/2022-2023/Bournemouth-Stats"
 namingInfo = link.split("/")
