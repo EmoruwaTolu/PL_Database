@@ -152,6 +152,59 @@ def specificSeason(url):
     return(final_link)
 
 
+def seasonTeamStatistics(url, file, file1):
+
+    html = requests.get(url)
+    s = BeautifulSoup(html.content, 'html.parser')
+
+    teamStats = s.find(id="switcher_results2022-202391")
+
+    teamOverall = teamStats.find("table", id="results2022-202391_overall")
+    teamHomeAway = teamStats.find("table", id="results2022-202391_home_away")
+
+    overallInfo = teamOverall.find("tbody")
+    overallRows = overallInfo.find_all("tr")
+
+    homeAwayInfo = teamHomeAway.find("tbody")
+    homeAwayRows = homeAwayInfo.find_all("tr")
+
+    for tr in overallRows:
+
+        teamRowInfo = tr.find_all("td")
+        i = 1
+        print(teamRowInfo[0].a.text)
+
+        file.write(teamRowInfo[0].a.text +  "       ")
+
+        while(i < len(teamRowInfo)):
+            file.write(teamRowInfo[i].text + "       ")
+            print(teamRowInfo[i].text)
+            i += 1
+        
+        file.write("\n")
+        
+    for tr in homeAwayRows:
+
+        teamRowInfo = tr.find_all("td")
+        i = 1
+        print(teamRowInfo[0].a.text)
+
+        file1.write(teamRowInfo[0].a.text)
+
+        while(i < len(teamRowInfo)):     
+            if(len(teamRowInfo[i].get('class')) == 2):
+                if(teamRowInfo[i].get('class')[1] == 'group_start'):
+                    file1.write("\n")
+                file1.write(teamRowInfo[i].text + "       ")
+                print(teamRowInfo[i].text)
+            else:
+                file1.write(teamRowInfo[i].text + "       ")
+                print(teamRowInfo[i].text)
+                print(teamRowInfo[i].get('class') == 'group_start')
+            i += 1
+        
+        file1.write("\n")
+
 # f = open("playerStats.txt", "a")
 # playerStandardStatsMaker("https://fbref.com/en/players/79300479/Martin-Odegaard", f)
 # teamLinks = leagueRosterCreator("https://fbref.com/en/comps/9/2021-2022/2021-2022-Premier-League-Stats")
@@ -172,6 +225,10 @@ def specificSeason(url):
     
 #     file1.close()
 
+file2 = open("PremierLeague2022-23Overall.txt", "w")
+file3 = open("PremierLeague2022-23HomeAway.txt", "w")
+seasonTeamStatistics("https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats", file2, file3)
+
 link = "https://fbref.com/en/squads/4ba7cbea/2022-2023/Bournemouth-Stats"
 namingInfo = link.split("/")
 file1 = open(namingInfo[-1]+".txt", "w")
@@ -181,7 +238,6 @@ for players in teamInfo:
     time.sleep(1)
     print(players)
     specSeasonLink = "https://fbref.com/" + specificSeason(players)
-    # print(specSeasonLink)
     if (specificSeason(players) != ""):
         playerStandardStatsMaker(specSeasonLink, file1)
 

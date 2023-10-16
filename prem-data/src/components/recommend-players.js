@@ -24,8 +24,10 @@ export const RecommendPlayers = ({title}) => {
     }, []);
 
     return(
-        <div className="trending" >
-                <div style={{width: "100%", height: "20%", color: "#495867", alignItems:"center", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #495867"}}>
+        <div className="explore" >
+                <div style={{width: "100%", color: "#343a40", 
+                alignItems:"top", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #343a40", 
+                padding:"0.25em", boxSizing:"border-box"}}>
                     {title}
                 </div>
                 <ExplorePlayersContainer players={randomPlayers}/>

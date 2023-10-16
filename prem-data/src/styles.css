@@ -1,8 +1,7 @@
 .taskbar{
     height: 10%;
     width: 100%;
-    /* background-color: #495867; */
-    background-color: #393f4d;
+    background-color: #6c757d;
     color: #fefae0;
     display: flex;
     gap: 2em;
@@ -95,38 +94,69 @@
     min-height: 90vh;
 }
 
-.trending{
+.explore{
     height: fit-content;
     padding: 2em;
     gap: 2em;
     width:100%;
     box-sizing: border-box;
-    background-color: #838389;
+    background-color: #ced4da;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     min-height: 25vh;
+    box-shadow: 0px 0px 5px #6c757d;
 }
 
 .player-container{
     gap: 1em;
     height: fit-content;
     flex-direction: column;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .player-card{
     flex: 1;
     width: 100%;
     max-height: 40%;
-    border: 1px solid #5a5b60;
     border-radius: 8px;
     background-color: white;
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     cursor: pointer;
+    box-shadow: 0px 0px 5px #6c757d;
 }
 
+.player-card .player-info{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    margin-right: 0.5em;
+}
+
+.player-card .player-info .player-name{
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.player-card .player-info .club-name{
+    font-size: 0.6em;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    color: #838389;
+}
 .player-card img {
     height: inherit;
     width:20%;
@@ -161,6 +191,12 @@
     }
     .home-blog{
         padding: 2em;
+    }
+    .player-card .player-info .player-name{
+        font-size: 0.85em;
+    }
+    .player-card .player-info .club-name{
+        font-size: 0.4em;
     }
 }
 

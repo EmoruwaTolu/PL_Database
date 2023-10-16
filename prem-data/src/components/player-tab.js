@@ -36,6 +36,10 @@ export const PlayerTab = ({player}) => {
     return(
         <div className='player-card' onClick={() => {handleClick(player)}}>
             <img src={player.image}/>
+            <div className='player-info'>
+                <p className='player-name'>{player.name}</p>
+                <p className='club-name'>{player.club}</p>
+            </div>
         </div>
     )
 

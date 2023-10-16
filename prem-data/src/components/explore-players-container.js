@@ -1,5 +1,6 @@
 import React from "react";
 import { PlayerTab } from "./player-tab";
+import "../styles.css";
 
 
 export const ExplorePlayersContainer = ({players}) => {
@@ -11,7 +12,7 @@ export const ExplorePlayersContainer = ({players}) => {
     console.log(players)
 
     return(
-        <div className="player-container" style={{width: "100%", height:"80%", display: "flex", justifyContent:"space-between", alignItems: "center"}}>
+        <div className="player-container" >
             <PlayerTab player={players[0]}/>
             <PlayerTab player={players[1]}/>
             <PlayerTab player={players[2]}/>
