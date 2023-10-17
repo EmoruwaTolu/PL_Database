@@ -42,9 +42,8 @@ def seasonTeamStatistics(url, file, file1):
 
         teamRowInfo = tr.find_all("td")
         i = 1
-        print(teamRowInfo[0].a.text)
 
-        file.write(teamRowInfo[0].a.text +  "       ")
+        file.write(teamRowInfo[0].a.text +  "\n")
 
         while(i < len(teamRowInfo)):
             file.write(teamRowInfo[i].text + "       ")
