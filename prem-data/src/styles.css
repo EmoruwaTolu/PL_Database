@@ -70,13 +70,41 @@
 }
 
 .home-layer-1{
-    height: 90vh;
-    width: 100%
+    width: 100%;
+    display: flex;
 }
 
 .home-layer-2{
     width: 100%;
     display: flex;
+}
+
+.premier-league-table{
+    width: 100%;
+}
+
+.pl-season-info{
+    width: 100%;
+    height: 90vh;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.home-tabs{
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #C0C0C0;
+} 
+
+.home-tabs button{
+    padding: 1em;
+    background-color: transparent;
+    border: 0;
+    font-size: inherit;
+}
+
+.home-tabs .active-tab{
+    border-bottom: 2px solid #555;
 }
 
 .home-blog{

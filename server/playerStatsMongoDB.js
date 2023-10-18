@@ -260,7 +260,6 @@ class OtherStatistics{
       this.penaltiesWon90 = penaltiesWon90.split(",").map(x => parseFloat(x, 10)),
       this.penaltiesGivenAway90 = penaltiesGivenAway90.split(",").map(x => parseFloat(x, 10)),
       this.ownGoals90 = ownGoals90.split(",").map(x => parseFloat(x, 10))
-      console.log(typeof ballRecoveries90)
       this.ballRecoveries90 = ballRecoveries90.split(',').map(x => parseFloat(x, 10))
       this.aerialsWon90 = aerialsWon90.split(",").map(x => parseFloat(x, 10)),
       this.aerialsLost90 = aerialsLost90.split(",").map(x => parseFloat(x, 10)),

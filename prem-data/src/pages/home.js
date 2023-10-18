@@ -3,6 +3,9 @@ import Taskbar from '../components/taskbar';
 import Hero from '../components/hero';
 import { RecommendPlayers } from "../components/recommend-players";
 import '../styles.css';
+import BasicTabs from "../components/pl-table";
+
+// function handleChange() = 
 
 function Home(){
     return(
@@ -11,7 +14,9 @@ function Home(){
             <Taskbar />
             <div className="home-content">
                 <div className="home-layer-1">
-
+                    <div className="premier-league-table">
+                        <BasicTabs />
+                    </div>
                 </div>
                 <div className="home-layer-2">
                     <div className="home-blog">
