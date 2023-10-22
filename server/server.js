@@ -66,14 +66,34 @@ app.get('/explore-players', async(req,res) => {
     const db = client.db(dbName);
     const collection = db.collection('PremierLeague2022-23');
 
-    console.log('jam')
-
     const data = await collection.aggregate([{$match: {"image":{$ne:null}}}, {$sample: {size: 3}}]).toArray();
     res.json(data)
   }
   catch(error){
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+})
+
+app.get('/seasonInformation', async(req, res) => {
+  try{
+    await client.connect()
+
+    const db =  client.db(dbName);
+
+    const collectionOverall = db.collection('PremierLeagueTeamSeasonsOverall');
+    const collectionHome  =  db.collection('PremierLeagueTeamSeasonsHome');
+    const collectionAway = db.collection('PremierLeagueTeamSeasonsAway');
+
+    const dataOverall =  await collectionOverall.find({}).toArray();
+    const dataHome = await collectionHome.find({}).toArray();
+    const dataAway =  await collectionAway.find({}).toArray();
+
+    res.json([dataOverall, dataHome, dataAway]);
+  }
+  catch(error){
+    console.error('Error occurred fetching data', error);
+    res.status(500).json({error: 'Internal Server error'});
   }
 })
 

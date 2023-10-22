@@ -12,7 +12,7 @@ class ClubSeason{
 
 class ClubOverall{
     constructor(clubname, matchesPlayed, wins, draws, losses, goalsScored, goalsConceded, goalDifference, points, pointPerGame,
-                totalXG, totalXGA, totalXGD, totalXGDPer90, avgAttendance, season){
+                totalXG, totalXGA, totalXGD, totalXGDPer90, avgAttendance, season, position){
         this.clubname = clubname,
         this.matchesPlayed = matchesPlayed,
         this.wins = wins,
@@ -28,7 +28,8 @@ class ClubOverall{
         this.totalXGD = totalXGD,
         this.totalXGDPer90 = totalXGDPer90,
         this.avgAttendance = avgAttendance,
-        this.season = season
+        this.season = season,
+        this.position = position
     }
 }
 
@@ -116,6 +117,7 @@ var teamSeasonsOverall = [];
 files2.forEach(file => {
     const data = fs.readFileSync(directoryPath2 + file, 'utf8').split('\n');
     var season = file.split(".")[0];
+    var count = 1;
 
     for(let i = 0; i < data.length; i+= 2){
 
@@ -124,10 +126,11 @@ files2.forEach(file => {
         var teamOverallStats = new ClubOverall(data[i], teamOverallStatsSplit[0], teamOverallStatsSplit[1], teamOverallStatsSplit[2], teamOverallStatsSplit[3], 
             teamOverallStatsSplit[4], teamOverallStatsSplit[5], teamOverallStatsSplit[6], teamOverallStatsSplit[7], 
             teamOverallStatsSplit[8], teamOverallStatsSplit[9], teamOverallStatsSplit[10], teamOverallStatsSplit[11], 
-            teamOverallStatsSplit[12], teamOverallStatsSplit[13], season);
+            teamOverallStatsSplit[12], teamOverallStatsSplit[13], season, count);
 
         console.log(teamOverallStats);
         teamSeasonsOverall.push(teamOverallStats);
+        count++;
 
     }
 })
