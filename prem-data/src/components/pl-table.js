@@ -68,6 +68,16 @@ export default function BasicTabs() {
             sortable: true,
         },
         {
+            name: 'GF',
+            selector: row => parseInt(row.goalsScored),
+            sortable: true,
+        },
+        {
+            name: 'GA',
+            selector: row => parseInt(row.goalsConceded),
+            sortable: true,
+        },
+        {
             name: 'GD',
             selector: row => parseInt(row.goalDifference),
             sortable: true,
@@ -77,6 +87,17 @@ export default function BasicTabs() {
             selector: row => parseInt(row.points),
             sortable: true,
         },
+        {
+            name: 'xG',
+            selector: row => parseInt(row.totalXG),
+            sortable: true,
+        },
+        {
+            name: 'xGA',
+            selector: row => parseInt(row.totalXGA),
+            sortable: true,
+        },
+        
     ];
 
 
