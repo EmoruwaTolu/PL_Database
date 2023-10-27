@@ -126,7 +126,7 @@ function Compare(){
     ]
 
     const fetchData = async () => {
-        const response = await fetch(`http://localhost:3001/calculate-percentiles`);
+        const response = await fetch(`https://pl-database.onrender.com/calculate-percentiles`);
         const data = await response.json();
 
         console.log(data)

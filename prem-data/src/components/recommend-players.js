@@ -9,7 +9,7 @@ export const RecommendPlayers = ({title}) => {
     const fetchData = async () => {
 
         try{
-            const response = await fetch(`http://localhost:3001/explore-players`);
+            const response = await fetch(`https://pl-database.onrender.com/explore-players`);
             const data = await response.json();
             setRandomPlayers(data);
         }
