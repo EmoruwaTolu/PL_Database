@@ -6,28 +6,7 @@ import Compare from './pages/compare';
 
 function App() {
 
-  const [players, setPlayers] = useState([]);
-
-  const handlePositionClick = async (position) => {
-    const response = await fetch(`https://pl-database.onrender.com/PremierLeague2022-21Big6/${position}`);
-    const data = await response.json();
-    setPlayers(data);
-  };
-
   return (
-    // <div className="App">
-    //   <button onClick={() => handlePositionClick('Attackers')}>Attackers</button>
-    //   <button onClick={() => handlePositionClick('Midfielders')}>Midfielders</button>
-    //   <button onClick={() => handlePositionClick('Fullbacks')}>Fullbacks</button>
-    //   <button onClick={() => handlePositionClick('Centrebacks')}>Centrebacks</button>
-    //   <button>Goalkeepers</button>
-    //   <ul>
-    //     {/* Render the list of players */}
-    //     {players.map((player) => (
-    //       <li key={player._id}>{player.name} ({player.club})</li>
-    //     ))}
-    //   </ul>
-    // </div>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/player/:playerName' element={<PlayerPage />}/>

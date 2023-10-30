@@ -10,7 +10,7 @@ const ComparePlayerSection = ({setPlayer}) => {
     const [suggestedPlayers, setSuggestedPlayers] = useState([]);
 
     const fetchData = async (value) => {
-        const response = await fetch(`https://pl-database.onrender.com/searchSuggest`);
+        const response = await fetch(`http://localhost:3001/searchSuggest`);
         const data = await response.json();
 
         const filtered = data.filter((player) => {

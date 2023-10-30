@@ -12,7 +12,7 @@ export default function BasicTabs() {
     const fetchData = async () => {
 
         try{
-            const response = await fetch(`https://pl-database.onrender.com/seasonInformation`);
+            const response = await fetch(`http://localhost:3001/seasonInformation`);
             const data = await response.json();
             setData(data);
         }
@@ -51,52 +51,69 @@ export default function BasicTabs() {
         {
             name: 'Club',
             selector: row => <a href='/'>{row.clubname}</a>,
+            width: "15%"
+        },
+        ,
+        {
+            name: 'MP',
+            selector: row => parseInt(row.matchesPlayed),
+            sortable: true,
+            width: "8%",
         },
         {
-            name: 'Wins',
+            name: 'W',
             selector: row => parseInt(row.wins),
             sortable: true,
+            width:"8%"
         },
         {
-            name: 'Draws',
+            name: 'D',
             selector: row => parseInt(row.draws),
             sortable: true,
+            width:"8%"
         },
         {
-            name: 'Losses',
+            name: 'L',
             selector: row => parseInt(row.losses),
             sortable: true,
+            width:"8%"
         },
         {
             name: 'GF',
             selector: row => parseInt(row.goalsScored),
             sortable: true,
+            width:"8%"
         },
         {
             name: 'GA',
             selector: row => parseInt(row.goalsConceded),
             sortable: true,
+            width:"8%"
         },
         {
             name: 'GD',
             selector: row => parseInt(row.goalDifference),
             sortable: true,
-        },
-        {
-            name: 'Points',
-            selector: row => parseInt(row.points),
-            sortable: true,
+            width:"8%"
         },
         {
             name: 'xG',
             selector: row => parseInt(row.totalXG),
             sortable: true,
+            width:"8%"
         },
         {
             name: 'xGA',
             selector: row => parseInt(row.totalXGA),
             sortable: true,
+            width:"8.5%"
         },
+        {
+            name: 'Points',
+            selector: row => parseInt(row.points),
+            sortable: true,
+            width:"12.5%"
+        }
         
     ];
 
@@ -116,7 +133,7 @@ export default function BasicTabs() {
                 <div style={{paddingTop:"2em"}}>{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div style={{flex:"1", overflow: "scroll"}}>
+                        <div style={{flex:"1.5", overflow: "scroll"}}>
                             <DataTable 
                                 columns={columns} 
                                 data={data[0].sort((a, b) => b.points - a.points)} 
@@ -134,7 +151,7 @@ export default function BasicTabs() {
                 <div style={{paddingTop:"2em"}}>{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div style={{flex:"1", overflow: "scroll"}}>
+                        <div style={{flex:"1.5", overflow: "scroll"}}>
                             <DataTable 
                                 columns={columns} 
                                 data={data[1].sort((a, b) => b.points - a.points)} 
@@ -152,7 +169,7 @@ export default function BasicTabs() {
                 <div style={{paddingTop:"2em"}}>{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div style={{flex:"1", overflow: "scroll"}}>
+                        <div style={{flex:"1.5", overflow: "scroll"}}>
                             <DataTable 
                                 columns={columns} 
                                 data={data[2].sort((a, b) => b.points - a.points)} 
