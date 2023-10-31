@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import DataTable from 'react-data-table-component';
+import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import '../styles.css';
 
 export default function BasicTabs() {
@@ -125,20 +126,30 @@ export default function BasicTabs() {
                 <button className={view === 2 ? "active-tab" : ""} onClick={() => {changeView(2)}}>Away</button>
             </div>
             {view === 0 && (
-                <div style={{paddingTop:"2em"}}>{
+                <div className="pl-data">{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div style={{flex:"1.5", overflow: "scroll"}}>
+                        <div className="table">
                             <DataTable 
                                 columns={columns} 
-                                data={data[0]} 
+                                data={data[0].sort((a, b) => b.points - a.points)} 
                                 customStyles={customStyles}
                                 highlightOnHover
                                 responsive
                             />
                         </div>
-                        <div style={{flex:"1"}}>
-                            5
+                        <div className='graph'>
+                            <ResponsiveContainer height="100%" width="100%">
+                                <ScatterChart>
+                                <CartesianGrid />
+                                <XAxis type="number" dataKey="points" name="Points" />
+                                <YAxis type="number" dataKey="goalsScored" name="xGD" range={[data[0].sort((a, b) => b.points - a.points)[19], data[0].sort((a, b) => b.points - a.points)[0]]}/>
+                                <ZAxis type="string" dataKey="clubname" name="club" />
+                                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                                <Scatter name="clubname" data={data[0].sort((a, b) => b.points - a.points)} fill="#8884d8" />
+                                </ScatterChart>
+                            </ResponsiveContainer>
+                            
                         </div>
                     </div>
                     )
@@ -151,7 +162,7 @@ export default function BasicTabs() {
                         <div style={{flex:"1.5", overflow: "scroll"}}>
                             <DataTable 
                                 columns={columns} 
-                                data={[]} 
+                                data={data[1].sort((a, b) => b.points - a.points)} 
                                 customStyles={customStyles}
                                 highlightOnHover
                                 responsive

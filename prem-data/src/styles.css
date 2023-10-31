@@ -70,7 +70,10 @@
 
 .home-layer-1{
     width: 100%;
+    height: 90vh;
     display: flex;
+    box-sizing: border-box;
+    padding: 2em;
 }
 
 .home-layer-2{
@@ -80,13 +83,21 @@
 
 .premier-league-table{
     width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .pl-season-info{
     width: 100%;
-    height: 90vh;
-    padding: 2em;
+    height: 100%;
     box-sizing: border-box;
+    /* overflow-y: scroll; */
+}
+
+.pl-data{
+    box-sizing: border-box;
+    height: 90%;
+    flex: 5;
 }
 
 .home-tabs{
@@ -94,6 +105,8 @@
     box-sizing: border-box;
     border-bottom: 1px solid #C0C0C0;
     font-size: 1em;
+    flex: 1;
+    height: 10%;
 } 
 
 .home-tabs button{
@@ -101,6 +114,7 @@
     background-color: transparent;
     border: 0;
     font-size: inherit;
+    height: 100%;
 }
 
 .home-tabs .active-tab{
@@ -109,7 +123,7 @@
 
 .pl-home-container{
     width: 100%;
-    max-height: 70vh;
+    height: 100%;
     display: flex;
 }
 
@@ -184,6 +198,17 @@
     justify-content: center;
 }
 
+.pl-home-container .table{
+    overflow: scroll;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.pl-home-container .graph{
+    width: 40%;
+    height: 100%;
+}
+
 .player-card .player-info .club-name{
     font-size: 0.6em;
     display: flex;
@@ -205,12 +230,36 @@
         overflow: hidden;
         overflow-y: scroll;
     }
+    .pl-season-info{
+        height: 100vh;
+    }
+    .pl-home-container{
+        flex-direction: column;
+        width: 100%;
+    }
 
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
+    .pl-season-info{
+        height: 150vh;
+    }
+    .pl-data{
+        height: 90vh;
+    }
     .pl-home-container{
         flex-direction: column;
+        width: 100%;
+        height: 150vh;
+        gap: 1em;
+    }
+    .pl-home-container .table{
+        width: 100%;
+        flex: 2;
+    }
+    .pl-home-container .graph {
+        width: 100%;
+        flex: 1;
     }
     .player-container{
         padding-top: 1em;
@@ -235,7 +284,7 @@
     .player-card .player-info .club-name{
         font-size: 0.4em;
     }
-}
+} */
 
 .herobody{
     width: 100%;
