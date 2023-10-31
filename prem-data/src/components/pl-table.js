@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import DataTable from 'react-data-table-component';
 import '../styles.css';
 
-
-
 export default function BasicTabs() {
 
     const [data, setData] = useState([]);
@@ -51,13 +49,11 @@ export default function BasicTabs() {
         {
             name: 'Club',
             selector: row => <a href='/'>{row.clubname}</a>,
-            width: "15%"
+            width: "15%",
         },
-        ,
         {
             name: 'MP',
             selector: row => parseInt(row.matchesPlayed),
-            sortable: true,
             width: "8%",
         },
         {
@@ -117,10 +113,9 @@ export default function BasicTabs() {
         
     ];
 
-
     function changeView(id){
         setView(id);
-    }
+    }    
 
     return (
         <div className='pl-season-info'>
@@ -136,13 +131,15 @@ export default function BasicTabs() {
                         <div style={{flex:"1.5", overflow: "scroll"}}>
                             <DataTable 
                                 columns={columns} 
-                                data={data[0].sort((a, b) => b.points - a.points)} 
+                                data={data[0]} 
                                 customStyles={customStyles}
                                 highlightOnHover
                                 responsive
                             />
                         </div>
-                        <div style={{flex:"1"}}>5</div>
+                        <div style={{flex:"1"}}>
+                            5
+                        </div>
                     </div>
                     )
                 }</div>)
@@ -154,7 +151,7 @@ export default function BasicTabs() {
                         <div style={{flex:"1.5", overflow: "scroll"}}>
                             <DataTable 
                                 columns={columns} 
-                                data={data[1].sort((a, b) => b.points - a.points)} 
+                                data={[]} 
                                 customStyles={customStyles}
                                 highlightOnHover
                                 responsive
