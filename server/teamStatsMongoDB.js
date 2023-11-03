@@ -25,7 +25,7 @@ class ClubOverall{
         this.pointPerGame = pointPerGame,
         this.totalXG = totalXG,
         this.totalXGA = totalXGA,
-        this.totalXGD = totalXGD,
+        this.totalXGD = parseFloat(totalXGD),
         this.totalXGDPer90 = totalXGDPer90,
         this.avgAttendance = avgAttendance,
         this.season = season,
@@ -48,7 +48,7 @@ class ClubHome{
         this.pointPerGame = pointPerGame,
         this.totalXG = totalXG,
         this.totalXGA = totalXGA,
-        this.totalXGD = totalXGD,
+        this.totalXGD = parseFloat(totalXGD),
         this.totalXGDPer90 = totalXGDPer90,
         this.season = season,
         this.location = "Home"
@@ -70,7 +70,7 @@ class ClubAway{
         this.pointPerGame = pointPerGame,
         this.totalXG = totalXG,
         this.totalXGA = totalXGA,
-        this.totalXGD = totalXGD,
+        this.totalXGD = parseFloat(totalXGD),
         this.totalXGDPer90 = totalXGDPer90,
         this.season = season,
         this.location = "Away"

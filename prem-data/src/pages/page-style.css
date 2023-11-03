@@ -1,0 +1,120 @@
+.compare-details-wrapper{
+    display: flex;
+    width: 100%;
+    background-color: #cfcfcf;
+    padding: 4em;
+    box-sizing: border-box;
+}
+.player-page{
+    width: 100vw;
+    height: 100vh;
+    padding: 2em;
+    box-sizing: border-box;
+}
+.player-container{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5em;
+    display: flex;
+}
+.player-header{
+    width: 100%;
+    max-height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #cfcfcf ;
+    border-radius: 8px 8px 0 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding-right: 1em;
+}
+.player-header img {
+    max-width: fit-content;
+    max-height: 100%;
+    border-radius: 8px;
+    flex: 1;
+    display: block;
+    object-fit: contain;
+}
+.player-page-info{
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 30%;
+    flex: 2;
+    box-sizing: border-box;
+}
+.player-name{
+    font-size: 2em;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    justify-content: right;
+    text-align: right;
+    margin-bottom: 0.5em;
+}
+.player-page-club{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    margin: 0;
+    color: #838389;
+}
+.player-page-club:hover{
+    color: #cfcfcf;
+    cursor: pointer;
+}
+.player-page-position{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin: 0;
+    color: #838389;
+}
+.player-page-body{
+    width:100%;
+    background-color: white;
+    max-height: 80vh;
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+@media screen and (max-width: 500px) {
+    .player-header{
+        padding-right: 0.5em;
+    }
+}
+
+/*HEADER FONT SCALING*/
+@media screen and (max-width: 800px) {
+    .player-name{
+        font-size: 1.5em;
+    }
+    .player-page-club{
+        font-size: 0.7em;
+        margin-bottom: 0.5em;
+    }
+    .player-page-position{
+        font-size: 0.7em;
+    }
+}
+@media screen and (max-width: 300px) {
+    .player-name{
+        font-size: 1em;
+    }
+    .player-page-club{
+        font-size: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .player-page-position{
+        font-size: 0.5em;
+    }
+}

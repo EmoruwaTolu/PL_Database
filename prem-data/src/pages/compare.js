@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchTaskbar from '../components/search-taskbar';
 import ComparePlayerSection from '../components/compare-player-section';
 import RadarPlayerChart from '../components/radar-player-chart';
-import './compare-style.css';
+import './page-style.css';
 
 function Compare(){
 

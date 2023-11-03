@@ -207,6 +207,8 @@
 .pl-home-container .graph{
     width: 40%;
     height: 100%;
+    font-size: inherit;
+    padding: 1em 0;
 }
 
 .player-card .player-info .club-name{
@@ -240,12 +242,15 @@
 
 }
 
-/* @media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
+    .home-layer-1{
+        height: fit-content;
+    }
     .pl-season-info{
-        height: 150vh;
+        height: fit-content;
     }
     .pl-data{
-        height: 90vh;
+        height: fit-content;
     }
     .pl-home-container{
         flex-direction: column;
@@ -284,7 +289,7 @@
     .player-card .player-info .club-name{
         font-size: 0.4em;
     }
-} */
+}
 
 .herobody{
     width: 100%;

@@ -27,10 +27,20 @@ function PlayerPage() {
     }
 
     return(
-        <div>
-          <img src={playerInfo[0].image} style={{width:"200px", height:"200px"}}/>
-          <h1>{player.playerName}</h1>
-          <div>{playerInfo[0].position}</div>
+        <div className="player-page">
+          <div className="player-container">
+            <div className="player-header">
+              <img src={playerInfo[0].image}/>
+              <div className="player-page-info">
+                <p className="player-name">{player.playerName}</p>
+                <p className="player-page-club">{playerInfo[0].club}</p>
+                <p className="player-page-position">{playerInfo[0].position}</p>
+              </div>
+            </div>
+            <div className="player-page-body">
+              Hallo
+            </div>
+          </div>
         </div>
     )
 }

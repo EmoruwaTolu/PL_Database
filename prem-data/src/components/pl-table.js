@@ -1,7 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import DataTable from 'react-data-table-component';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { teamColours } from './player-tab';
+import { colours } from './player-tab';
 import '../styles.css';
+
+const cellDummyProps = {
+    width: 0,
+    height: 0,
+    x: 0,
+    y: 0,
+  };
 
 export default function BasicTabs() {
 
@@ -113,6 +122,7 @@ export default function BasicTabs() {
         }
         
     ];
+    //console.log(typeof data[2][0].totalXGD)
 
     function changeView(id){
         setView(id);
@@ -125,7 +135,7 @@ export default function BasicTabs() {
                 <button className={view === 1 ? "active-tab" : ""} onClick={() => {changeView(1)}}>Home</button>
                 <button className={view === 2 ? "active-tab" : ""} onClick={() => {changeView(2)}}>Away</button>
             </div>
-            {view === 0 && (
+            {view === 0 && data!== undefined && (
                 <div className="pl-data">{
                     data.length === 3 && (
                     <div className='pl-home-container'>
@@ -139,14 +149,18 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <ResponsiveContainer height="100%" width="100%">
+                            <ResponsiveContainer >
                                 <ScatterChart>
-                                <CartesianGrid />
-                                <XAxis type="number" dataKey="points" name="Points" />
-                                <YAxis type="number" dataKey="goalsScored" name="xGD" range={[data[0].sort((a, b) => b.points - a.points)[19], data[0].sort((a, b) => b.points - a.points)[0]]}/>
-                                <ZAxis type="string" dataKey="clubname" name="club" />
-                                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                                <Scatter name="clubname" data={data[0].sort((a, b) => b.points - a.points)} fill="#8884d8" />
+                                    <CartesianGrid />
+                                    <ZAxis type="string" dataKey="clubname" name="club" />
+                                    <XAxis type="number" dataKey="points" name="Points" />
+                                    <YAxis type="number" dataKey="totalXGD" name="xGD" range={[data[0].sort((a, b) => b.points - a.points)[19], data[0].sort((a, b) => b.points - a.points)[0]]}/>
+                                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                                    <Scatter name="clubname" data={data[0].sort((a, b) => b.points - a.points)} fill="#8884d8" >
+                                        {data[0].map((entry, index) => (
+                                            <Cell key={`cell-${entry}`} fill={teamColours[entry.clubname]} {...cellDummyProps}/>
+                                        ))}
+                                    </Scatter>
                                 </ScatterChart>
                             </ResponsiveContainer>
                             
@@ -155,11 +169,11 @@ export default function BasicTabs() {
                     )
                 }</div>)
             }
-            {view === 1 && (
-                <div style={{paddingTop:"2em"}}>{
+            {view === 1 && data!== undefined && (
+                <div className="pl-data">{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div style={{flex:"1.5", overflow: "scroll"}}>
+                        <div className="table">
                             <DataTable 
                                 columns={columns} 
                                 data={data[1].sort((a, b) => b.points - a.points)} 
@@ -168,16 +182,32 @@ export default function BasicTabs() {
                                 responsive
                             />
                         </div>
-                        <div style={{flex:"1"}}>5</div>
+                        <div className='graph'>
+                            <ResponsiveContainer >
+                                <ScatterChart>
+                                    <CartesianGrid />
+                                    <ZAxis type="string" dataKey="clubname" name="club" />
+                                    <XAxis type="number" dataKey="points" name="Points" />
+                                    <YAxis type="number" dataKey="totalXGD" name="xGD" range={[data[1].sort((a, b) => b.points - a.points)[19], data[1].sort((a, b) => b.points - a.points)[0]]}/>
+                                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                                    <Scatter name="clubname" data={data[1].sort((a, b) => b.points - a.points)} fill="#8884d8" >
+                                        {data[1].map((entry, index) => (
+                                            <Cell key={`cell-${entry}`} fill={teamColours[entry.clubname]} {...cellDummyProps}/>
+                                        ))}
+                                    </Scatter>
+                                </ScatterChart>
+                            </ResponsiveContainer>
+                            
+                        </div>
                     </div>
                     )
                 }</div>)
             }
-            {view === 2 && (
-                <div style={{paddingTop:"2em"}}>{
+            {view === 2 && data!== undefined && (
+                <div className="pl-data">{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div style={{flex:"1.5", overflow: "scroll"}}>
+                        <div className="table">
                             <DataTable 
                                 columns={columns} 
                                 data={data[2].sort((a, b) => b.points - a.points)} 
@@ -186,7 +216,23 @@ export default function BasicTabs() {
                                 responsive
                             />
                         </div>
-                        <div style={{flex:"1"}}>5</div>
+                        <div className='graph'>
+                            <ResponsiveContainer >
+                                <ScatterChart>
+                                    <CartesianGrid />
+                                    <ZAxis type="string" dataKey="clubname" name="club" />
+                                    <XAxis type="number" dataKey="points" name="Points" />
+                                    <YAxis type="number" dataKey="points" name="xGD" range={[-20,40]}/>
+                                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                                    <Scatter name="clubname" data={data[2]} fill="#8884d8" >
+                                        {data[2].map((entry, index) => (
+                                            <Cell key={`cell-${entry}`} fill={teamColours[entry.clubname]} {...cellDummyProps}/>
+                                        ))}
+                                    </Scatter>
+                                </ScatterChart>
+                            </ResponsiveContainer>
+                            
+                        </div>
                     </div>
                     )
                 }</div>)
