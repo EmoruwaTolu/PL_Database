@@ -10,13 +10,10 @@ import BasicTabs from "../components/pl-table";
 function Home(){
     return(
         <div className="home">
-            <div style={{height: "100vh", boxSizing: "border-box", width: "100%"}}>
             <Taskbar />
             <div className="home-content">
                 <div className="home-layer-1">
-                    <div className="premier-league-table">
                         <BasicTabs />
-                    </div>
                 </div>
                 <div className="home-layer-2">
                     <div className="home-blog">
@@ -26,7 +23,6 @@ function Home(){
                         <Hero />
                         <RecommendPlayers title={"Explore Players"}/>
                     </div>
-                </div>
             </div>
             
             </div>

@@ -25,9 +25,9 @@ export const RecommendPlayers = ({title}) => {
 
     return(
         <div className="explore" >
-                <div style={{width: "100%", color: "#343a40", 
-                alignItems:"top", display:"flex", fontSize: "1.5em", borderBottom: "1px solid #343a40", 
-                padding:"0.25em", boxSizing:"border-box"}}>
+                <div style={{width: "100%", color: "#D8D8D8", 
+                alignItems:"top", display:"flex", fontSize: "1.5em", borderBottom: "2px solid  #888888", 
+                padding:"0.25em", boxSizing:"border-box", fontWeight: "400"}}>
                     {title}
                 </div>
                 <ExplorePlayersContainer players={randomPlayers}/>

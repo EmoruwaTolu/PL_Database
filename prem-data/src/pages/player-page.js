@@ -28,7 +28,7 @@ function PlayerPage() {
 
     return(
         <div className="player-page">
-          <div className="player-container">
+          <div className="player-page-container">
             <div className="player-header">
               <img src={playerInfo[0].image}/>
               <div className="player-page-info">
