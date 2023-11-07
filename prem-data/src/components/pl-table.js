@@ -186,7 +186,7 @@ export default function BasicTabs() {
                         </div>
                         <div className='graph'>
                             <div className='home-graph-header'>XG/Points Table</div>
-                            <ResponsiveContainer width="99%" height="90%">
+                            <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
                                 <ScatterChart >
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
@@ -220,7 +220,7 @@ export default function BasicTabs() {
                         </div>
                         <div className='graph'>
                             <div className='home-graph-header'>XG/Points Table</div>
-                            <ResponsiveContainer width="99%" height="90%">
+                            <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
