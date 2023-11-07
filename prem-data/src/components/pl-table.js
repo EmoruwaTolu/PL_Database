@@ -122,11 +122,12 @@ export default function BasicTabs() {
         }
         
     ];
-    //console.log(typeof data[2][0].totalXGD)
 
     function changeView(id){
         setView(id);
-    }    
+    }
+    
+    //Aspect ratio is used on the Responsiev container to prevent it from stretching to an awkward degree on different screens
 
     return (
         <div className='pl-season-info'>
@@ -149,8 +150,8 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <div>XG/Points Table</div>
-                            <ResponsiveContainer >
+                            <div className='home-graph-header'>XG/Points Table</div>
+                            <ResponsiveContainer width="99%" height="90%" aspect={1.4}> 
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
@@ -184,8 +185,8 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <div>XG/Points Table</div>
-                            <ResponsiveContainer >
+                            <div className='home-graph-header'>XG/Points Table</div>
+                            <ResponsiveContainer width="99%" height="90%">
                                 <ScatterChart >
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
@@ -218,8 +219,8 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <div>XG/Points Table</div>
-                            <ResponsiveContainer >
+                            <div className='home-graph-header'>XG/Points Table</div>
+                            <ResponsiveContainer width="99%" height="90%">
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />

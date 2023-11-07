@@ -75,7 +75,7 @@
     box-sizing: border-box;
     height: fit-content;
     padding: 2em;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .pl-season-info{
     width: 100%;
@@ -83,31 +83,41 @@
     height: 90vh;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    /* overflow: hidden; */
     scrollbar-width: none; 
 }
 .pl-home-container{
     width: 100%;
     box-sizing: border-box;
     height: 100%;
+    max-height: 80vh;
     display: flex;
-    overflow: scroll;
+    overflow: hidden;
 }
 .pl-home-container .table{
-
     box-sizing: border-box;
-    overflow: scroll;
+    overflow: auto;
+    max-height: inherit;
     flex: 1.5;
 }
 .pl-home-container .graph{
     height: 100%;
     width: 100%;
-    max-height: 70vh;
+    max-height: 85vh;
+    box-sizing: border-box;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
-.graph div{
+.graph .home-graph-header{
     color: #C0C0C0;
     padding: 1em 0;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
 }
 .home-tabs{
     width: 100%;
@@ -216,13 +226,6 @@
     display: flex;
     justify-content: center;
 }
-.graph div{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-    align-items: center;
-}
 
 .player-card .player-info .club-name{
     font-size: 0.6em;
@@ -280,4 +283,33 @@
 .autosuggest-results ul {
     list-style: none;
     padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .pl-season-info{
+        height: fit-content;
+    }
+    .pl-home-container{
+        flex-direction: column;
+        gap: 2em;
+        max-height: 200vh;
+    }
+    .pl-home-container .table{
+        max-height: 60vh;
+    }
+    .pl-home-container .graph{
+        max-height: 120vh;
+    }
+    
+}
+@media screen and (max-width: 800px) {
+    .home-layer-2{
+        flex-direction: column;
+    }
+    .pl-home-container .table{
+        max-height: 60vh;
+    }
+    .graph .home-graph-header{
+        height: 5%;
+    }
 }
