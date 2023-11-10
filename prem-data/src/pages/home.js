@@ -1,11 +1,9 @@
 import React from "react";
-import Taskbar from '../components/taskbar';
+import Taskbar from '../components/taskbar/taskbar';
 import Hero from '../components/hero';
 import { RecommendPlayers } from "../components/recommend-players";
 import '../styles.css';
-import BasicTabs from "../components/pl-table";
-
-// function handleChange() = 
+import BasicTabs from "../components/home-layer-1/pl-table";
 
 function Home(){
     return(

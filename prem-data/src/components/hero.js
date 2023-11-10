@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Autocompletion from "./autocomplete";
-import image from '../images/hero3.jpg';
 
 function Hero(){
 

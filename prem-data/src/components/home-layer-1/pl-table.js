@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import DataTable from 'react-data-table-component';
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { teamColours } from './player-tab';
-import '../styles.css';
+import { teamColours } from '../player-tab';
+import './layer1-style.css';
 
 const cellDummyProps = {
     width: 0,
@@ -225,7 +225,7 @@ export default function BasicTabs() {
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
                                     <XAxis type="number" dataKey="points" name="Points" />
-                                    <YAxis type="number" dataKey="points" name="xGD" range={[-20,40]}/>
+                                    <YAxis type="number" dataKey="totalXGD" name="xGD" range={[-20,40]}/>
                                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                                     <Scatter name="clubname" data={data[2]} fill="#8884d8" >
                                         {data[2].map((entry, index) => (

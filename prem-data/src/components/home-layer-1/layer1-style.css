@@ -1,0 +1,98 @@
+.home-layer-1{
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 2em;
+}
+.pl-season-info{
+    width: 100%;
+    box-sizing: border-box;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none; 
+}
+.pl-home-container{
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    max-height: 80vh;
+    display: flex;
+    overflow: hidden;
+}
+.pl-home-container .table{
+    box-sizing: border-box;
+    overflow: auto;
+    max-height: inherit;
+    flex: 1.5;
+}
+.pl-home-container .graph{
+    height: 100%;
+    width: 100%;
+    max-height: 85vh;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.graph .home-graph-header{
+    color: #C0C0C0;
+    padding: 1em 0;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+}
+.home-tabs{
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+    font-size: 1em;
+    height: 10vh;
+} 
+
+.home-tabs button{
+    padding: 1em;
+    background-color: transparent;
+    border: 0;
+    font-size: inherit;
+    height: 100%;
+    color: #E0E0E0;
+}
+.home-tabs button:hover{
+    cursor: pointer;
+}
+.home-tabs .active-tab{
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    background-color: #505050;
+    color: #F8F8F8;
+}
+@media screen and (max-width: 1024px) {
+    .pl-season-info{
+        height: fit-content;
+    }
+    .pl-home-container{
+        flex-direction: column;
+        gap: 2em;
+        max-height: 200vh;
+    }
+    .pl-home-container .table{
+        max-height: 60vh;
+    }
+    .pl-home-container .graph{
+        max-height: 120vh;
+    }
+    
+}
+@media screen and (max-width: 800px) {
+    .pl-home-container .table{
+        max-height: 60vh;
+    }
+    .graph .home-graph-header{
+        height: 5%;
+    }
+}

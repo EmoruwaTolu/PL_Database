@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
+import PlayerPageBody from "./player-page-body/player-page-body";
 import axios from 'axios';
+import './page-style.css';
 
 function PlayerPage() {
 
@@ -38,7 +40,7 @@ function PlayerPage() {
               </div>
             </div>
             <div className="player-page-body">
-              Hallo
+              <PlayerPageBody player={playerInfo[0]}/>
             </div>
           </div>
         </div>

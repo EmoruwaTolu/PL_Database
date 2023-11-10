@@ -1,64 +1,3 @@
-.taskbar{
-    height: 10vh;
-    width: 100vw;
-    background-color: #383838;
-    color: #fefae0;
-    display: flex;
-    gap: 2em;
-    box-sizing: border-box;
-    position: sticky;
-    justify-content: space-around;
-    box-shadow: 2px 2px 2px 1px #181818;
-}
-
-.taskbar ul {
-    padding-right: 2em;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 1em;
-    align-items: center;
-    justify-content: right;
-    width: 100%;
-    height: 100%;
-    flex: 1;
-    box-sizing: border-box;
-}
-
-.taskbar .logo{
-    height: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex: 2;
-    box-sizing: border-box;
-    padding-left: 2em;
-}
-
-.taskbar li{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.taskbar a {
-    color: inherit;
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.taskbar li.active {
-    background-color: #555;
-}
-  
-.taskbar li:hover {
-    background-color: #777;
-}
-
 .home{
     box-sizing: border-box;
     width:100vw;
@@ -69,82 +8,6 @@
     width: 100%;
     box-sizing: border-box;
     height: fit-content;
-}
-.home-layer-1{
-    width: 100%;
-    box-sizing: border-box;
-    height: fit-content;
-    padding: 2em;
-    /* overflow: hidden; */
-}
-.pl-season-info{
-    width: 100%;
-    box-sizing: border-box;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    /* overflow: hidden; */
-    scrollbar-width: none; 
-}
-.pl-home-container{
-    width: 100%;
-    box-sizing: border-box;
-    height: 100%;
-    max-height: 80vh;
-    display: flex;
-    overflow: hidden;
-}
-.pl-home-container .table{
-    box-sizing: border-box;
-    overflow: auto;
-    max-height: inherit;
-    flex: 1.5;
-}
-.pl-home-container .graph{
-    height: 100%;
-    width: 100%;
-    max-height: 85vh;
-    box-sizing: border-box;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-.graph .home-graph-header{
-    color: #C0C0C0;
-    padding: 1em 0;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-    align-items: center;
-}
-.home-tabs{
-    width: 100%;
-    box-sizing: border-box;
-    border-bottom: 1px solid #C0C0C0;
-    border-top: 1px solid #C0C0C0;
-    font-size: 1em;
-    height: 10vh;
-} 
-
-.home-tabs button{
-    padding: 1em;
-    background-color: transparent;
-    border: 0;
-    font-size: inherit;
-    height: 100%;
-    color: #E0E0E0;
-}
-.home-tabs button:hover{
-    cursor: pointer;
-}
-
-.home-tabs .active-tab{
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-    background-color: #505050;
-    color: #F8F8F8;
 }
 .home-layer-2{
     width: 100%;
@@ -284,32 +147,8 @@
     list-style: none;
     padding: 0;
 }
-
-@media screen and (max-width: 1024px) {
-    .pl-season-info{
-        height: fit-content;
-    }
-    .pl-home-container{
-        flex-direction: column;
-        gap: 2em;
-        max-height: 200vh;
-    }
-    .pl-home-container .table{
-        max-height: 60vh;
-    }
-    .pl-home-container .graph{
-        max-height: 120vh;
-    }
-    
-}
 @media screen and (max-width: 800px) {
     .home-layer-2{
         flex-direction: column;
-    }
-    .pl-home-container .table{
-        max-height: 60vh;
-    }
-    .graph .home-graph-header{
-        height: 5%;
     }
 }
