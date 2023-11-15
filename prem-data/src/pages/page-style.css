@@ -83,7 +83,46 @@
     box-sizing: border-box;
 }
 .chart-container{
-    max-height: 60vh;
+    max-height: fit-content;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.percentile-polar-chart{
+    height: 40vh;
+    width: 40vh
+}
+.chart-container p{
+    margin: 0 0 1em 0;
+    font-size: 0.5em;
+    color: #838389;
+    max-width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+}
+.position-tabs button{
+    cursor: pointer;
+    padding: 1em;
+    background-color: transparent;
+    font-size: inherit;
+    border: 0;
+    flex: 1;
+    color: #505050;
+    border-bottom: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+}
+.position-tabs .active-position{
+    border-bottom: 1px solid #838389 ;
+    border-top: 1px solid #838389 ;
+}
+.position-tabs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
 }
 
 
