@@ -109,7 +109,7 @@ export function playerCardDisplayLabels(position, playerInfo, positionInArray){
         ];
         return [positionData, relevantPositionData];
     }
-    else if(position === "FB"){
+    else if(position === "FB" || position === "CB"){
         var positionData = [
             playerInfo.standard_stats.nonPenXG90[positionInArray],
             playerInfo.standard_stats.goals90[positionInArray],
@@ -138,19 +138,19 @@ export function playerCardDisplayLabels(position, playerInfo, positionInArray){
             'Expected Assists per 90',
             'Assists per 90',
 
-            'Shot Creating Actions per 90', 
-            'Key Passes per 90',
-            'Passes into the Final Third per 90',
-            'Passes into the Penalty Area per 90',
-
-            'Progressive Passes per 90',
+            'Progressive Passes per 90', 
             'Progressive Carries per 90',
-            'Passes Received per 90',
+            'Passes Completed per 90',
+            'Pass Completion Percent',
+
+            'Tackles and Interceptions per 90',
+            'Percentage of Dribblers Tackled per 90',
+            'Ball Recoveries per 90',
             'Touches per 90',
 
-            'Pass Completion Percent',
-            'Successful Take-on Percent',
-            'Ball Recoveries per 90',
+            'Percentage of Aerials Won',
+            'Aerials Won per 90',
+            'Errors per 90',
             'Times Dispossessed per 90'
         ];
         return [positionData, relevantPositionData];
