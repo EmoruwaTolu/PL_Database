@@ -84,8 +84,10 @@
 }
 .chart-body{
     height: fit-content;
-    width: fit-content;
+    width: 100%;
     max-width: 100%;
+    display: flex;
+    gap: 1em;
 }
 .chart-container{
     max-height: fit-content;
@@ -98,8 +100,7 @@
 }
 .percentile-polar-chart{
     height: fit-content;
-    max-width: 25vw;
-    /* width: 40vh; */
+    max-width: 30vw;
 }
 .chart-container p{
     margin: 0 0 1em 0;
@@ -131,8 +132,16 @@
     margin-bottom: 1em;
     flex-grow: 1;
 }
+.numbers-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.numbers-container div{
+    border: 0.5px solid #505050;
+}
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     .percentile-polar-chart{
         height: fit-content;
         max-width: 60vw;
@@ -141,17 +150,13 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        flex-direction: column;
     }
     .chart-container{
         width: 100%;
         max-width: 100%;
     }
-    .player-page{
-        height: fit-content;
-    }
-    .player-page-container{
-        height: fit-content;
-    }
+    
 }
 
 @media screen and (max-width: 500px) {
@@ -161,6 +166,10 @@
     .percentile-polar-chart{
         height: fit-content;
         max-width: 80vw;
+    }
+    .numbers-container{
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: none;
     }
 }
 
