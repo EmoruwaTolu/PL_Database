@@ -1,5 +1,6 @@
 import PlayerPolarChart from '../../components/player-polar-chart';
 import '../page-style.css';
+import { Bars } from '../../components/bar-chart/barchart';
 import {useState} from 'react';
 
 function PlayerPageBody(props){
@@ -11,13 +12,17 @@ function PlayerPageBody(props){
             <PlayerPolarChart props={props}/>
             <div className='numbers-container'>
                 <div className='player-statistics'>
-                    <div className="bar-container">
-                        <div className="bar" style={{ width: `${props.player.standard_stats.assists90[1]}%` }}>{props.player.standard_stats.assists90[0]}</div>
-                    </div>
+                    <Bars stats={props.player} percentileGroup={1}/>
                 </div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
+                {/* <div className='player-statistics'>
+                    <Bars stats={props.player.passing_stats} percentileGroup={1}/>
+                </div>
+                <div className='player-statistics'>
+                    <Bars stats={props.player.possession_stats} percentileGroup={1}/>
+                </div>
+                <div className='player-statistics'>
+                    <Bars stats={props.player.shot_goalCreation} percentileGroup={1}/>
+                </div> */}
                 <div>1</div>
                 <div>1</div>
             </div>

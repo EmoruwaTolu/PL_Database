@@ -1,0 +1,39 @@
+@keyframes growAnimation {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%; 
+    }
+}
+.bar-collection{
+    font-weight: 600;
+}
+.bar-info{
+    margin-bottom: 1em;
+}
+.bar {
+    width: 100%;
+    overflow: hidden; /* Hide overflow content */
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+.value{
+    width: 15%;
+}
+.jam {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightblue;
+    animation: growAnimation 2s forwards;
+    box-sizing: border-box;
+    border-radius: 16px;
+    color: #838389;
+    width: 85%;
+
+}
+.bar:hover{
+    cursor: pointer;
+}

@@ -81,6 +81,8 @@
     border-radius: 0 0 8px 8px;
     padding-top: 1em;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 .chart-body{
     height: fit-content;
@@ -88,13 +90,13 @@
     max-width: 100%;
     display: flex;
     gap: 1em;
+    box-sizing: border-box;
 }
 .chart-container{
     max-height: fit-content;
-    max-width: fit-content;
+    max-width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
@@ -111,6 +113,7 @@
     text-align: center;
 }
 .position-tabs button{
+    max-height: 8vh;
     cursor: pointer;
     padding: 1em;
     background-color: transparent;
@@ -130,15 +133,17 @@
     display: flex;
     justify-content: center;
     margin-bottom: 1em;
-    flex-grow: 1;
+    box-sizing: border-box;
 }
 .numbers-container{
-    width: 100%;
+    width: 70%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    box-sizing: border-box;
 }
-.numbers-container div{
-    border: 0.5px solid #505050;
+.player-statistics{
+    padding: 1em;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 1023px) {
@@ -155,6 +160,9 @@
     .chart-container{
         width: 100%;
         max-width: 100%;
+    }
+    .numbers-container{
+        width: 100%;
     }
     
 }
