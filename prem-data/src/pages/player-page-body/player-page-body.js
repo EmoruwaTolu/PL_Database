@@ -1,28 +1,38 @@
 import PlayerPolarChart from '../../components/player-polar-chart';
 import '../page-style.css';
-import { Bars } from '../../components/bar-chart/barchart';
+import { ScoringBars } from '../../components/bar-chart/scoring-barchart';
+import { CreationBars } from '../../components/bar-chart/creation-barchart';
+import { ProgressionBars } from '../../components/bar-chart/progression-barchart';
+import { InvolvementBars } from '../../components/bar-chart/involvement-barchart';
+import { PassingBars } from '../../components/bar-chart/passing-barchart';
 import {useState} from 'react';
 
 function PlayerPageBody(props){
 
-    console.log(props.player.standard_stats.assists90[1])
+    const [view, setView] = useState(0);
+    var percentileGroup = view + 1;
+
+    console.log(view)
 
     return(
         <div className='chart-body'>
-            <PlayerPolarChart props={props}/>
+            <PlayerPolarChart player={props.player} view={view} setView={setView} />
             <div className='numbers-container'>
                 <div className='player-statistics'>
-                    <Bars stats={props.player} percentileGroup={1}/>
-                </div>
-                {/* <div className='player-statistics'>
-                    <Bars stats={props.player.passing_stats} percentileGroup={1}/>
+                    <ScoringBars stats={props.player} percentileGroup={percentileGroup}/>
                 </div>
                 <div className='player-statistics'>
-                    <Bars stats={props.player.possession_stats} percentileGroup={1}/>
+                    <CreationBars stats={props.player} percentileGroup={percentileGroup}/>
                 </div>
                 <div className='player-statistics'>
-                    <Bars stats={props.player.shot_goalCreation} percentileGroup={1}/>
-                </div> */}
+                    <ProgressionBars stats={props.player} percentileGroup={percentileGroup}/>
+                </div>
+                <div className='player-statistics'>
+                    <InvolvementBars stats={props.player} percentileGroup={percentileGroup}/>
+                </div>
+                <div className='player-statistics'>
+                    <PassingBars stats={props.player} percentileGroup={percentileGroup}/>
+                </div>
                 <div>1</div>
                 <div>1</div>
             </div>

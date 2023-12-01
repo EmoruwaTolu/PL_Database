@@ -12,11 +12,14 @@ import {makePositionReadable, playerCardDisplayLabels} from '../pages/player-pag
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
-function PlayerPolarChart(props){
+function PlayerPolarChart({player, view, setView}){
 
-    var playerInfo = props.props.player;
+    var playerInfo = player;
     var positionArray = [];
-    const [view, setView] = useState(0);
+    // const [view, setView] = useState(0);
+
+    console.log(player)
+    
 
     function changeView(id){
         setView(id);
@@ -112,8 +115,8 @@ function PlayerPolarChart(props){
         return(
             <div className='chart-container'>
                     <div className='position-tabs'>
-                        <button className={view === 0 ? "active-position" : ""} onClick={() => {changeView(0)}}>{makePositionReadable(positionArray[0])}</button>
-                        <button className={view === 1 ? "active-position" : ""} onClick={() => {changeView(1)}}>{makePositionReadable(positionArray[1])}</button>
+                        <button className={view === 0 ? "active-position" : ""} onClick={() => {setView(0)}}>{makePositionReadable(positionArray[0])}</button>
+                        <button className={view === 1 ? "active-position" : ""} onClick={() => {setView(1)}}>{makePositionReadable(positionArray[1])}</button>
                     </div>
                     {view === 0 && (
                             <div className='percentile-polar-chart'>
