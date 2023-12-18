@@ -5,6 +5,7 @@ import { CreationBars } from '../../components/bar-chart/creation-barchart';
 import { ProgressionBars } from '../../components/bar-chart/progression-barchart';
 import { InvolvementBars } from '../../components/bar-chart/involvement-barchart';
 import { PassingBars } from '../../components/bar-chart/passing-barchart';
+import { DefensiveBars } from '../../components/bar-chart/defensive-barchart';
 import {useState} from 'react';
 
 function PlayerPageBody(props){
@@ -33,8 +34,9 @@ function PlayerPageBody(props){
                 <div className='player-statistics'>
                     <PassingBars stats={props.player} percentileGroup={percentileGroup}/>
                 </div>
-                <div>1</div>
-                <div>1</div>
+                <div className='player-statistics'>
+                    <DefensiveBars stats={props.player} percentileGroup={percentileGroup}/>
+                </div>
             </div>
         </div>
     )

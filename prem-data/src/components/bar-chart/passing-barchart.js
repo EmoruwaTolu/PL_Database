@@ -41,6 +41,18 @@ export function PassingBars(stats, percentileGroup){
                 <div className="bar-title">Short Passes Completed per 90</div>
                 <Bar props={statistics.passing_stats.shortPassesCompleted90} percentileGroup={stats.percentileGroup}/>
             </div>
+            <div className="bar-info">
+                <div className="bar-title">Crosses per 90</div>
+                <Bar props={statistics.pass_types.crosses90} percentileGroup={stats.percentileGroup}/>
+            </div>
+            <div className="bar-info">
+                <div className="bar-title">Switches per 90</div>
+                <Bar props={statistics.pass_types.switches90} percentileGroup={stats.percentileGroup}/>
+            </div>
+            <div className="bar-info">
+                <div className="bar-title">Passes Offside per 90</div>
+                <Bar props={statistics.pass_types.passesOffside90} percentileGroup={stats.percentileGroup}/>
+            </div>
         </div>
     )
 }
