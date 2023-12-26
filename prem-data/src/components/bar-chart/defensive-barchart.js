@@ -8,7 +8,7 @@ export function DefensiveBars(stats, percentileGroup){
 
     return(
         <div className="bar-collection">
-            <div>Defensive Work</div>
+            <div className="player-stat-header">Defensive Work</div>
             <div className="bar-info">
                 <div className="bar-title">Tackles and Interceptions per 90</div>
                 <Bar props={statistics.defensive_stats.tacklesAndInterceptions90} percentileGroup={stats.percentileGroup}/>

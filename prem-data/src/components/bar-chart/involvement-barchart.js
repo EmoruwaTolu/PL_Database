@@ -8,7 +8,7 @@ export function InvolvementBars(stats, percentileGroup){
 
     return(
         <div className="bar-collection">
-            <div>Involvement</div>
+            <div className="player-stat-header">Involvement</div>
             <div className="bar-info">
                 <div className="bar-title">Touches per 90</div>
                 <Bar props={statistics.possession_stats.touches90} percentileGroup={stats.percentileGroup}/>

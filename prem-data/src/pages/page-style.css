@@ -137,7 +137,7 @@
     box-sizing: border-box;
 }
 .numbers-container{
-    width: 65%;
+    width: 30%;
     display: flex;
     /* grid-template-columns: repeat(2, 1fr); */
     box-sizing: border-box;
@@ -147,7 +147,7 @@
 .player-statistics{
     padding: 1em;
     box-sizing: border-box;
-    min-width: 45%;
+    min-width: 100%;
 }
 
 @media screen and (max-width: 1023px) {
@@ -236,6 +236,6 @@
         font-size: 1.5em;
     }
     .player-statistics{
-        min-width: 60%;
+        min-width: 100%;
     }
 }

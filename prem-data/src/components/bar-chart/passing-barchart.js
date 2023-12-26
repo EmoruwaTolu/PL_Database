@@ -8,7 +8,7 @@ export function PassingBars(stats, percentileGroup){
 
     return(
         <div className="bar-collection">
-            <div>Passing</div>
+            <div className="player-stat-header">Passing</div>
             <div className="bar-info">
                 <div className="bar-title">Passes Attempted per 90</div>
                 <Bar props={statistics.passing_stats.passesAttempted90} percentileGroup={stats.percentileGroup}/>

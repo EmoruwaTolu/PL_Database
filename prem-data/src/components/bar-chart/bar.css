@@ -6,6 +6,15 @@
       width: 100%; 
     }
 }
+.player-stat-header{
+    height: 5vh;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    border-bottom: #c0c0c0 1px solid;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+}
 .bar-collection{
     font-weight: 600;
 }

@@ -8,7 +8,7 @@ export function ProgressionBars(stats, percentileGroup){
 
     return(
         <div className="bar-collection">
-            <div>Ball Progression</div>
+            <div className="player-stat-header">Ball Progression</div>
             <div className="bar-info">
                 <div className="bar-title">Progressive Carries per 90</div>
                 <Bar props={statistics.standard_stats.progCarries90} percentileGroup={stats.percentileGroup}/>
