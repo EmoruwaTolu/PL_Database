@@ -8,7 +8,6 @@ export function ScoringBars(stats, percentileGroup){
 
     return(
         <div className="bar-collection">
-            <div className="player-stat-header">Goal Scoring</div>
             <div className="bar-info">
                 <div className="bar-title">Expected Goals per 90</div>
                 <Bar props={statistics.standard_stats.xG90} percentileGroup={stats.percentileGroup}/>

@@ -141,8 +141,8 @@
     display: flex;
     /* grid-template-columns: repeat(2, 1fr); */
     box-sizing: border-box;
-    overflow-x: scroll;
     font-size: 0.8em;
+    flex-direction: column;
 }
 .player-statistics{
     padding: 1em;

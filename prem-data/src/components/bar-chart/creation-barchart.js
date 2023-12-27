@@ -8,7 +8,6 @@ export function CreationBars(stats, percentileGroup){
 
     return(
         <div className="bar-collection">
-            <div className="player-stat-header">Chance Creation</div>
             <div className="bar-info">
                 <div className="bar-title">Expected Assists per 90</div>
                 <Bar props={statistics.standard_stats.xAG} percentileGroup={stats.percentileGroup}/>
