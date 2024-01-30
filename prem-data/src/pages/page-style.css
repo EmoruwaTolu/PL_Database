@@ -149,6 +149,15 @@
     box-sizing: border-box;
     min-width: 100%;
 }
+.compare-page{
+    width: 100vw;
+    box-sizing: border-box;
+}
+.compare-details-wrapper{
+    padding: 2em;
+    width: 100%;
+    box-sizing: border-box;
+}
 
 @media screen and (max-width: 1023px) {
     .percentile-polar-chart{

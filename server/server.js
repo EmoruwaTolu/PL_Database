@@ -97,6 +97,31 @@ app.get('/seasonInformation', async(req, res) => {
   }
 })
 
+
+app.get('/team/:name', async (req, res) => {
+  try {
+    await client.connect();
+
+    const teamName = req.params.name;
+
+    const db = client.db(dbName);
+    const collection = db.collection('PremierLeague2022-23');
+
+    console.log(teamName)
+
+    const data = await collection.find({club: teamName}).toArray();
+    console.log(data)
+    res.json(data)
+  }
+  catch(error){
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+  finally {
+    client.close(); // Close the connection when done
+  }
+})
+
 app.get('/player/:name', async (req, res) => {
   try {
     await client.connect();

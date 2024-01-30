@@ -1,0 +1,38 @@
+::-webkit-scrollbar {
+    display: none;
+}
+.compare-player-input{
+    width: 50%;
+    border-radius: 8px;
+    border: 2px solid black;
+    color: white;
+    height: 50vh;
+    overflow: scroll;
+    padding: 2em;
+    width: fit-content;
+}
+.compare-attributes{
+    overflow: scroll;
+    height: 100%;
+    width: fit-content;
+}
+.radar-chart{
+    width: 100%;
+    height: 600px;
+}
+.compare-body{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.player-display{
+    width: 50%;
+}
+.compare-search-fields{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.compare-search-field{
+    width: 40%;
+}

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import DataTable from 'react-data-table-component';
+import { Link } from 'react-router-dom';
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { teamColours } from '../player-tab';
 import './layer1-style.css';
@@ -58,7 +59,7 @@ export default function BasicTabs() {
     const columns = [
         {
             name: 'Club',
-            selector: row => row.clubname,
+            selector: row => <p onClick={() => {console.log(row.clubname)}}>{row.clubname}</p>,
             width: "15%",
         },
         {
