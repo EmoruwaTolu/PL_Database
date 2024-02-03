@@ -76,7 +76,6 @@ const normalizeNames = {'Expected Goals per 90': 'xG90',
 const findNestedField = (obj, targetField) => {
     for (const key in obj) {
         if (key === targetField) {
-            console.log(obj[key][0]);
             return obj[key][0];
         } 
         else if (typeof obj[key] === 'object') {
@@ -89,7 +88,7 @@ const findNestedField = (obj, targetField) => {
     return undefined; // Field not found
 };
 
-export default function RadarAxisMaker({player1, player2, attributes}){
+export default function RadarAxisMaker({player1, player2, attributes, }){
 
     var playerChartList = [];
 

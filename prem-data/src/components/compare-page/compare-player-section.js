@@ -10,6 +10,8 @@ const ComparePlayerSection = ({setPlayer}) => {
     const [player1, setPlayer1] = useState();
     const [player2, setPlayer2] = useState();
     const [selectedItems, setSelectedItems] = useState([]);
+    const [isPercentileMode, setIsPercentileMode] = useState(false);
+    const [percentileComparer, setPercentileComparer] = useState(0);
     
 
     const options = ['Expected Goals per 90', 
@@ -87,8 +89,10 @@ const ComparePlayerSection = ({setPlayer}) => {
         setSelectedItems(checkedItems);
     };
 
-    console.log(player1)
-    console.log(player2)
+    const handlePercentileToggle = event => {
+        setIsPercentileMode(current => !current);
+        setPercentileComparer(0);
+    };
 
     return(
         <div className="compare-body">
@@ -100,17 +104,47 @@ const ComparePlayerSection = ({setPlayer}) => {
             <div className="player-display">
                 <div className="compare-search-fields">
                     <div className="compare-search-field">
-                        {
-                            player1 && <img src={player1.image}></img>
+                        {player1 && 
+                            <div className="compare-image-percentile">
+                                <img src={player1.image}></img>
+                                {
+                                    isPercentileMode && player1.position.includes(",") && 
+                                    <div className="percentile-options">
+                                        <input type="radio" id={1} name="drone" value={1}  />
+                                        <label for={1}>{player1.position.split(",")[0]}</label>
+                                        <input type="radio" id={2} name="drone" value={2}  />
+                                        <label for={1}>{player1.position.split(",")[1]}</label>
+                                    </div>
+                                    
+                                }
+                            </div>
                         }
                         <Autocompletion setPlayer={setPlayer1}/>
                     </div>
                     <div className="compare-search-field">
-                        {
-                            player2 && <img src={player2.image}></img>
+                        {player2 && 
+                            <div className="compare-image-percentile">
+                                <img src={player2.image}></img>
+                                {
+                                    isPercentileMode && player2.position.includes(",") && 
+                                    <div className="percentile-options">
+                                        <input type="radio" id={1} name="drone" value={0} onCha />
+                                        <label for={1}>{player2.position.split(",")[0]}</label>
+                                        <input type="radio" id={2} name="drone" value={2}  />
+                                        <label for={1}>{player2.position.split(",")[1]}</label>
+                                    </div>
+                                }
+                            </div>
                         }
                         <Autocompletion setPlayer={setPlayer2}/>
                     </div>
+                </div>
+                <div className="percentile-toggle">
+                    <p>Use percentiles on graph</p>
+                    <label class="switch">
+                        <input type="checkbox" value={isPercentileMode} onChange={handlePercentileToggle}></input>
+                        <span class="slider round"></span>
+                    </label>
                 </div>
                 <RadarAxisMaker player1={player1} player2={player2} attributes={selectedItems} />
             </div>
