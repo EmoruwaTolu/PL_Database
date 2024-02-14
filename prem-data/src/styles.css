@@ -15,9 +15,36 @@
 }
 .home-blog{
     flex: 1;
-    border: 1px solid #5a5b60;
-    min-height: 90vh;
+    min-height: fit-content;
     padding: 2em;
+}
+.blog-carousel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.carousel-image{
+    width: 100%;
+    height: 50%;
+    background-color: green;
+}
+.carousel-navigator{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2em 0 0 0;
+}
+.carousel-locator{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin: 0 12px;
+    border: 0;
+    background-color: #808080;
+    cursor: pointer;
 }
 
 .home-search-trending{
@@ -25,7 +52,7 @@
     flex: 1;
     padding: 2em;
     height: fit-content;
-    min-height: 90vh;
+    min-height: fit-content;
 }
 
 .explore{
@@ -143,11 +170,13 @@
     height: 300px;
 }
 
+
+
 .autosuggest-results ul {
     list-style: none;
     padding: 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
     .home-layer-2{
         flex-direction: column;
     }

@@ -82,12 +82,10 @@ app.get('/seasonInformation', async(req, res) => {
     const db =  client.db(dbName);
 
     const collectionOverall = db.collection('PremierLeagueTeamSeasonsOverall');
-    const collectionHome  =  db.collection('PremierLeagueTeamSeasonsHome');
-    const collectionAway = db.collection('PremierLeagueTeamSeasonsAway');
 
-    const dataOverall =  await collectionOverall.find({}).toArray();
-    const dataHome = await collectionHome.find({}).toArray();
-    const dataAway =  await collectionAway.find({}).toArray();
+    const dataOverall =  await collectionOverall.find({matchesPlayed: "38"}).toArray();
+    const dataHome = await collectionOverall.find({location: "Home"}).toArray();
+    const dataAway = await collectionOverall.find({location: "Away"}).toArray();
 
     res.json([dataOverall, dataHome, dataAway]);
   }

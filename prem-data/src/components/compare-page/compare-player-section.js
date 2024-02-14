@@ -11,8 +11,8 @@ const ComparePlayerSection = ({setPlayer}) => {
     const [player2, setPlayer2] = useState();
     const [selectedItems, setSelectedItems] = useState([]);
     const [isPercentileMode, setIsPercentileMode] = useState(false);
-    const [percentileComparer, setPercentileComparer] = useState(0);
-    
+    const [percentileComparer1, setPercentileComparer1] = useState(0);
+    const [percentileComparer2, setPercentileComparer2] = useState(0);
 
     const options = ['Expected Goals per 90', 
                         'Non-penalty xG per 90', 
@@ -91,7 +91,14 @@ const ComparePlayerSection = ({setPlayer}) => {
 
     const handlePercentileToggle = event => {
         setIsPercentileMode(current => !current);
-        setPercentileComparer(0);
+        if(isPercentileMode){
+            setPercentileComparer1(0);
+            setPercentileComparer2(0);
+        }
+        else{
+            setPercentileComparer1(1);
+            setPercentileComparer2(1);
+        }
     };
 
     return(
@@ -110,10 +117,10 @@ const ComparePlayerSection = ({setPlayer}) => {
                                 {
                                     isPercentileMode && player1.position.includes(",") && 
                                     <div className="percentile-options">
-                                        <input type="radio" id={1} name="drone" value={1}  />
-                                        <label for={1}>{player1.position.split(",")[0]}</label>
-                                        <input type="radio" id={2} name="drone" value={2}  />
-                                        <label for={1}>{player1.position.split(",")[1]}</label>
+                                        <input type="radio" id={1} name="drone" value={0} onChange={() => {setPercentileComparer1(1)}} />
+                                        <label >{player1.position.split(",")[0]}</label>
+                                        <input type="radio" id={1} name="drone" value={1} onChange={() => {setPercentileComparer1(2)}} />
+                                        <label >{player1.position.split(",")[1]}</label>
                                     </div>
                                     
                                 }
@@ -128,10 +135,10 @@ const ComparePlayerSection = ({setPlayer}) => {
                                 {
                                     isPercentileMode && player2.position.includes(",") && 
                                     <div className="percentile-options">
-                                        <input type="radio" id={1} name="drone" value={0} onCha />
-                                        <label for={1}>{player2.position.split(",")[0]}</label>
-                                        <input type="radio" id={2} name="drone" value={2}  />
-                                        <label for={1}>{player2.position.split(",")[1]}</label>
+                                        <input type="radio" id={2} name="drone" value={0} onChange={() => {setPercentileComparer2(1)}} />
+                                        <label htmlFor="">{player2.position.split(",")[0]}</label>
+                                        <input type="radio" id={2} name="drone" value={1} onChange={() => {setPercentileComparer2(2)}}  />
+                                        <label >{player2.position.split(",")[1]}</label>
                                     </div>
                                 }
                             </div>
@@ -141,12 +148,12 @@ const ComparePlayerSection = ({setPlayer}) => {
                 </div>
                 <div className="percentile-toggle">
                     <p>Use percentiles on graph</p>
-                    <label class="switch">
-                        <input type="checkbox" value={isPercentileMode} onChange={handlePercentileToggle}></input>
-                        <span class="slider round"></span>
+                    <label className="switch">
+                        <input type="checkbox" name="" value={isPercentileMode} onClick={() => {handlePercentileToggle()}}></input>
+                        <span className="slider round"></span>
                     </label>
                 </div>
-                <RadarAxisMaker player1={player1} player2={player2} attributes={selectedItems} />
+                <RadarAxisMaker player1={player1} player2={player2} attributes={selectedItems} percentile1={percentileComparer1} percentile2={percentileComparer2}/>
             </div>
         </div>
         

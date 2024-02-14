@@ -16,14 +16,6 @@ function PlayerPolarChart({player, view, setView}){
 
     var playerInfo = player;
     var positionArray = [];
-    // const [view, setView] = useState(0);
-
-    console.log(player)
-    
-
-    function changeView(id){
-        setView(id);
-    }
 
     const options = {
         plugins: {
@@ -53,12 +45,9 @@ function PlayerPolarChart({player, view, setView}){
     ];
 
     if(playerInfo.position.includes(',')){
-        console.log('yes')
         positionArray = playerInfo.position.split(",");
         var positionData1 = playerCardDisplayLabels(positionArray[0], playerInfo, 1);
         var positionData2 = playerCardDisplayLabels(positionArray[1], playerInfo, 2);
-
-        console.log(positionData1)
         var data1 = {
             labels: positionData1[1],
             datasets: [

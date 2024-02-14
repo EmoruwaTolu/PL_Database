@@ -33,13 +33,11 @@ class DoublyCircularLinkedList {
   
     display() {
         if (!this.head) {
-            console.log('Doubly Circular Linked List is empty.');
             return;
         }
     
         let current = this.head;
         do {
-            console.log(current.data);
             current = current.next;
         } while (current !== this.head);
     }

@@ -14,7 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "brfs": "^2.0.2",
-    "chart.js": "^4.4.0",
+    "chart.js": "^4.4.1",
     "d3": "^7.8.4",
     "drei": "^2.2.21",
     "path": "^0.12.7",

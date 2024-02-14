@@ -7,7 +7,7 @@
 .pl-season-info{
     width: 100%;
     box-sizing: border-box;
-    height: 90vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     scrollbar-width: none; 

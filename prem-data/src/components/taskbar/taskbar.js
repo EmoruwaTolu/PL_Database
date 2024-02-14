@@ -9,7 +9,6 @@ function Taskbar() {
             <div className="logo">Here</div>
             <ul>
                 <li> <Link to={`/compare`}>Compare</Link></li>
-                <li> <Link to={`/competitions`}>Competitions</Link></li>
                 <li> <Link to={`/blog`}>Blog</Link></li>
             </ul>
         </nav>

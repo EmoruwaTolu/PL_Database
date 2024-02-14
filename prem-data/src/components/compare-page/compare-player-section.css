@@ -2,7 +2,7 @@
     display: none;
 }
 .compare-player-input{
-    width: 50%;
+    width: 40%;
     border-radius: 8px;
     border: 2px solid black;
     color: white;
@@ -26,7 +26,7 @@
     justify-content: space-between;
 }
 .player-display{
-    width: 50%;
+    width: 60%;
 }
 .compare-search-fields{
     display: flex;
@@ -55,6 +55,7 @@
     display: inline-block;
     width: 60px;
     height: 20px;
+    margin-left: 1em;
   }
 .switch input {
     opacity: 0;
@@ -118,4 +119,18 @@ input:checked + .slider:before {
     height: 70%;
     align-items: center;
     justify-content: center;
+}
+.custom-tooltip{
+    width: fit-content;
+    height: fit-content;
+    background-color: #ccc;
+    padding: 1em;
+}
+.tooltip-label{
+    height: 30%;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+.tooltip-line{
+    font-size: 0.8em;
 }

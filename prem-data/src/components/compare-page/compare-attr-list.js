@@ -9,7 +9,6 @@ export const CompareAttrList = ({ options, onCheckboxChange }) => {
       : [...checkedItems, option];
     setCheckedItems(newCheckedItems);
     onCheckboxChange(newCheckedItems);
-    console.log(newCheckedItems)
   };
 
 return (

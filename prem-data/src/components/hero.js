@@ -4,7 +4,7 @@ import Autocompletion from "./autocomplete";
 function Hero(){
 
     return(
-        <div style={{width: "100%", height: "60vh", boxSizing: "border-box"}}>
+        <div style={{width: "100%", height: "fit-content", boxSizing: "border-box", marginBottom: "5em"}}>
             <Autocompletion />
         </div>
     )

@@ -46,7 +46,6 @@ class DoublyCircularLinkedList {
     
         let current = this.head;
         do {
-            console.log(current.data);
             current = current.next;
         } while (current !== this.head);
     }
@@ -71,6 +70,7 @@ function PlayerPageBody(props){
     return(
         <div className='chart-body'>
             <PlayerPolarChart player={props.player} view={view} setView={setView} />
+            
             <div className='numbers-container'>
                 <div>
                     <PlayerCarouselHeader selectedNode={selectedNode} setSelectedNode={setSelectedNode} circularLinkedList={circularLinkedList}/>

@@ -9,8 +9,6 @@ export const ExplorePlayersContainer = ({players}) => {
         return <div>Loading data ...</div>
     }
 
-    console.log(players)
-
     return(
         <div className="player-container" >
             <PlayerTab player={players[0]}/>

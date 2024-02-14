@@ -21,8 +21,6 @@ function PlayerPage() {
             });
         }
     }, [player]);
-    
-    console.log(playerInfo)
 
     if (playerInfo.length === 0) {
         return <p>Loading player data...</p>;
