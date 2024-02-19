@@ -75,6 +75,23 @@ app.get('/explore-players', async(req,res) => {
   }
 })
 
+app.get('/blog-posts', async(req,res) => {
+  try {
+    await client.connect()
+
+    const db = client.db(dbName);
+    const collection = db.collection('BlogPosts');
+
+    const data = await collection.find().toArray();
+    console.log(data)
+    res.json(data)
+  }
+  catch(error){
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+})
+
 app.get('/seasonInformation', async(req, res) => {
   try{
     await client.connect()
@@ -127,7 +144,7 @@ app.get('/player/:name', async (req, res) => {
     const playerName = req.params.name;
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-23');
+    const collection = db.collection('2023Tester');
 
     console.log(playerName)
 

@@ -173,7 +173,7 @@ def playerStandardStatsMaker(url, file):
 ##------- PROVIDE THE `teamRosterCreator` METHOD WITH A LINK TO THE PARTICULAR PREMIER LEAGUE TEAM
 ##------- This will print the information from the SPECIFIED team's players for that season
 
-link = "https://fbref.com/en/squads/cff3d9bb/2021-2022/Chelsea-Stats"
+link = "https://fbref.com/en/squads/7c21e445/2021-2022/West-Ham-United-Stats"
 namingInfo = link.split("/")
 file1 = open(namingInfo[-1]+".txt", "w")
 teamInfo = teamRosterCreator(link)

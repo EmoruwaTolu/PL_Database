@@ -36,7 +36,7 @@ class keepingStatistics{
 class SeasonPerformance{
 
   constructor(name, club, season, position, standard_stats, shooting_stats, passing_stats, pass_types, shot_goalCreation, defensive_stats,
-    possession_stats, other_stats, league, image){
+    possession_stats, other_stats, league, image, image1){
       this.name = name,
       this.club = club,
       this.season = season,
@@ -50,7 +50,8 @@ class SeasonPerformance{
       this.defensive_stats = defensive_stats,
       this.possession_stats = possession_stats,
       this.other_stats = other_stats,
-      this.image = image
+      this.image = image,
+      this.image1 = image1
   }
 }
 
@@ -332,8 +333,10 @@ files.forEach(file => {
               var other_stats = new OtherStatistics(name, clubName, season, stats[108], stats[109], stats[110], stats[111], stats[112], stats[113],
               stats[114], stats[115], stats[116], stats[117], stats[118], playerPosition, league)
 
+              var holder = "";
+
               var playerSeason = new SeasonPerformance(name, clubName, season, playerPosition, standard_stats, shooting_stats, passing_stats, pass_types,
-              shot_goalCreation, defensive_stats, possession_stats, other_stats, league, stats[119])
+                shot_goalCreation, defensive_stats, possession_stats, other_stats, league, stats[119], holder)
 
               var player = new Player(name, playerPosition)
               player.addSeason(playerSeason)

@@ -23,12 +23,27 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    color: whitesmoke;
     justify-content: space-between;
+    border-top: solid 1px white;
+}
+.blog-carousel-title{
+    font-size: 1.5em;
+    border-bottom: solid 1px white;
+    height: 8%;
+    display: flex;
+    align-items: center;margin-bottom: 3.2em;
+}
+.story-title{
+    font-size: 1.2em;
+}
+.story-preview{
+    font-size: 0.9em;
 }
 .carousel-image{
     width: 100%;
     height: 50%;
-    background-color: green;
+    object-fit: cover;
 }
 .carousel-navigator{
     height: fit-content;
@@ -169,9 +184,6 @@
     overflow: hidden;
     height: 300px;
 }
-
-
-
 .autosuggest-results ul {
     list-style: none;
     padding: 0;
