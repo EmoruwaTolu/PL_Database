@@ -13,7 +13,7 @@ export default function HomeBlog(){
             setPosts(data);
         }
         catch(error){
-            console.error('Error fetching players');
+            console.error('Error fetching blogs');
         }
         
     }

@@ -16,7 +16,7 @@ app.get('/searchSuggest', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-23');
+    const collection = db.collection('2023Tester');
 
     const data = await collection.find({}).toArray();
     res.json(data)
@@ -25,37 +25,52 @@ app.get('/searchSuggest', async (req, res) => {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-  finally {
-    //client.close(); // Close the connection when done
-  }
 })
 
-app.get('/calculate-percentiles', async (req, res) => {
+app.get('/create/:statistic', async (req, res) => {
   try {
-
+    // Assuming you've already initialized your MongoDB client
+    
+    // Connect to the MongoDB client
     await client.connect();
+    const statistic = req.params.statistic;
+
+    // Access the database and collection
     const db = client.db(dbName);
-    // Your MongoDB aggregation pipeline code to calculate percentiles
-    console.log("here")
-    const result = await db.collection('PremierLeague2022-23').aggregate([
+    const collection = db.collection('2023Tester');
+    const cursor = collection.aggregate([
+      // Match documents that have the "image" field
+      { $match: { image: { $exists: true } } },
+      
+      // Project a new field to extract the first element of "goals90" array
       {
-        $sort: {"shooting_stats.shots90": 1}
-      },
-      {
-        $group: {
-          _id: null,
-          data: { $push: "$shooting_stats.shots90" },
-          count: { $sum: 1 }
+        $addFields: {
+          returnableValue: { $arrayElemAt: [`$${statistic}`, 0] }
         }
       },
       
-    ]).toArray();
+      // Sort documents based on the first element of "goals90" array
+      { $sort: { returnableValue: -1 } },
+      
+      // Limit the result to the top 100 documents
+      { $limit: 100 }
+    ])
 
-    // Return the calculated percentiles as a JSON response
-    res.json(result);
+    // Convert the cursor to an array of documents
+    const data = await cursor.toArray();
+
+    // Log the retrieved data
+    console.log(data);
+
+    // Respond with the data as JSON
+    res.json(data);
   } catch (error) {
-    console.error('Error calculating percentiles: ', error);
+    // Handle errors
+    console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
+  } finally {
+    // Close the connection when done
+    // client.close();
   }
 });
 
@@ -64,7 +79,7 @@ app.get('/explore-players', async(req,res) => {
     await client.connect()
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-23');
+    const collection = db.collection('2023Tester');
 
     const data = await collection.aggregate([{$match: {"image":{$ne:null}}}, {$sample: {size: 3}}]).toArray();
     res.json(data)
@@ -120,7 +135,7 @@ app.get('/team/:name', async (req, res) => {
     const teamName = req.params.name;
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-23');
+    const collection = db.collection('2023Tester');
 
     console.log(teamName)
 
@@ -133,7 +148,7 @@ app.get('/team/:name', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
   finally {
-    client.close(); // Close the connection when done
+    client.close(); 
   }
 })
 
@@ -157,7 +172,7 @@ app.get('/player/:name', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
   finally {
-    client.close(); // Close the connection when done
+    client.close(); 
   }
 })
 
@@ -168,7 +183,7 @@ app.get('/PremierLeague2022-23/:position', async (req, res) => {
     const position = req.params.position;
 
     const db = client.db(dbName);
-    const collection = db.collection('PremierLeague2022-23'); // Replace with your collection name
+    const collection = db.collection('2023Tester');
 
     if(position === "Attackers"){
       const data = await collection.find({ $or: [{position: "FW"}, {position: "AM"}] }).toArray();
@@ -191,7 +206,7 @@ app.get('/PremierLeague2022-23/:position', async (req, res) => {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   } finally {
-    client.close(); // Close the connection when done
+    client.close();
   }
 });
 

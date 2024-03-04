@@ -158,6 +158,17 @@
     width: 100%;
     box-sizing: border-box;
 }
+.create-body{
+    display: flex;
+    margin-top: 20px;
+}
+.set-graph{
+    width: 30%;
+}
+.create-graph{
+    width: 70%;
+
+}
 
 @media screen and (max-width: 1023px) {
     .percentile-polar-chart{

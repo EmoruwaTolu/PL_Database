@@ -20,25 +20,25 @@ export function playerCardDisplayLabels(position, playerInfo, positionInArray){
 
     if(position === "FW" || position === "AM"){
         var positionData = [
-            playerInfo.standard_stats.nonPenXG90[positionInArray],
-            playerInfo.standard_stats.goals90[positionInArray],
-            playerInfo.shooting_stats.nonPenGoalsMinusXG[positionInArray],
-            playerInfo.shooting_stats.shots90[positionInArray],
+            playerInfo.nonPenXG90[positionInArray],
+            playerInfo.goals90[positionInArray],
+            playerInfo.nonPenGoalsMinusXG[positionInArray],
+            playerInfo.shots90[positionInArray],
     
-            playerInfo.shot_goalCreation.shotCreateAct90[positionInArray],
-            playerInfo.passing_stats.keyPasses90[positionInArray],
-            playerInfo.passing_stats.xA90[positionInArray],
-            playerInfo.standard_stats.assists90[positionInArray],
+            playerInfo.shotCreateAct90[positionInArray],
+            playerInfo.keyPasses90[positionInArray],
+            playerInfo.xA90[positionInArray],
+            playerInfo.assists90[positionInArray],
     
-            playerInfo.standard_stats.progressivePass90[positionInArray],
-            playerInfo.standard_stats.progCarries90[positionInArray],
-            playerInfo.passing_stats.passesPenaltyArea90[positionInArray],
-            playerInfo.passing_stats.passesFinalThird90[positionInArray],
+            playerInfo.progressivePass90[positionInArray],
+            playerInfo.progCarries90[positionInArray],
+            playerInfo.passesPenaltyArea90[positionInArray],
+            playerInfo.passesFinalThird90[positionInArray],
     
-            playerInfo.possession_stats.successfulTakeOns90[positionInArray],
-            playerInfo.possession_stats.takeOnsAttempted90[positionInArray],
-            playerInfo.possession_stats.touches90[positionInArray],
-            playerInfo.possession_stats.passesReceived90[positionInArray],
+            playerInfo.successfulTakeOns90[positionInArray],
+            playerInfo.takeOnsAttempted90[positionInArray],
+            playerInfo.touches90[positionInArray],
+            playerInfo.passesReceived90[positionInArray],
             
         ];
         var relevantPositionData = [
@@ -65,25 +65,25 @@ export function playerCardDisplayLabels(position, playerInfo, positionInArray){
     else if(position === "MF"){
 
         var positionData = [
-            playerInfo.standard_stats.nonPenXG90[positionInArray],
-            playerInfo.standard_stats.goals90[positionInArray],
-            playerInfo.passing_stats.xA90[positionInArray],
-            playerInfo.standard_stats.assists90[positionInArray],
+            playerInfo.nonPenXG90[positionInArray],
+            playerInfo.goals90[positionInArray],
+            playerInfo.xA90[positionInArray],
+            playerInfo.assists90[positionInArray],
     
-            playerInfo.shot_goalCreation.shotCreateAct90[positionInArray],
-            playerInfo.passing_stats.keyPasses90[positionInArray],
-            playerInfo.passing_stats.passesFinalThird90[positionInArray],
-            playerInfo.passing_stats.passesPenaltyArea90[positionInArray],
+            playerInfo.shotCreateAct90[positionInArray],
+            playerInfo.keyPasses90[positionInArray],
+            playerInfo.passesFinalThird90[positionInArray],
+            playerInfo.passesPenaltyArea90[positionInArray],
     
-            playerInfo.standard_stats.progressivePass90[positionInArray],
-            playerInfo.standard_stats.progCarries90[positionInArray],
-            playerInfo.possession_stats.passesReceived90[positionInArray],
-            playerInfo.possession_stats.touches90[positionInArray],
+            playerInfo.progressivePass90[positionInArray],
+            playerInfo.progCarries90[positionInArray],
+            playerInfo.passesReceived90[positionInArray],
+            playerInfo.touches90[positionInArray],
     
-            parseInt(playerInfo.passing_stats.passCompletionPercent[positionInArray]),
-            playerInfo.defensive_stats.tacklesAndInterceptions90[positionInArray],
-            playerInfo.other_stats.ballRecoveries90[positionInArray],
-            playerInfo.possession_stats.dispossessed90[positionInArray],
+            parseInt(playerInfo.passCompletionPercent[positionInArray]),
+            playerInfo.tacklesAndInterceptions90[positionInArray],
+            playerInfo.ballRecoveries90[positionInArray],
+            playerInfo.dispossessed90[positionInArray],
         ];
 
         var relevantPositionData = [
@@ -111,25 +111,25 @@ export function playerCardDisplayLabels(position, playerInfo, positionInArray){
     }
     else if(position === "FB" || position === "CB"){
         var positionData = [
-            playerInfo.standard_stats.nonPenXG90[positionInArray],
-            playerInfo.standard_stats.goals90[positionInArray],
-            playerInfo.passing_stats.xA90[positionInArray],
-            playerInfo.standard_stats.assists90[positionInArray],
+            playerInfo.nonPenXG90[positionInArray],
+            playerInfo.goals90[positionInArray],
+            playerInfo.xA90[positionInArray],
+            playerInfo.assists90[positionInArray],
     
-            playerInfo.standard_stats.progressivePass90[positionInArray],
-            playerInfo.standard_stats.progCarries90[positionInArray],
-            playerInfo.passing_stats.passesCompleted90[positionInArray],
-            parseInt(playerInfo.passing_stats.passCompletionPercent[positionInArray]),
+            playerInfo.progressivePass90[positionInArray],
+            playerInfo.progCarries90[positionInArray],
+            playerInfo.passesCompleted90[positionInArray],
+            parseInt(playerInfo.passCompletionPercent[positionInArray]),
     
-            playerInfo.defensive_stats.tacklesAndInterceptions90[positionInArray],
-            parseInt(playerInfo.defensive_stats.percentDribblersTackled90[positionInArray]),
-            playerInfo.other_stats.ballRecoveries90[positionInArray],
-            playerInfo.possession_stats.touches90[positionInArray],
+            playerInfo.tacklesAndInterceptions90[positionInArray],
+            parseInt(playerInfo.percentDribblersTackled90[positionInArray]),
+            playerInfo.ballRecoveries90[positionInArray],
+            playerInfo.touches90[positionInArray],
     
-            parseInt(playerInfo.other_stats.percentAerialsWon[positionInArray]),
-            playerInfo.other_stats.aerialsWon90[positionInArray],
-            playerInfo.defensive_stats.errors90[positionInArray],
-            playerInfo.possession_stats.dispossessed90[positionInArray],
+            parseInt(playerInfo.percentAerialsWon[positionInArray]),
+            playerInfo.aerialsWon90[positionInArray],
+            playerInfo.errors90[positionInArray],
+            playerInfo.dispossessed90[positionInArray],
         ];
 
         var relevantPositionData = [

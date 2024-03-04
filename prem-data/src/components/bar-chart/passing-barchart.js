@@ -10,47 +10,47 @@ export function PassingBars(stats, percentileGroup){
         <div className="bar-collection">
             <div className="bar-info">
                 <div className="bar-title">Passes Attempted per 90</div>
-                <Bar props={statistics.passing_stats.passesAttempted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.passesAttempted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Passes Completed per 90</div>
-                <Bar props={statistics.passing_stats.passesCompleted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.passesCompleted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Long Passes Attempted per 90</div>
-                <Bar props={statistics.passing_stats.longPassesAttempted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.longPassesAttempted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Long Passes Completed per 90</div>
-                <Bar props={statistics.passing_stats.longPassesCompleted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.longPassesCompleted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Medium Passes Attempted per 90</div>
-                <Bar props={statistics.passing_stats.mediumPassesAttempted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.mediumPassesAttempted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Medium Passes Completed per 90</div>
-                <Bar props={statistics.passing_stats.mediumPassesCompleted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.mediumPassesCompleted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Short Passes Attempted per 90</div>
-                <Bar props={statistics.passing_stats.shortPassesAttempted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.shortPassesAttempted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Short Passes Completed per 90</div>
-                <Bar props={statistics.passing_stats.shortPassesCompleted90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.shortPassesCompleted90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Crosses per 90</div>
-                <Bar props={statistics.pass_types.crosses90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.crosses90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Switches per 90</div>
-                <Bar props={statistics.pass_types.switches90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.switches90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Passes Offside per 90</div>
-                <Bar props={statistics.pass_types.passesOffside90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.passesOffside90} percentileGroup={stats.percentileGroup}/>
             </div>
         </div>
     )

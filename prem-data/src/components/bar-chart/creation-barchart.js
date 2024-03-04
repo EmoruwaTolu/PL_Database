@@ -10,47 +10,47 @@ export function CreationBars(stats, percentileGroup){
         <div className="bar-collection">
             <div className="bar-info">
                 <div className="bar-title">Expected Assists per 90</div>
-                <Bar props={statistics.standard_stats.xAG} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.xAG} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Assists per 90</div>
-                <Bar props={statistics.standard_stats.nonPenXG90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.nonPenXG90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Key Passes per 90</div>
-                <Bar props={statistics.passing_stats.keyPasses90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.keyPasses90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Goal Creating Actions per 90</div>
-                <Bar props={statistics.shot_goalCreation.goalCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.goalCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Goal Creating Actions from Live Balls per 90</div>
-                <Bar props={statistics.shot_goalCreation.liveBallGoalCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.liveBallGoalCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Goal Creating Actions from Dead Balls per 90</div>
-                <Bar props={statistics.shot_goalCreation.deadBallGoalCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.deadBallGoalCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Goal Creating Actions from Take-ons per 90</div>
-                <Bar props={statistics.shot_goalCreation.takeOnGoalCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.takeOnGoalCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Shot Creating Actions per 90</div>
-                <Bar props={statistics.shot_goalCreation.shotCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.shotCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Shot Creating Actions from Live Balls per 90</div>
-                <Bar props={statistics.shot_goalCreation.liveBallShotCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.liveBallShotCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Shot Creating Actions from Dead Balls per 90</div>
-                <Bar props={statistics.shot_goalCreation.deadBallShotCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.deadBallShotCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
             <div className="bar-info">
                 <div className="bar-title">Shot Creating Actions from Take-ons per 90</div>
-                <Bar props={statistics.shot_goalCreation.takeOnShotCreateAct90} percentileGroup={stats.percentileGroup}/>
+                <Bar props={statistics.takeOnShotCreateAct90} percentileGroup={stats.percentileGroup}/>
             </div>
         </div>
     )

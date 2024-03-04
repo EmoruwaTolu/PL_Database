@@ -29,7 +29,7 @@ export const PlayerTab = ({player}) => {
     const history = useNavigate();
 
     const handleClick = (player) => {
-        history(`/player/${player.standard_stats.name}`)
+        history(`/player/${player.name}`)
     }
 
     return(

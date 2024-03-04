@@ -33,7 +33,7 @@ const Autocompletion = ({setPlayer}) => {
     }, []);
 
     const handleClick = (value) => {
-        history(`/player/${value.standard_stats.name}`)
+        history(`/player/${value.name}`)
     }
 
     return(

@@ -1,5 +1,5 @@
 export const normalizeNames = {'Expected Goals per 90': 'xG90',
-'Non-penalty xG per 90': 'nonPenXGPerShot90',
+'Non-penalty xG per 90': 'nonPenXG90',
 'Goals per 90' : 'goals90',
 'Non-penalty Goals per 90': 'nonPenGoals90',
 'Goals minus xG': 'goalsMinusXG',

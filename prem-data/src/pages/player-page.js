@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import PlayerPageBody from "./player-page-body/player-page-body";
+import Taskbar from "../components/taskbar/taskbar";
 import axios from 'axios';
 import './page-style.css';
 
@@ -39,6 +40,8 @@ function PlayerPage() {
     };
 
     return(
+      <div>
+        <Taskbar />
         <div className="player-page">
           <div className="player-page-container">
             <div className="player-header">
@@ -54,6 +57,7 @@ function PlayerPage() {
             </div>
           </div>
         </div>
+      </div>
     )
 }
 

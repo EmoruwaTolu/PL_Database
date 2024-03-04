@@ -6,10 +6,11 @@ function Taskbar() {
 
     return(
         <nav className="taskbar">
-            <div className="logo">Here</div>
+            <Link to={`/`} className="logo">Here</Link>
             <ul>
                 <li> <Link to={`/compare`}>Compare</Link></li>
                 <li> <Link to={`/blog`}>Blog</Link></li>
+                <li> <Link to={`/create`}>Create</Link></li>
             </ul>
         </nav>
     )
