@@ -9,7 +9,7 @@ function Taskbar() {
             <Link to={`/`} className="logo">Here</Link>
             <ul>
                 <li> <Link to={`/compare`}>Compare</Link></li>
-                <li> <Link to={`/blog`}>Blog</Link></li>
+                <li> <Link to={`/quiz`}>Quiz</Link></li>
                 <li> <Link to={`/create`}>Create</Link></li>
             </ul>
         </nav>

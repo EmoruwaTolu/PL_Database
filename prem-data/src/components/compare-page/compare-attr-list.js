@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './compare-player-section.css'
 
 export const CompareAttrList = ({ options, onCheckboxChange }) => {
   const [checkedItems, setCheckedItems] = useState([]);
@@ -20,6 +21,7 @@ return (
             id={option}
             checked={checkedItems.includes(option)}
             onChange={() => handleCheckboxChange(option)}
+            className="checkbox-input"
           />
           <label htmlFor={option}>{option}</label>
         </div>

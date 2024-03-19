@@ -74,6 +74,22 @@ app.get('/create/:statistic', async (req, res) => {
   }
 });
 
+app.get('/connections', async(req, res) => {
+  try {
+    await client.connect()
+
+    const db = client.db(dbName);
+    const collection = db.collection('PremQuiz');
+
+    const data = await collection.aggregate([{ $sample: { size: 1 } }]).toArray();
+    res.json(data)
+  }
+  catch(error){
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+})
+
 app.get('/explore-players', async(req,res) => {
   try {
     await client.connect()

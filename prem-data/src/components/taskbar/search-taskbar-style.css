@@ -1,6 +1,6 @@
 .taskbar{
     height: 10vh;
-    width: 100vw;
+    width: 100%;
     background-color: #383838;
     color: #fefae0;
     display: flex;
@@ -12,11 +12,9 @@
 }
 
 .taskbar ul {
-    padding-right: 2em;
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 1em;
     align-items: center;
     justify-content: right;
     width: 100%;
@@ -40,6 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 1em;
 }
 
 .taskbar a {
@@ -57,4 +56,9 @@
   
 .taskbar li:hover {
     background-color: #777;
+}
+@media screen and (min-width: 1441px) {
+    .taskbar{
+        font-size: 2em;
+    }
 }

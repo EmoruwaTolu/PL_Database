@@ -153,13 +153,13 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <div className='home-graph-header'>XG/Points Table</div>
+                            <div className='home-graph-header'>xGD/Points Table</div>
                             <ResponsiveContainer width="99%" height="90%" aspect={1.4}> 
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
-                                    <XAxis type="number" dataKey="points" name="Points" />
-                                    <YAxis type="number" dataKey="totalXGD" name="xGD" range={[data[0].sort((a, b) => b.points - a.points)[19], data[0].sort((a, b) => b.points - a.points)[0]]}/>
+                                    <YAxis type="number" dataKey="points" name="Points" />
+                                    <XAxis type="number" dataKey="totalXGD" name="xGD" range={[data[0].sort((a, b) => b.points - a.points)[19], data[0].sort((a, b) => b.points - a.points)[0]]}/>
                                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                                     <Scatter name="clubname" data={data[0].sort((a, b) => b.points - a.points)} fill="#8884d8" >
                                         {data[0].map((entry, index) => (
@@ -187,13 +187,13 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <div className='home-graph-header'>XG/Points Table</div>
+                            <div className='home-graph-header'>xGD/Points Table</div>
                             <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
                                 <ScatterChart >
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
-                                    <XAxis type="number" dataKey="points" name="Points" interval={0} range={[data[1].sort((a, b) => b.points - a.points)[19], data[1].sort((a, b) => b.points - a.points)[0] ]}/>
-                                    <YAxis type="number" dataKey="totalXGD" name="xGD" />
+                                    <YAxis type="number" dataKey="points" name="Points" interval={0} range={[data[1].sort((a, b) => b.points - a.points)[19], data[1].sort((a, b) => b.points - a.points)[0] ]}/>
+                                    <XAxis type="number" dataKey="totalXGD" name="xGD" />
                                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                                     <Scatter name="clubname" data={data[1].sort((a, b) => b.points - a.points)} fill="#8884d8" >
                                         {data[1].map((entry, index) => (
@@ -221,13 +221,13 @@ export default function BasicTabs() {
                             />
                         </div>
                         <div className='graph'>
-                            <div className='home-graph-header'>XG/Points Table</div>
+                            <div className='home-graph-header'>xGD/Points Table</div>
                             <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
-                                    <XAxis type="number" dataKey="points" name="Points" interval={0} range={[data[2].sort((a, b) => b.points - a.points)[19], data[2].sort((a, b) => b.points - a.points)[0] ]}/>
-                                    <YAxis type="number" dataKey="totalXGD" name="xGD" />
+                                    <YAxis type="number" dataKey="points" name="Points" interval={0} range={[data[2].sort((a, b) => b.points - a.points)[19], data[2].sort((a, b) => b.points - a.points)[0] ]}/>
+                                    <XAxis type="number" dataKey="totalXGD" name="xGD" />
                                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                                     <Scatter name="clubname" data={data[2].sort((a, b) => b.points - a.points)} fill="#8884d8" >
                                         {data[2].map((entry, index) => (

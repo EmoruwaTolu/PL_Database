@@ -188,9 +188,15 @@
     list-style: none;
     padding: 0;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     .home-layer-2{
         flex-direction: column;
+    }
+    .blog-carousel-title{
+        padding: 0.5em 0;
+    }
+    .story-title{
+        padding: 0.5em 0;
     }
 }
 @media screen and (min-width: 1800px) {
@@ -199,5 +205,32 @@
     }
     .player-card .player-info .club-name{
         font-size: 1.2em;
+    }
+}
+@media screen and (max-width: 800px) {
+    .blog-carousel-title{
+        font-size: 1.2em;
+    }
+    .story-preview{
+        font-size: 0.8em;
+    }
+    .carousel-locator{
+        width: 8px;
+        height: 12px;
+        border-radius: 80%;
+    }
+    .player-card .player-info .player-name{
+        font-size: 1.4em;
+    }
+    .player-card .player-info .club-name{
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 500px) {
+    .player-card .player-info .player-name{
+        font-size: 0.8em;
+    }
+    .player-card .player-info .club-name{
+        font-size: 0.4em;
     }
 }

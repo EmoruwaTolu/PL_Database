@@ -82,38 +82,47 @@ function Create(){
             <Taskbar />
             <div className='create-body'>
                 <div className='set-graph'>
-                    <Autocomplete
-                        disablePortal
-                        options={checkboxOptions}
-                        limitTags={5}
-                        onChange={(event, newChange) => {
-                            setOption1(newChange);
-                        }}
-                        getOptionLabel={(option) => option}
-                        renderInput={(params) => 
-                            <TextField {...params} label="Statistics" 
-                                sx={{backgroundColor: "white", borderRadius:"8px"}}
-                            />}
-                    />
-                    <Autocomplete
-                        disablePortal
-                        options={checkboxOptions}
-                        limitTags={5}
-                        onChange={(event, newChange) => {
-                            setOption2(newChange);
-                        }}
-                        getOptionLabel={(option) => option}
-                        renderInput={(params) => 
-                            <TextField {...params} label="Statistics" 
-                                sx={{backgroundColor: "white", borderRadius:"8px"}}
-                            />}
-                    />
+                    <div className='autosuggest-set'>
+                        <div className='autosuggest-body'>
+                            <div className='autosuggest-label'>X: </div>
+                            <Autocomplete
+                                disablePortal
+                                sx={{width: "80%"}}
+                                options={checkboxOptions}
+                                limitTags={5}
+                                onChange={(event, newChange) => {
+                                    setOption1(newChange);
+                                }}
+                                getOptionLabel={(option) => option}
+                                renderInput={(params) => 
+                                    <TextField {...params} label="Statistics" 
+                                        sx={{backgroundColor: "white", borderRadius:"8px"}}
+                                    />}
+                            />
+                        </div>
+                        <div className='autosuggest-body'>
+                            <div className='autosuggest-label'>Y: </div>
+                            <Autocomplete
+                                disablePortal
+                                options={checkboxOptions}
+                                limitTags={5}
+                                onChange={(event, newChange) => {
+                                    setOption2(newChange);
+                                }}
+                                sx={{width: "80%"}}
+                                getOptionLabel={(option) => option}
+                                renderInput={(params) => 
+                                    <TextField {...params} label="Statistics" 
+                                        sx={{backgroundColor: "white", borderRadius:"8px"}}
+                                    />}
+                            />
+                        </div>
+                    </div>
                     <button onClick={() => {handleClick(option1, option2);}}>Generate</button>
                 </div>
                 <div className='create-graph'>
-
                             {option1.length !== 0 && option2 &&
-                                <ResponsiveContainer width="99%" height="90%" aspect={1.4}> 
+                                <ResponsiveContainer width="99%" height="90%" aspect={2}> 
                                     <ScatterChart>
                                         <CartesianGrid />
                                         <ZAxis type="string" dataKey="clubname" name="club" />

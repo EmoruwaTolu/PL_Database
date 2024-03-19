@@ -16,7 +16,7 @@ export function Bar(props, percentileGroup){
     return(
         <div className="bar">
             <div className="value">{stats[0]}</div>
-            <div className="jam">
+            <div className="outer-bar">
                 <div className="inner-bar" style={{width:`${stats[props.percentileGroup]}%`, backgroundColor: `${colour}`, justifyContent: `${percentileAlignment}`}}>
                     <div>{stats[props.percentileGroup]}</div>
                 </div>

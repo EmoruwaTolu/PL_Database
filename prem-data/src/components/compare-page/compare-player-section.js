@@ -47,16 +47,16 @@ const ComparePlayerSection = () => {
                                 {
                                     isPercentileMode && player1.position.includes(",") && 
                                     <div className="percentile-options">
-                                        <input type="radio" id={1} name="drone" value={0} onChange={() => {setPercentileComparer1(1)}} />
+                                        <input type="radio" id={1} name="player1" value={0} onChange={() => {setPercentileComparer1(1)}} />
                                         <label >{player1.position.split(",")[0]}</label>
-                                        <input type="radio" id={1} name="drone" value={1} onChange={() => {setPercentileComparer1(2)}} />
+                                        <input type="radio" id={1} name="player1" value={1} onChange={() => {setPercentileComparer1(2)}} />
                                         <label >{player1.position.split(",")[1]}</label>
                                     </div>
                                     
                                 }
                             </div>
                         }
-                        <Autocompletion setPlayer={setPlayer1}/>
+                        <Autocompletion className="compare-search-bar" setPlayer={setPlayer1}/>
                     </div>
                     <div className="compare-search-field">
                         {player2 && 
@@ -65,9 +65,9 @@ const ComparePlayerSection = () => {
                                 {
                                     isPercentileMode && player2.position.includes(",") && 
                                     <div className="percentile-options">
-                                        <input type="radio" id={2} name="drone" value={0} onChange={() => {setPercentileComparer2(1)}} />
-                                        <label htmlFor="">{player2.position.split(",")[0]}</label>
-                                        <input type="radio" id={2} name="drone" value={1} onChange={() => {setPercentileComparer2(2)}}  />
+                                        <input type="radio" id={2} name="player2" value={0} onChange={() => {setPercentileComparer2(1)}} />
+                                        <label >{player2.position.split(",")[0]}</label>
+                                        <input type="radio" id={2} name="player2" value={1} onChange={() => {setPercentileComparer2(2)}}  />
                                         <label >{player2.position.split(",")[1]}</label>
                                     </div>
                                 }

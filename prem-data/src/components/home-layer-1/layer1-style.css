@@ -3,6 +3,7 @@
     box-sizing: border-box;
     height: fit-content;
     padding: 2em;
+    display: flex;
 }
 .pl-season-info{
     width: 100%;
@@ -86,7 +87,6 @@
     .pl-home-container .graph{
         max-height: 120vh;
     }
-    
 }
 @media screen and (max-width: 800px) {
     .pl-home-container .table{
@@ -94,5 +94,25 @@
     }
     .graph .home-graph-header{
         height: 5%;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .home-layer-1{
+        font-size: 1.2em;
+    }
+}
+@media screen and (min-width: 1900px) {
+    .home-layer-1{
+        font-size: 1.5em;
+    }
+}
+@media screen and (max-width: 450px) {
+    .home-layer-1{
+        font-size: 0.3em;
+    }
+    .home-tabs{
+        height: 8vh;
+        font-size: 2em;
     }
 }
