@@ -166,13 +166,14 @@
 .create-body{
     display: block;
     padding: 2em;
-    height: 90vh;
+    height: fit-content;
     justify-content: space-between;
 }
 .set-graph{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2em;
 }
 .autosuggest-label{
     display: flex;

@@ -1,24 +1,56 @@
 .quiz-page{
+    width: 100vw;
     box-sizing: border-box;
+}
+.quiz-types{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quiz-category{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-sizing: border-box;
+    font-size: 2.5em;
+}
+.start-quiz{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 10%;
+    margin-bottom: 1em;
+}
+.start-quiz button{
+    padding: 1.2em;
+    font-size: 1em;
+    border-radius: 0.8em;
+}
+.connections-container{
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 2em;
 }
 .connections-body{
     width: 100%;
-    height: 60vh;
-    padding: 0 2em;
+    height: fit-content;
     box-sizing: border-box;
 }
 .word-buttons{
-    height: 100%;
+    height: fit-content;
     width: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns each occupying equal width */
-    grid-template-rows: repeat(4, 1fr); /* 4 rows each with a fixed height of 100px */
-    gap: 10px; /* Gap between grid items */
+    gap: 10px; 
 }
 .word-button{
     width: 100%;
-    height: 100%;
+    height: 10vh;
     color: white;
     display: flex;
     justify-content: center;
@@ -26,13 +58,73 @@
     border: 1px solid white;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 0.5em;
+    font-size: 1em;
 }
 .word-button:hover{
     background-color: #080808;
 }
-@media screen and (min-width: 1200px) {
+.selected-player{
+    background-color: #080808;
+}
+.completed-rows{
+    color: black;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 2em 0;
+}
+.solved-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    height: 8vh;
+    padding: 1em ;
+}
+.solved-title{
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 1em;
+}
+.solved-players{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    font-size: 0.8em;
+}
+.connections-bottom-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    box-sizing: border-box;
+}
+@media screen and (min-width: 1500px) {
     .word-button{
+        font-size: 1.2em;
+    }
+    .solved-title{
+        font-size: 1.4em;
+    }
+    .solved-players{
         font-size: 1em;
+    }
+}
+@media screen and (min-width: 2000px) {
+    .solved-title{
+        font-size: 1.6em;
+    }
+    .solved-players{
+        font-size: 1.2em;
+        display: flex;
+        width: 100%;
+    }
+    .word-button{
+        font-size: 1.4em;
     }
 }
