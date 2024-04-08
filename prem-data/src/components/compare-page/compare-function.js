@@ -27,16 +27,16 @@ const CustomTooltip = ({ active, payload, label }) => {
       );
 };
 
-export default function RadarAxisMaker({player1, player2, attributes, percentile1, percentile2}){
+export default function RadarAxisMaker({player1, player2, attributes, percentile1, percentile2, season1, season2}){
 
     var playerChartList = [];
 
     if(player1 !== undefined && player2 !== undefined){
         for(let i=0; i<attributes.length; i++){
 
-            var p1 = findNestedField(player1, normalizeNames[attributes[i]], percentile1);
-            var p2 = findNestedField(player2, normalizeNames[attributes[i]], percentile2);
-    
+            var p1 = findNestedField(player1.listOfSeasons[season1], normalizeNames[attributes[i]], percentile1);
+            var p2 = findNestedField(player2.listOfSeasons[season2], normalizeNames[attributes[i]], percentile2);
+
             playerChartList.push({subject: attributes[i], A : p1, B : p2})
         }
     }

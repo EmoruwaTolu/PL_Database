@@ -99,10 +99,15 @@
 .connections-bottom-bar{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 2em;
     box-sizing: border-box;
+}
+.connections-bottom-bar button{
+    padding: 1.2em;
+    font-size: 1em;
+    border-radius: 0.8em;
 }
 @media screen and (min-width: 1500px) {
     .word-button{

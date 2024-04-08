@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles.css"
 
-export default function HomeBlog(){
+export default function HomeQuiz(){
 
     const [posts, setPosts] = useState([]);
 
@@ -29,8 +29,8 @@ export default function HomeBlog(){
     }
 
     return (
-        <div className="blog-carousel">
-            <div className="blog-carousel-title">Blogs</div>
+        <div className="quiz-carousel">
+            <div className="quiz-carousel-title">Quiz</div>
             <img src={posts[0].image} alt="news img" className="carousel-image"></img>
             <div className="story-title">{posts[0].title}</div>
             <div className="story-preview">{posts[0].preview}</div>

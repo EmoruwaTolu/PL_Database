@@ -61,6 +61,7 @@ function Quiz(){
                 return [...prevSelected, player];
             }
         });
+        console.log(selectedButtons)
     };
 
     const handleSubmit = () => {
@@ -84,14 +85,15 @@ function Quiz(){
             setPlayerNames(newArray)
             setSolvedRows(update)
             setSelectedPlayers([])
+            setSelectedButtons([])
             setSolvedRowsList(solvedGroup)
             setSolvedDifficulty(selectedPlayers[0].difficulty)
         }
 
         if(solvedRowsList.length === 4 ){
+            setSelectedPlayers([])
             setPlayerNames([])
             setSolvedRows(0)
-            setSelectedPlayers([])
             setSolvedDifficulty("")
             setGameComplete(true)
         }
@@ -140,6 +142,7 @@ function Quiz(){
                         }
                         <div className='connections-bottom-bar'>
                             <button disabled={selectedPlayers.length !== 4} onClick={() => handleSubmit()}>Submit</button>
+                            <button disabled={selectedPlayers.length === 0} onClick={() => {setSelectedButtons([]); setSelectedPlayers([])}}>Deselect All</button>
                         </div>
                     </div>
                 </div>
@@ -177,6 +180,7 @@ function Quiz(){
                 }
                 <div className='connections-bottom-bar'>
                     <button disabled={selectedPlayers.length !== 4} onClick={() => handleSubmit()}>Submit</button>
+                    <button disabled={selectedPlayers.length === 0} onClick={() => {setSelectedButtons([]); setSelectedPlayers([])}}>Deselect All</button>
                 </div>
             </div>)}
             {startGame && solvedRowsList.length === 4 && (

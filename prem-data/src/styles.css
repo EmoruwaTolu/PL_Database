@@ -13,12 +13,12 @@
     width: 100%;
     display: flex;
 }
-.home-blog{
+.home-quiz{
     flex: 1;
     min-height: fit-content;
     padding: 2em;
 }
-.blog-carousel{
+.quiz-carousel{
     width: 100%;
     height: 100%;
     display: flex;
@@ -27,7 +27,7 @@
     justify-content: space-between;
     border-top: solid 1px white;
 }
-.blog-carousel-title{
+.quiz-carousel-title{
     font-size: 1.5em;
     border-bottom: solid 1px white;
     height: 8%;
@@ -192,7 +192,7 @@
     .home-layer-2{
         flex-direction: column;
     }
-    .blog-carousel-title{
+    .quiz-carousel-title{
         padding: 0.5em 0;
     }
     .story-title{
@@ -208,7 +208,7 @@
     }
 }
 @media screen and (max-width: 800px) {
-    .blog-carousel-title{
+    .quiz-carousel-title{
         font-size: 1.2em;
     }
     .story-preview{

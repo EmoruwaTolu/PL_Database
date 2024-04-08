@@ -21,7 +21,9 @@ const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
+            {/* <img style={{width: `100px`, height: `100px`}} src={payload[0].payload.playImage}/> */}
             <p className="label">{`Name : ${payload[0].payload.playerName}`}</p>
+            <p className="label">{`Season : ${payload[0].payload.season}`}</p>
             <p className="label">{`${payload[0].name} : ${payload[0].payload.stat1}`}</p>
             <p className="label">{`${payload[1].name} : ${payload[0].payload.stat2}`}</p>
         </div>
@@ -34,13 +36,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 function dataAdjuster(players1, players2, option1, option2){
     let holder = [];
     for(let i = 0; i < players1.length; i++){
-        var playerInfo1 = {playerName: players1[i].name , stat1: players1[i][option1][0], stat2: players1[i][option2][0]}
-        if(players1[i].name === "Mason Holgate"){console.log(players1[i][option1][0])}
+        var playerInfo1 = {playerName: players1[i].name , stat1: players1[i][option1][0], stat2: players1[i][option2][0], season: players1[i].season, playImage: players1[i].image}
         holder.push(playerInfo1)
     }
     for(let i = 0; i < players2.length; i++){
-        var playerInfo2 = {playerName: players2[i].name , stat1: players2[i][option1][0], stat2: players2[i][option2][0]}
-        if(players2[i].name === "Mason Holgate"){console.log(players2[i][option1]); console.log(option1)}
+        var playerInfo2 = {playerName: players2[i].name , stat1: players2[i][option1][0], stat2: players2[i][option2][0], season: players2[i].season, playImage: players2[i].image}
         holder.push(playerInfo2)
     }
     console.log(holder)

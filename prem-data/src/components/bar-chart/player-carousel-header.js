@@ -30,17 +30,6 @@ class DoublyCircularLinkedList {
       this.tail.next = this.head;
       this.head.prev = this.tail;
     }
-  
-    display() {
-        if (!this.head) {
-            return;
-        }
-    
-        let current = this.head;
-        do {
-            current = current.next;
-        } while (current !== this.head);
-    }
 }
   
   

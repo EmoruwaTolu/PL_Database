@@ -16,7 +16,7 @@ app.get('/searchSuggest', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection('2023Tester');
+    const collection = db.collection('PremierLeaguePlayers');
 
     const data = await collection.find({}).toArray();
     res.json(data)
@@ -37,7 +37,7 @@ app.get('/create/:statistic', async (req, res) => {
 
     // Access the database and collection
     const db = client.db(dbName);
-    const collection = db.collection('2023Tester');
+    const collection = db.collection('IndividualSeasons');
     const cursor = collection.aggregate([
       // Match documents that have the "image" field
       { $match: { image: { $exists: true } } },
@@ -95,9 +95,9 @@ app.get('/explore-players', async(req,res) => {
     await client.connect()
 
     const db = client.db(dbName);
-    const collection = db.collection('2023Tester');
+    const collection = db.collection('PremierLeaguePlayers');
 
-    const data = await collection.aggregate([{$match: {"image":{$ne:null}}}, {$sample: {size: 3}}]).toArray();
+    const data = await collection.aggregate([{$match: {"listOfSeasons.image":{$ne:null}}}, {$sample: {size: 3}}]).toArray();
     res.json(data)
   }
   catch(error){
@@ -175,7 +175,7 @@ app.get('/player/:name', async (req, res) => {
     const playerName = req.params.name;
 
     const db = client.db(dbName);
-    const collection = db.collection('2023Tester');
+    const collection = db.collection('IndividualSeasons');
 
     console.log(playerName)
 

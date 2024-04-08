@@ -1,7 +1,7 @@
 import React from "react";
 import Taskbar from '../components/taskbar/taskbar';
 import Hero from '../components/hero';
-import HomeBlog from "../components/HomeBlog";
+import HomeQuiz from "../components/HomeQuiz";
 import { RecommendPlayers } from "../components/recommend-players";
 import '../styles.css';
 import BasicTabs from "../components/home-layer-1/pl-table";
@@ -15,8 +15,8 @@ function Home(){
                         <BasicTabs />
                 </div>
                 <div className="home-layer-2">
-                    <div className="home-blog">
-                        <HomeBlog />
+                    <div className="home-quiz">
+                        <HomeQuiz />
                     </div>
                     <div className="home-search-trending">
                         <Hero />

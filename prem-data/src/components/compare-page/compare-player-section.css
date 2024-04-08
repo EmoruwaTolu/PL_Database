@@ -148,6 +148,12 @@ input:checked + .slider:before {
 .tooltip-line{
     font-size: 0.8em;
 }
+.select-menu{
+    color: white
+}
+.selected-season{
+    font-weight: 600;
+}
 @media screen and (max-width: 1000px) {
     .compare-body{
         flex-direction: column;

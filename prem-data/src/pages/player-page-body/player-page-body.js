@@ -7,6 +7,10 @@ import { InvolvementBars } from '../../components/bar-chart/involvement-barchart
 import { PassingBars } from '../../components/bar-chart/passing-barchart';
 import { DefensiveBars } from '../../components/bar-chart/defensive-barchart';
 import PlayerCarouselHeader from '../../components/bar-chart/player-carousel-header';
+import { Dropdown } from '@mui/base/Dropdown';
+import { MenuButton } from '@mui/base/MenuButton';
+import { Menu } from '@mui/base/Menu';
+import { MenuItem } from '@mui/base/MenuItem';
 import {useState} from 'react';
 
 class Node {
@@ -17,7 +21,7 @@ class Node {
     }
   }
   
-class DoublyCircularLinkedList {
+export class DoublyCircularLinkedList {
     constructor() {
       this.head = null;
       this.tail = null;
@@ -37,23 +41,12 @@ class DoublyCircularLinkedList {
       this.tail.next = this.head;
       this.head.prev = this.tail;
     }
-  
-    display() {
-        if (!this.head) {
-            console.log('Doubly Circular Linked List is empty.');
-            return;
-        }
-    
-        let current = this.head;
-        do {
-            current = current.next;
-        } while (current !== this.head);
-    }
 }
 
 function PlayerPageBody(props){
 
     const [view, setView] = useState(0);
+
     var percentileGroup = view + 1;
 
     const circularLinkedList = new DoublyCircularLinkedList();
@@ -65,11 +58,38 @@ function PlayerPageBody(props){
     circularLinkedList.append('Defensive Work');
 
     const [selectedNode, setSelectedNode] = useState(circularLinkedList.head);
-    console.log(selectedNode.data)
+
+    const [selectedSeasonNode, setSelectedSeasonNode] = useState(props.seasons.head);
+
+    const handleTabClickRight = () => {
+        setSelectedSeasonNode(selectedSeasonNode ? selectedSeasonNode.next : props.seasons.head);
+        props.setSeason(selectedSeasonNode ? selectedSeasonNode.next : props.seasons.head);
+        props.setSeasonLinkedList(selectedSeasonNode ? selectedSeasonNode.next : props.seasons.head)
+    };
+    const handleTabClickLeft = () => {
+        setSelectedSeasonNode(selectedSeasonNode ? selectedSeasonNode.prev : props.seasons.tail);
+        props.setSeason(selectedSeasonNode ? selectedSeasonNode.prev : props.seasons.tail)
+        props.setSeasonLinkedList(selectedSeasonNode ? selectedSeasonNode.prev : props.seasons.tail)
+    };
+
 
     return(
         <div className='chart-body'>
-            <PlayerPolarChart player={props.player} view={view} setView={setView} />
+            <PlayerPolarChart player={selectedSeasonNode.data} view={view} setView={setView} />
+            <div class="season-menu">
+                <div class="position-tabs">
+                    <button>Seasons</button>
+                </div>
+                {props.player.length > 2 && <ul className="carousel-season">
+                    <li className="carousel-item greyed-out season" onClick={() => {handleTabClickLeft()}}>{selectedSeasonNode.prev.data.season}</li>
+                    <li className="carousel-item selected season">{selectedSeasonNode.data.season}</li>
+                    <li className="carousel-item greyed-out season" onClick={() => {handleTabClickRight()}}>{selectedSeasonNode.next.data.season}</li>
+                </ul>}
+                {props.player.length === 2 && <ul className="carousel-header season">
+                    <li className="carousel-item selected season">{selectedSeasonNode.data.season}</li>
+                    <li className="carousel-item greyed-out season" onClick={() => {handleTabClickRight()}}>{selectedSeasonNode.next.data.season}</li>
+                </ul>}
+            </div>
             
             <div className='numbers-container'>
                 <div>
@@ -77,32 +97,32 @@ function PlayerPageBody(props){
                 </div>
                 { selectedNode.data === "Goal Scoring" &&
                     <div className='player-statistics'>
-                        <ScoringBars stats={props.player} percentileGroup={percentileGroup}/>
+                        <ScoringBars stats={selectedSeasonNode.data} percentileGroup={percentileGroup}/>
                     </div>
                 }
                 { selectedNode.data === "Chance Creation" &&
                     <div className='player-statistics'>
-                        <CreationBars stats={props.player} percentileGroup={percentileGroup}/>
+                        <CreationBars stats={selectedSeasonNode.data} percentileGroup={percentileGroup}/>
                     </div>
                 }
                 { selectedNode.data === "Ball Progression" &&
                     <div className='player-statistics'>
-                        <ProgressionBars stats={props.player} percentileGroup={percentileGroup}/>
+                        <ProgressionBars stats={selectedSeasonNode.data} percentileGroup={percentileGroup}/>
                     </div>
                 }
                 { selectedNode.data === "Involvement" &&
                     <div className='player-statistics'>
-                        <InvolvementBars stats={props.player} percentileGroup={percentileGroup}/>
+                        <InvolvementBars stats={selectedSeasonNode.data} percentileGroup={percentileGroup}/>
                     </div>
                 }
                 { selectedNode.data === "Passing" &&
                     <div className='player-statistics'>
-                        <PassingBars stats={props.player} percentileGroup={percentileGroup}/>
+                        <PassingBars stats={selectedSeasonNode.data} percentileGroup={percentileGroup}/>
                     </div>
                 }
                 { selectedNode.data === "Defensive Work" &&
                     <div className='player-statistics'>
-                        <DefensiveBars stats={props.player} percentileGroup={percentileGroup}/>
+                        <DefensiveBars stats={selectedSeasonNode.data} percentileGroup={percentileGroup}/>
                     </div>
                 }
             </div>

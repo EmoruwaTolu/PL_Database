@@ -434,116 +434,96 @@ var players = [];
 const seasons = [];
 const seasonRemoved = [];
 
-const directoryPath = './prem2022-23_with_pictures/';
-const files = fs.readdirSync(directoryPath);
+const directoryPath = ['./prem2021-22_with_pictures/', './prem2022-23_with_pictures/'];
+const seasonList = ['2021-22', '2022-23'];
 
-const season = "2022-23"
-const league = "Premier League"
+function seasonsGenerator(directoryPath){
 
-files.forEach(file => {
-    const data = fs.readFileSync(directoryPath + file, 'utf8').split('\n');
-    var clubNameHyphen = file.replace('-Stats.txt','')
-    var clubName = clubNameHyphen.replace("-"," ")
-    for (let i = 1; i < data.length - 1; i += 2) {
-        const name = data[i];
-        console.log(name)
-        var playerPosition;
-        if(data[i+1]!==null){
-            const stats = data[i+1].split(/\s+/);
-            if(stats[0]!=="GK" && stats[1]!==undefined){//the undefined part makes sure players with no data don't slide through
+  for(let i = 0; i < directoryPath.length; i++){
+    const files = fs.readdirSync(directoryPath[i]);
 
-              playerPosition = stats[0];
+    const season = seasonList[i]
+    const league = "Premier League"
+    files.forEach(file => {
+      const data = fs.readFileSync(directoryPath[i] + file, 'utf8').split('\n');
+      var clubNameHyphen = file.replace('-Stats.txt','')
+      var clubName = clubNameHyphen.replace("-"," ")
+      for (let i = 1; i < data.length - 1; i += 2) {
+          const name = data[i];
+          console.log(name)
+          var playerPosition;
+          if(data[i+1]!==null){
+              const stats = data[i+1].split(/\s+/);
+              if(stats[0]!=="GK" && stats[1]!==undefined){//the undefined part makes sure players with no data don't slide through
 
-              var standard_stats = new StandardStats(name, clubName, season, stats[1], stats[2], stats[3], stats[4], stats[5], stats[6],
-              stats[7], stats[8], stats[9], stats[10], stats[11], stats[12], stats[13], stats[14], stats[15], playerPosition, league);
-                
-              var shooting_stats = new ShootingStats(name, clubName, season, stats[16], stats[17], stats[18], stats[19], stats[20],
-              stats[21], stats[22], stats[23], stats[24], stats[25], playerPosition, league)
+                playerPosition = stats[0];
 
-              var passing_stats = new PassingStats(name, clubName, season, stats[26], stats[27], stats[28], stats[29], stats[30], stats[31],
-              stats[32], stats[33], stats[34], stats[35], stats[36], stats[37], stats[38], stats[39], stats[40], stats[41], stats[42], stats[43],
-              stats[44], playerPosition, league)
+                var playerNew = new Statistics(name, clubName, season, stats[1], stats[2], stats[3], stats[4], stats[5], stats[6],
+                  stats[7], stats[8], stats[9], stats[10], stats[11], stats[12], stats[13], stats[14], stats[15], playerPosition, league,
+                  stats[16], stats[17], stats[18], stats[19], stats[20], stats[21], stats[22], stats[23], stats[24], stats[25],
+                  stats[26], stats[27], stats[28], stats[29], stats[30], stats[31], stats[32], stats[33], stats[34], stats[35], stats[36], stats[37], stats[38], stats[39], stats[40], stats[41], stats[42], stats[43],
+                  stats[44], stats[45], stats[46], stats[47], stats[48], stats[49], stats[50], stats[51], stats[52], stats[53], stats[54], stats[55], stats[56], stats[57],
+                  stats[58], stats[59], stats[60], stats[61], stats[62],
+                  stats[63], stats[64], stats[65], stats[66], stats[67], stats[68], stats[69], stats[70], stats[71],
+                  stats[72], stats[73], stats[74], stats[75], stats[76], stats[77],
+                  stats[78], stats[79], stats[80], stats[81], stats[82], stats[83], stats[84], stats[85], stats[86], stats[87],
+                  stats[88], stats[89], stats[90], stats[91], stats[92], stats[93],
+                  stats[94], stats[95], stats[96], stats[97], stats[98], stats[99], stats[100], stats[101], stats[102], stats[103], stats[104],
+                  stats[105], stats[106], stats[107], stats[108], stats[109], stats[110], stats[111], stats[112], stats[113],
+                  stats[114], stats[115], stats[116], stats[117], stats[118], stats[119])
 
-              var pass_types =  new PassTypes(name, clubName, season, stats[45], stats[46], stats[47], stats[48], stats[49], stats[50], stats[51],
-              stats[52], stats[53], stats[54], stats[55], stats[56], stats[57], playerPosition, league)
+                var player = new Player(name, playerPosition)
+                player.addSeason(playerNew)
 
-              var shot_goalCreation = new ShotAndGoalCreation(name, clubName, season, stats[58], stats[59], stats[60], stats[61], stats[62],
-              stats[63], stats[64], stats[65], stats[66], stats[67], stats[68], stats[69], stats[70], stats[71], playerPosition, league)
-
-              var defensive_stats = new DefensiveStats(name, clubName, season, stats[72], stats[73], stats[74], stats[75], stats[76], stats[77],
-              stats[78], stats[79], stats[80], stats[81], stats[82], stats[83], stats[84], stats[85], stats[86], stats[87], playerPosition, league)
-
-              var possession_stats = new PossessionStats(name, clubName, season, stats[88], stats[89], stats[90], stats[91], stats[92], stats[93],
-              stats[94], stats[95], stats[96], stats[97], stats[98], stats[99], stats[100], stats[101], stats[102], stats[103], stats[104],
-              stats[105], stats[106], stats[107], playerPosition, league)
-
-              var other_stats = new OtherStatistics(name, clubName, season, stats[108], stats[109], stats[110], stats[111], stats[112], stats[113],
-              stats[114], stats[115], stats[116], stats[117], stats[118], playerPosition, league)
-
-              var playerNew = new Statistics(name, clubName, season, stats[1], stats[2], stats[3], stats[4], stats[5], stats[6],
-                stats[7], stats[8], stats[9], stats[10], stats[11], stats[12], stats[13], stats[14], stats[15], playerPosition, league,
-                stats[16], stats[17], stats[18], stats[19], stats[20], stats[21], stats[22], stats[23], stats[24], stats[25],
-                stats[26], stats[27], stats[28], stats[29], stats[30], stats[31], stats[32], stats[33], stats[34], stats[35], stats[36], stats[37], stats[38], stats[39], stats[40], stats[41], stats[42], stats[43],
-                stats[44], stats[45], stats[46], stats[47], stats[48], stats[49], stats[50], stats[51], stats[52], stats[53], stats[54], stats[55], stats[56], stats[57],
-                stats[58], stats[59], stats[60], stats[61], stats[62],
-                stats[63], stats[64], stats[65], stats[66], stats[67], stats[68], stats[69], stats[70], stats[71],
-                stats[72], stats[73], stats[74], stats[75], stats[76], stats[77],
-                stats[78], stats[79], stats[80], stats[81], stats[82], stats[83], stats[84], stats[85], stats[86], stats[87],
-                stats[88], stats[89], stats[90], stats[91], stats[92], stats[93],
-                stats[94], stats[95], stats[96], stats[97], stats[98], stats[99], stats[100], stats[101], stats[102], stats[103], stats[104],
-                stats[105], stats[106], stats[107], stats[108], stats[109], stats[110], stats[111], stats[112], stats[113],
-                stats[114], stats[115], stats[116], stats[117], stats[118], stats[119])
-
-              console.log(playerNew.nonPenXGPerShot90)
-              console.log(stats[24])
-              // if(name === "Mason Holgate"){
-              //   break
-              // }
-
-              var playerSeason = new SeasonPerformance(name, clubName, season, playerPosition, standard_stats, shooting_stats, passing_stats, pass_types,
-                shot_goalCreation, defensive_stats, possession_stats, other_stats, league, stats[119])
-
-              var player = new Player(name, playerPosition)
-              player.addSeason(playerSeason)
-
-              if(isPlayerInArray(players, player) != true){
-                players.push(player);
-                seasons.push(playerSeason);
-                seasonRemoved.push(playerNew)
+                if(isPlayerInArray(players, player) != true){
+                  console.log('Player does not exist within array')
+                  players.push(player);
+                  seasons.push(playerNew);
+                }
+                else{
+                  var existingPlayer = players.find(playerInArray => playerInArray.name === player.name)
+                  if(!existingPlayer.listOfSeasons.some((p) => p.season === playerNew.season)){
+                    console.log("ugh")
+                    existingPlayer.addSeason(playerNew)
+                    seasons.push(playerNew)
+                  }
+                }
+                  
               }
-                
-            }
-            else if(stats[0]==="GK"){
-              console.log(name)             
-            }
-        }
-    }
+              else if(stats[0]==="GK"){
+                console.log(name)             
+              }
+          }
+      }
 
-    // let jsonString = JSON.stringify(players);
+      // let jsonString = JSON.stringify(players);
 
-    // fs.writeFile(`${clubName}.json`, jsonString, (err) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    //   console.log('JSON file has been saved.');
-    // });
+      // fs.writeFile(`${clubName}.json`, jsonString, (err) => {
+      //   if (err) {
+      //     console.error(err);
+      //     return;
+      //   }
+      //   console.log('JSON file has been saved.');
+      // });
 
-    // players = []
-    
-});
+      // players = []
+      
+    });
+  }
 
+}
 
+seasonsGenerator(directoryPath)
 console.log(players.length)
-console.log(seasonRemoved.length)
+console.log(seasons.length)
 
-module.exports = seasonRemoved;
+module.exports = seasons;
 
-let jsonString = JSON.stringify(seasonRemoved);
+let jsonString = JSON.stringify(seasons);
 
 // Write the JSON string to a file
 
-fs.writeFile('players_2022-23.json', jsonString, (err) => {
+fs.writeFile('playersSeasons.json', jsonString, (err) => {
   if (err) {
     console.error(err);
     return;
