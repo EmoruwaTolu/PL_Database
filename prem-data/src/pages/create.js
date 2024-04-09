@@ -60,7 +60,7 @@ function Create(){
 
         try{
             const response1 = await fetch(`https://pl-database-1gr2.onrender.com/create/${option1}`);
-            const response2 = await fetch(`https://pl-database-1gr2.onrender.com/${option2}`);
+            const response2 = await fetch(`https://pl-database-1gr2.onrender.com/create/${option2}`);
             const data1 = await response1.json();
             const data2 = await response2.json();
             
