@@ -39,7 +39,7 @@ function PlayerPage() {
 
     useEffect(() => {
         if (player) {
-          axios.get(`/player/${player.playerName}`)
+          axios.get(`https://pl-database-1gr2.onrender.com//player/${player.playerName}`)
             .then(response => {
               setPlayerInfo(response.data);
               setSeason(arrayToCircularLinkedList(response.data).head)
