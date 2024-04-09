@@ -8,7 +8,7 @@ export default function HomeQuiz(){
     const fetchData = async () => {
 
         try{
-            const response = await fetch(`http://localhost:3001/blog-posts`);
+            const response = await fetch(`https://pl-database-1gr2.onrender.com/blog-posts`);
             const data = await response.json();
             setPosts(data);
         }
