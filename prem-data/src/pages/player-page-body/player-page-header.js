@@ -13,6 +13,7 @@ function PlayerPageHeader(props){
                 <p className="player-name">{props.props.data.name}</p>
                 <p className="player-page-club">{props.props.data.club}</p>
                 <p className="player-page-position">{props.props.data.position}</p>
+                <p className="player-page-position">{props.props.data.season}</p>
             </div>
         </div>
     )

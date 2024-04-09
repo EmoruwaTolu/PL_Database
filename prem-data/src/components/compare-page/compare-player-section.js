@@ -5,6 +5,7 @@ import Autocompletion from "../autocomplete";
 import { CompareAttrList } from "./compare-attr-list";
 import RadarAxisMaker from "./compare-function";
 import { checkboxOptions } from "../miscellaneous-files/checkboxOptions";
+import ComparePercentiles from "./compare-percentiles";
 
 const ComparePlayerSection = () => {
 
@@ -16,7 +17,8 @@ const ComparePlayerSection = () => {
     const [percentileComparer2, setPercentileComparer2] = useState(0);
     const [seasonPlayer1, setSeasonPlayer1] = useState(0);
     const [seasonPlayer2, setSeasonPlayer2] = useState(0);
-    const [seasonSwitched, setSeasonSwitched] = useState(false);
+
+    console.log(player2)
 
     const handleCheckboxChange = (checkedItems) => {
         setSelectedItems(checkedItems);
@@ -35,6 +37,14 @@ const ComparePlayerSection = () => {
             setPercentileComparer2(1);
         }
     };
+    
+    useEffect(() => {
+        setSeasonPlayer1(0);
+    }, [player1]);
+
+    useEffect(() => {
+        setSeasonPlayer2(0);
+    }, [player2]);
 
     return(
         <div className="compare-body">
@@ -52,40 +62,12 @@ const ComparePlayerSection = () => {
                             </div>
                         }
                         <Autocompletion className="compare-search-bar" setPlayer={setPlayer1}/>
-                        {player1 && 
-                            <div className="select-menu">
-                                <div className="select">
-                                    <span>Select Season</span>
-                                    <i className="fas fa-angle-down"></i>
-                                </div>
-                                <div className="options-list">
-                                    {player1.listOfSeasons.map((player, index) => (
-                                        <div 
-                                            className={`season-option ${seasonPlayer1 === index ? 'selected-season' : ''}`}
-                                            key={index} onClick={() => {
-                                                setSeasonPlayer1(index); 
-                                                if(isPercentileMode && seasonPlayer1 !== index){
-                                                    setPercentileComparer1(1)
-                                                    setPercentileComparer2(1)
-                                                }
-                                            }}>
-                                                {player1.listOfSeasons[index].season}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        }
-                        {
-                            player1 && (
-                                isPercentileMode && player1.listOfSeasons[seasonPlayer1].position.includes(",") && 
-                                <div className="percentile-options">
-                                    <input type="radio" id={1} name="player1" value={0} onChange={() => {setPercentileComparer1(1)}} />
-                                    <label >{player1.listOfSeasons[seasonPlayer1].position.split(",")[0]}</label>
-                                    <input type="radio" id={1} name="player1" value={1} onChange={() => {setPercentileComparer1(2)}} />
-                                    <label >{player1.listOfSeasons[seasonPlayer1].position.split(",")[1]}</label>
-                                </div>
-                                
-                            )
+                        {player1 && player1.listOfSeasons[seasonPlayer1] !== undefined && 
+                            <ComparePercentiles player={player1} 
+                                setSeasonPlayer1={setSeasonPlayer1} seasonPlayer1={seasonPlayer1}
+                                setPercentileComparer={setPercentileComparer1} 
+                                isPercentileMode={isPercentileMode}
+                            />
                         }
                     </div>
                     <div className="compare-search-field">
@@ -95,38 +77,12 @@ const ComparePlayerSection = () => {
                             </div>
                         }
                         <Autocompletion className="compare-search-bar" setPlayer={setPlayer2}/>
-                        {player2 && 
-                            <div className="select-menu">
-                                <div className="select">
-                                    <span>Select Season</span>
-                                </div>
-                                <div className="options-list">
-                                    {player2.listOfSeasons.map((player, index) => (
-                                        <div 
-                                            className={`season-option ${seasonPlayer2 === index ? 'selected-season' : ''}`}
-                                            key={index} onClick={() => {setSeasonPlayer2(index) ;
-                                                if(isPercentileMode && seasonPlayer2 !== index){
-                                                    setPercentileComparer1(1)
-                                                    setPercentileComparer2(1)
-                                                }
-                                            }}>
-                                                {player2.listOfSeasons[index].season}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        }
-                        {
-                            player2 && (
-                                isPercentileMode && player2.listOfSeasons[seasonPlayer2].position.includes(",") && 
-                                <div className="percentile-options">
-                                    <label >{player2.listOfSeasons[seasonPlayer2].position.split(",")[0]}</label>
-                                    <input type="radio" id={2} name="player2" value={0} onChange={() => {setPercentileComparer2(1)}} />
-                                    <label >{player2.listOfSeasons[seasonPlayer2].position.split(",")[1]}</label>
-                                    <input type="radio" id={2} name="player2" value={1} onChange={() => {setPercentileComparer2(2)}} />
-                                </div>
-                                
-                            )
+                        {player2 && player2.listOfSeasons[seasonPlayer2] !== undefined && player2 !== null &&
+                            <ComparePercentiles player={player2} 
+                                setSeasonPlayer1={setSeasonPlayer2} seasonPlayer1={seasonPlayer2}
+                                setPercentileComparer={setPercentileComparer2} 
+                                isPercentileMode={isPercentileMode}
+                            />
                         }
                     </div>
                 </div>
@@ -137,10 +93,12 @@ const ComparePlayerSection = () => {
                         <span className="slider round"></span>
                     </label>
                 </div>
-                <RadarAxisMaker player1={player1} player2={player2} attributes={selectedItems} 
-                percentile1={percentileComparer1} percentile2={percentileComparer2}
-                season1={seasonPlayer1} season2={seasonPlayer2}
+                {player1 && player2 && 
+                    <RadarAxisMaker player1={player1} player2={player2} attributes={selectedItems} 
+                    percentile1={percentileComparer1} percentile2={percentileComparer2}
+                    season1={seasonPlayer1} season2={seasonPlayer2}
                 />
+                }
             </div>
         </div>
         
