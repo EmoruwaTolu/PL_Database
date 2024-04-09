@@ -38,7 +38,7 @@ function PlayerPage() {
     const [seasonLinkedList, setSeasonLinkedList] = useState();
 
     useEffect(() => {
-        if (player) {
+        // if (player) {
           axios.get(`https://pl-database-1gr2.onrender.com//player/${player.playerName}`)
             .then(response => {
               setPlayerInfo(response.data);
@@ -49,7 +49,7 @@ function PlayerPage() {
             .catch(error => {
               console.error("Error fetching player data:", error);
             });
-        }
+        // }
     }, [player]);
   //   useEffect(() => {
   //     if (player) {
