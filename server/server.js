@@ -174,6 +174,8 @@ app.get('/player/:name', async (req, res) => {
 
     const playerName = req.params.name;
 
+    console.log(playerName)
+
     const db = client.db(dbName);
     const collection = db.collection('IndividualSeasons');
 
