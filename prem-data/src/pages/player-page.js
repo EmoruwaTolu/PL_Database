@@ -37,20 +37,38 @@ function PlayerPage() {
     const [season, setSeason] = useState();
     const [seasonLinkedList, setSeasonLinkedList] = useState();
 
+    // useEffect(() => {
+    //     if (player) {
+    //       axios.get(`/player/${player.playerName}`)
+    //         .then(response => {
+    //           setPlayerInfo(response.data);
+    //           setSeason(arrayToCircularLinkedList(response.data).head)
+    //           setSeasonLinkedList(arrayToCircularLinkedList(response.data))
+    //           console.log(response.data[response.data.length - 1].name);
+    //         })
+    //         .catch(error => {
+    //           console.error("Error fetching player data:", error);
+    //         });
+    //     }
+    // }, [player]);
     useEffect(() => {
-        if (player) {
-          axios.get(`/player/${player.playerName}`)
-            .then(response => {
-              setPlayerInfo(response.data);
-              setSeason(arrayToCircularLinkedList(response.data).head)
-              setSeasonLinkedList(arrayToCircularLinkedList(response.data))
-              console.log(response.data[response.data.length - 1].name);
-            })
-            .catch(error => {
-              console.error("Error fetching player data:", error);
-            });
-        }
-    }, [player]);
+      if (player) {
+          async function fetchData() {
+              try {
+                  const response = await fetch(`/player/${player.playerName}`);
+                  const data = await response.json();
+                  setPlayerInfo(data);
+                  const linkedList = await arrayToCircularLinkedList(data);
+                  setSeason(linkedList.head);
+                  setSeasonLinkedList(linkedList);
+                  console.log(data[data.length - 1].name);
+              } catch (error) {
+                  console.error("Error fetching player data:", error);
+              }
+          }
+          fetchData();
+      }
+  }, [player]);
 
     if (playerInfo.length === 0) {
         return <p>Loading player data...</p>;
