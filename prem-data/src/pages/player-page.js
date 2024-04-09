@@ -73,6 +73,8 @@ function PlayerPage() {
     if (playerInfo.length === 0) {
         return <p>Loading player data...</p>;
     }
+    console.log(player)
+    console.log(playerInfo)
 
     return(
       <div>
