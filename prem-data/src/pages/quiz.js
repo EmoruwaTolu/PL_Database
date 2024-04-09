@@ -24,7 +24,7 @@ function Quiz(){
     const fetchData = async () => {
 
         try{
-            const response = await fetch(`http://localhost:3001/connections`);
+            const response = await fetch(`https://pl-database-1gr2.onrender.com/connections`);
             const data = await response.json();
             setConnectionsQuestion(data[0]);
 

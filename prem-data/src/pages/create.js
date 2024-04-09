@@ -59,8 +59,8 @@ function Create(){
         option2 = normalizeNames[option2]
 
         try{
-            const response1 = await fetch(`http://localhost:3001/create/${option1}`);
-            const response2 = await fetch(`http://localhost:3001/create/${option2}`);
+            const response1 = await fetch(`https://pl-database-1gr2.onrender.com/create/${option1}`);
+            const response2 = await fetch(`https://pl-database-1gr2.onrender.com/${option2}`);
             const data1 = await response1.json();
             const data2 = await response2.json();
             

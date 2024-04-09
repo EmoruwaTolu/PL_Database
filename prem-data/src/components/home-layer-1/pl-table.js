@@ -20,7 +20,7 @@ export default function BasicTabs() {
     const fetchData = async () => {
 
         try{
-            const response = await fetch(`http://localhost:3001/seasonInformation`);
+            const response = await fetch(`https://pl-database-1gr2.onrender.com/seasonInformation`);
             const data = await response.json();
             setData(data);
         }
