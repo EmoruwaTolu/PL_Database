@@ -23,7 +23,7 @@ return (
             onChange={() => handleCheckboxChange(option)}
             className="checkbox-input"
           />
-          <label htmlFor={option}>{option}</label>
+          <label htmlFor={option} className="attrlist-label">{option}</label>
         </div>
       ))}
     </div>

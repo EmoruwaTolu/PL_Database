@@ -155,6 +155,9 @@ input:checked + .slider:before {
 .selected-season{
     font-weight: 600;
 }
+.attrlist-label{
+    font-size: 1em;
+}
 @media screen and (max-width: 1000px) {
     .compare-body{
         flex-direction: column;
@@ -201,8 +204,8 @@ input:checked + .slider:before {
         height: 13%;
         font-size: 2em;
     }
-    .percentile-toggle p{
-        font-size: 1em;
+    .attrlist-label{
+        font-size: 1.2em;
     }
     .switch{
         height: 30px;
@@ -236,6 +239,6 @@ input:checked + .slider:before {
         font-size: 2em;
     }
     .custom-tooltip{
-        font-size: 2em;
+        font-size: 1em;
     }
 }
