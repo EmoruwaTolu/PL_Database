@@ -159,6 +159,15 @@ input:checked + .slider:before {
 .attrlist-label{
     font-size: 1em;
 }
+.options-list{
+    font-size: 1em;
+}
+.season-option{
+    font-size: 1em;
+}
+.select{
+    font-size: 1.2em;
+}
 @media screen and (max-width: 1000px) {
     .compare-body{
         flex-direction: column;
@@ -244,5 +253,18 @@ input:checked + .slider:before {
     }
     .select-menu{
         font-size: 0.8em;
+    }
+    .season-option{
+        font-size: 0.8em;
+        color: red;
+    }
+    .options-list{
+        font-size: 1em;
+    }
+    .season-option{
+        font-size: 1em;
+    }
+    .select{
+        font-size: 1.2em;
     }
 }

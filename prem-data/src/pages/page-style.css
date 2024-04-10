@@ -306,14 +306,14 @@
 }
 @media screen and (min-width: 1441px) {
     .player-name{
-        font-size: 2.5em;
+        font-size: 2em;
     }
     .player-page-club{
-        font-size: 1.5em;
+        font-size: 1.2em;
         margin-bottom: 0.5em;
     }
     .player-page-position{
-        font-size: 1.5em;
+        font-size: 1em;
     }
     .numbers-container{
         font-size: 1.2em;
@@ -322,7 +322,7 @@
         font-size: 1em;
     }
     .position-tabs button{
-        font-size: 2em;
+        font-size: 1.25em;
     }
     .player-statistics{
         min-width: 100%;
