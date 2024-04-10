@@ -237,10 +237,10 @@ input:checked + .slider:before {
         transform: translateX(55px);
     }
     .recharts-legend-wrapper{
-        font-size: 2em;
+        font-size: 1.7rem;
     }
     .recharts-polar-angle-axis-tick-value tspan {
-        font-size: 2em;
+        font-size: 1.3rem;
     }
     .custom-tooltip{
         font-size: 1em;
