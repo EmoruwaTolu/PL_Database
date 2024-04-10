@@ -23,7 +23,7 @@ return (
             onChange={() => handleCheckboxChange(option)}
             className="checkbox-input"
           />
-          <label style={{fontSize: '16px'}} htmlFor={option}>{option}</label>
+          <label htmlFor={option}>{option}</label>
         </div>
       ))}
     </div>
