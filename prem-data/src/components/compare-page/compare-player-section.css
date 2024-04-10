@@ -249,7 +249,7 @@ input:checked + .slider:before {
         font-size: 1em;
     }
     .attrlist-label{
-        font-size: 1em;
+        font-size: 1rem;
     }
     .select-menu{
         font-size: 0.8em;
@@ -258,12 +258,15 @@ input:checked + .slider:before {
         font-size: 0.8em;
     }
     .season-option{
-        font-size: 0.8em;
+        font-size: 0.8rem;
     }
     .select{
-        font-size: 1em;
+        font-size: 1rem;
     }
-    .season-option{
+    .percentile-options{
+        font-size: 1rem;
+    }
+    /* .season-option{
         font-size: 24px;
-    }
+    } */
 }
