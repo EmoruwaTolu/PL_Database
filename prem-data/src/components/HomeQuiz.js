@@ -32,14 +32,8 @@ export default function HomeQuiz(){
         <div className="quiz-carousel">
             <div className="quiz-carousel-title">Quiz</div>
             <img src={posts[0].image} alt="news img" className="carousel-image"></img>
-            <div className="story-title">{posts[0].title}</div>
-            <div className="story-preview">{posts[0].preview}</div>
-            <div className="carousel-navigator">
-                <button className="carousel-locator current-image"></button>
-                <button className="carousel-locator"></button>
-                <button className="carousel-locator"></button>
-                <button className="carousel-locator"></button>
-            </div>
+            <div className="story-title">Play Connections and test your skills!</div>
+            <div className="story-preview">Can you figure out what connects these players?</div>
         </div>
     )
 }

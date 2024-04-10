@@ -187,7 +187,7 @@ input:checked + .slider:before {
         font-size: 2em;
     }
     .checkbox-input{
-        transform: scale(2);
+        transform: 1em;
         margin-right: 1em;
     }
     .compare-search-fields{
@@ -200,6 +200,9 @@ input:checked + .slider:before {
     .percentile-toggle{
         height: 13%;
         font-size: 2em;
+    }
+    .percentile-toggle p{
+        font-size: 1em;
     }
     .switch{
         height: 30px;
