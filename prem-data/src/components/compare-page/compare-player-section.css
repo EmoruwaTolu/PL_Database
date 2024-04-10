@@ -207,9 +207,6 @@ input:checked + .slider:before {
         height: 25vh;
         font-size: 2em;
     }
-    .compare-search-field{
-        height: 80%;
-    }
     .percentile-toggle{
         height: 13%;
         font-size: 1em;
