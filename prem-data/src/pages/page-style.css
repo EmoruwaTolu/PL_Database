@@ -306,7 +306,7 @@
 }
 @media screen and (min-width: 1441px) {
     .player-name{
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .player-page-club{
         font-size: 1.2em;
@@ -319,7 +319,7 @@
         font-size: 1.2em;
     }
     .chart-container p{
-        font-size: 1em;
+        font-size: 0.8em;
     }
     .position-tabs button{
         font-size: 1.25em;

@@ -13,9 +13,9 @@ export const CompareAttrList = ({ options, onCheckboxChange }) => {
   };
 
 return (
-    <div>
+    <div className="attr-container">
       {options.map((option) => (
-        <div key={option}>
+        <div key={option} className="attrlist-label">
           <input
             type="checkbox"
             id={option}
@@ -23,7 +23,7 @@ return (
             onChange={() => handleCheckboxChange(option)}
             className="checkbox-input"
           />
-          <label htmlFor={option} className="attrlist-label">{option}</label>
+          <label style={{fontSize: '16px'}} htmlFor={option}>{option}</label>
         </div>
       ))}
     </div>

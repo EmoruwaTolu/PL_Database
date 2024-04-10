@@ -16,7 +16,8 @@ function ComparePercentiles({player, setSeasonPlayer1, seasonPlayer1, setPercent
                 </div>
                 <div className="options-list">
                     {player.listOfSeasons.map((seasons, index) => (
-                        <div 
+                        <div
+                            style={{fontSize: '0.8em'}}
                             className={`season-option ${seasonPlayer1 === index ? 'selected-season' : ''}`}
                             onClick={() => {
                                 setSeasonPlayer1(index);

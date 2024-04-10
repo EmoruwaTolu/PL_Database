@@ -254,10 +254,6 @@ input:checked + .slider:before {
     .select-menu{
         font-size: 0.8em;
     }
-    .season-option{
-        font-size: 0.8em;
-        color: red;
-    }
     .options-list{
         font-size: 1em;
     }
@@ -266,5 +262,8 @@ input:checked + .slider:before {
     }
     .select{
         font-size: 1.2em;
+    }
+    .season-option{
+        font-size: 16px;
     }
 }

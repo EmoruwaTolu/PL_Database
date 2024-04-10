@@ -51,24 +51,6 @@ function PlayerPage() {
             });
         // }
     }, [player]);
-  //   useEffect(() => {
-  //     if (player) {
-  //         async function fetchData() {
-  //             try {
-  //                 const response = await fetch(`/player/${player.playerName}`);
-  //                 const data = await response.json();
-  //                 setPlayerInfo(data);
-  //                 const linkedList = await arrayToCircularLinkedList(data);
-  //                 setSeason(linkedList.head);
-  //                 setSeasonLinkedList(linkedList);
-  //                 console.log(data[data.length - 1].name);
-  //             } catch (error) {
-  //                 console.error("Error fetching player data:", error);
-  //             }
-  //         }
-  //         fetchData();
-  //     }
-  // }, [player]);
 
     if (playerInfo.length === 0) {
         return <p>Loading player data...</p>;

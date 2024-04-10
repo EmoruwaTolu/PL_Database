@@ -6,7 +6,7 @@ function Taskbar() {
 
     return(
         <nav className="taskbar">
-            <Link to={`/`} className="logo">PL Database</Link>
+            <Link to={`/`} className="logo">Home</Link>
             <ul>
                 <li> <Link to={`/compare`}>Compare</Link></li>
                 <li> <Link to={`/quiz`}>Quiz</Link></li>

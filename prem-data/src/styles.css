@@ -125,7 +125,7 @@
 }
 
 .player-card .player-info .player-name{
-    font-size: 1.25em;
+    font-size: 1.4em;
     font-weight: 700;
     margin: 0;
     display: flex;
@@ -133,7 +133,7 @@
 }
 
 .player-card .player-info .club-name{
-    font-size: 0.6em;
+    font-size: 0.8em;
     display: flex;
     justify-content: right;
     margin: 0;
