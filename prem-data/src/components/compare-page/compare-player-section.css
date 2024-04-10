@@ -150,7 +150,8 @@ input:checked + .slider:before {
     font-size: 0.8em;
 }
 .select-menu{
-    color: white
+    color: white;
+    font-size: 0.6em;
 }
 .selected-season{
     font-weight: 600;
@@ -202,10 +203,7 @@ input:checked + .slider:before {
     }
     .percentile-toggle{
         height: 13%;
-        font-size: 2em;
-    }
-    .attrlist-label{
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .switch{
         height: 30px;
@@ -240,5 +238,11 @@ input:checked + .slider:before {
     }
     .custom-tooltip{
         font-size: 1em;
+    }
+    .attrlist-label{
+        font-size: 1em;
+    }
+    .select-menu{
+        font-size: 0.8em;
     }
 }
