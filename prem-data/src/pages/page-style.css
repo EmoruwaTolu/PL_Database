@@ -315,14 +315,11 @@
     .player-page-position{
         font-size: 1em;
     }
-    .numbers-container{
-        font-size: 1.2em;
-    }
     .chart-container p{
         font-size: 0.8em;
     }
     .position-tabs button{
-        font-size: 1.25em;
+        font-size: 1em;
     }
     .player-statistics{
         min-width: 100%;

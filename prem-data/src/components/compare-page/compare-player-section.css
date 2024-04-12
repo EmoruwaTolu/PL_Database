@@ -207,10 +207,10 @@ input:checked + .slider:before {
         height: 25vh;
         font-size: 2em;
     }
-    .percentile-toggle{
+    /* .percentile-toggle{
         height: 13%;
         font-size: 1em;
-    }
+    } */
     /* .switch{
         height: 30px;
         width: 90px;
