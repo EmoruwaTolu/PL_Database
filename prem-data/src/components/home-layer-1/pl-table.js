@@ -33,7 +33,7 @@ export default function BasicTabs() {
 
     useEffect(() => {
         fetchData('');
-    }, []);
+    }, [season]);
 
     const customStyles = {
         rows: {
