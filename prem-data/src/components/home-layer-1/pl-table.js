@@ -145,6 +145,11 @@ export default function BasicTabs() {
                     data.length === 3 && (
                     <div className='pl-home-container'>
                         <div className="table">
+                            <div className='season-container'>
+                                <button onClick={() => {setSeason("2021-22")}}>Previous</button>
+                                {season}
+                                <button>Next</button>
+                            </div>
                             <DataTable 
                                 columns={columns} 
                                 data={data[0].sort((a, b) => b.points - a.points)} 

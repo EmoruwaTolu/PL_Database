@@ -72,6 +72,12 @@
     background-color: #505050;
     color: #F8F8F8;
 }
+.season-container{
+    height: 5vh;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
 @media screen and (max-width: 1024px) {
     .pl-season-info{
         height: fit-content;
