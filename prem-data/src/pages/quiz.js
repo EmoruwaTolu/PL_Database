@@ -177,7 +177,7 @@ function Quiz(){
                                 {playerNames.map((player, index) => 
                                     <div 
                                     key={index}
-                                    className={`word-button ${selectedButtons.includes(player.name) ? 'selected-player' : ''}`}
+                                    className={`word-button ${selectedButtons.includes(player.name) ? 'selected-player' : ''} ${isShaking ? 'shake-animation' : ''}`}
                                     onClick={() => handleButtonClick(player)}
                                     >
                                         {player.name}

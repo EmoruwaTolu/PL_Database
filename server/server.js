@@ -123,17 +123,33 @@ app.get('/blog-posts', async(req,res) => {
   }
 })
 
-app.get('/seasonInformation', async(req, res) => {
+app.get('/seasonInformation/:season', async(req, res) => {
   try{
     await client.connect()
+    const season = req.params.season;
 
     const db =  client.db(dbName);
 
     const collectionOverall = db.collection('PremierLeagueTeamSeasonsOverall');
 
-    const dataOverall =  await collectionOverall.find({matchesPlayed: "38"}).toArray();
-    const dataHome = await collectionOverall.find({location: "Home"}).toArray();
-    const dataAway = await collectionOverall.find({location: "Away"}).toArray();
+    const dataOverall =  await collectionOverall.find({
+      $and: [
+        {season: `PremierLeague${season}Overall`},
+        {matchesPlayed: "38"}
+      ]
+    }).toArray();
+    const dataHome = await collectionOverall.find({
+      $and: [
+        {season: `PremierLeague${season}HomeAway`},
+        {location: "Home"}
+      ]
+    }).toArray();
+    const dataAway = await collectionOverall.find({
+      $and: [
+        {season: `PremierLeague${season}HomeAway`},
+        {location: "Away"}
+      ]
+    }).toArray();
 
     res.json([dataOverall, dataHome, dataAway]);
   }

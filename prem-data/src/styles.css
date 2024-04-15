@@ -36,6 +36,8 @@
 }
 .story-title{
     font-size: 1.2em;
+    color: white;
+    text-decoration: none;
 }
 .story-preview{
     font-size: 0.9em;

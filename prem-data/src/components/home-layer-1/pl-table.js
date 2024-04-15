@@ -16,11 +16,12 @@ export default function BasicTabs() {
 
     const [data, setData] = useState([]);
     const [view, setView] = useState(0);
+    const [season, setSeason] = useState("2022-23")
 
     const fetchData = async () => {
 
         try{
-            const response = await fetch(`https://pl-database-1gr2.onrender.com/seasonInformation`);
+            const response = await fetch(`https://pl-database-1gr2.onrender.com/seasonInformation/${season}`);
             const data = await response.json();
             setData(data);
         }
