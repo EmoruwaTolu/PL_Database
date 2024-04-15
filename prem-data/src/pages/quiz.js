@@ -19,7 +19,8 @@ function Quiz(){
     const [solvedRows, setSolvedRows] = useState(0);
     const [solvedRowsList, setSolvedRowsList] =  useState([]);
     const [solvedDifficulty, setSolvedDifficulty] =  useState("");
-    const [gameComplete, setGameComplete] = useState(false)
+    const [gameComplete, setGameComplete] = useState(false);
+    const [isShaking, setIsShaking] = useState(false);
 
     const fetchData = async () => {
 
@@ -89,6 +90,14 @@ function Quiz(){
             setSolvedRowsList(solvedGroup)
             setSolvedDifficulty(selectedPlayers[0].difficulty)
         }
+        else{
+            setIsShaking(true);
+
+            // After a short delay, reset isShaking to false to stop the shaking animation
+            setTimeout(() => {
+                setIsShaking(false);
+            }, 1000);
+        }
 
         if(solvedRowsList.length === 4 ){
             setSelectedPlayers([])
@@ -131,7 +140,7 @@ function Quiz(){
                                     {playerNames.map((player, index) => 
                                         <div 
                                         key={index}
-                                        className={`word-button ${selectedButtons.includes(player.name) ? 'selected-player' : ''}`}
+                                        className={`word-button ${selectedButtons.includes(player.name) ? 'selected-player' : ''} ${isShaking ? 'shake-animation' : ''}`}
                                         onClick={() => handleButtonClick(player)}
                                         >
                                             {player.name}

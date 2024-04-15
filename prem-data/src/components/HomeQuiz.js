@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles.css"
 
 export default function HomeQuiz(){
@@ -32,7 +33,7 @@ export default function HomeQuiz(){
         <div className="quiz-carousel">
             <div className="quiz-carousel-title">Quiz</div>
             <img src={posts[0].image} alt="news img" className="carousel-image"></img>
-            <div className="story-title">Play Connections and test your skills!</div>
+            <Link className="story-title" to={`/quiz`}>Play Connections and test your skills!</Link>
             <div className="story-preview">Can you figure out what connects these players?</div>
         </div>
     )

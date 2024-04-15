@@ -231,11 +231,11 @@ input:checked + .slider:before {
     .player-display{
         height: fit-content;
     }
-    input:checked + .slider:before {
+    /* input:checked + .slider:before {
         -webkit-transform: translateX(55px);
         -ms-transform: translateX(55px);
         transform: translateX(55px);
-    }
+    } */
     /* .recharts-legend-wrapper{
         font-size: 1.3rem;
     }

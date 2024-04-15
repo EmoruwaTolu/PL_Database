@@ -27,10 +27,10 @@ def seasonTeamStatistics(url, file, file1):
     html = requests.get(url)
     s = BeautifulSoup(html.content, 'html.parser')
 
-    teamStats = s.find(id="switcher_results2022-202391")
+    teamStats = s.find(id="switcher_results2021-202291")
 
-    teamOverall = teamStats.find("table", id="results2022-202391_overall")
-    teamHomeAway = teamStats.find("table", id="results2022-202391_home_away")
+    teamOverall = teamStats.find("table", id="results2021-202291_overall")
+    teamHomeAway = teamStats.find("table", id="results2021-202291_home_away")
 
     overallInfo = teamOverall.find("tbody")
     overallRows = overallInfo.find_all("tr")
@@ -74,8 +74,8 @@ def seasonTeamStatistics(url, file, file1):
         
         file1.write("\n")
 
-file2 = open("PremierLeague2022-23Overall.txt", "w")
-file3 = open("PremierLeague2022-23HomeAway.txt", "w")
-seasonTeamStatistics("https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats", file2, file3)
+file2 = open("PremierLeague2021-22Overall.txt", "w")
+file3 = open("PremierLeague2021-22HomeAway.txt", "w")
+seasonTeamStatistics("https://fbref.com/en/comps/9/2021-2022/2021-2022-Premier-League-Stats", file2, file3)
 
 print("done done done done done done we are done")
