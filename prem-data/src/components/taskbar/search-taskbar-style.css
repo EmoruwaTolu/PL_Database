@@ -4,7 +4,6 @@
     background-color: #383838;
     color: #fefae0;
     display: flex;
-    gap: 2em;
     box-sizing: border-box;
     position: sticky;
     justify-content: space-around;
@@ -19,7 +18,6 @@
     justify-content: right;
     width: 100%;
     height: 100%;
-    flex: 1;
     box-sizing: border-box;
 }
 
@@ -28,7 +26,6 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    flex: 2;
     box-sizing: border-box;
     padding-left: 2em;
 }
@@ -39,6 +36,7 @@
     justify-content: center;
     align-items: center;
     padding: 0 1em;
+    box-sizing: border-box;
     font-size: 1.25em;
 }
 
