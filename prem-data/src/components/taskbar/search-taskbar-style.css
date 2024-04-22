@@ -8,15 +8,15 @@
     position: sticky;
     justify-content: space-around;
     box-shadow: 2px 2px 2px 1px #181818;
+    padding: 0 1em;
 }
 
 .taskbar ul {
-    margin: 0;
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
     height: 100%;
     box-sizing: border-box;
 }
@@ -24,10 +24,10 @@
 .taskbar .logo{
     height: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    width: 20%;    
+    width: fit-content;    
 }
 
 .taskbar li{
