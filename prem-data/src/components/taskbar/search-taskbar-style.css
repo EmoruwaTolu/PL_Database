@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 40%;
     height: 100%;
     box-sizing: border-box;
 }
@@ -26,7 +26,8 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    box-sizing: border-box;    
+    box-sizing: border-box;
+    width: 20%;    
 }
 
 .taskbar li{
