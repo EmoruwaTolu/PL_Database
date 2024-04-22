@@ -15,7 +15,7 @@
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -26,8 +26,7 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    box-sizing: border-box;
-    padding-left: 2em;
+    box-sizing: border-box;    
 }
 
 .taskbar li{
@@ -35,9 +34,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1em;
     box-sizing: border-box;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .taskbar a {
@@ -47,6 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .taskbar li.active {
