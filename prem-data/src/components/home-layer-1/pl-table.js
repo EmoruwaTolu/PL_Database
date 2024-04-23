@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
 import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { teamColours } from '../player-tab';
+import ScatterGraph from '../scatter-chart/scatter-chart';
 import './layer1-style.css';
 
 const cellDummyProps = {
@@ -160,7 +161,7 @@ export default function BasicTabs() {
                         </div>
                         <div className='graph'>
                             <div className='home-graph-header'>xGD/Points Table</div>
-                            <ResponsiveContainer width="99%" height="90%" aspect={1.4}> 
+                            {/* <ResponsiveContainer width="99%" height="90%" aspect={1.4}> 
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
@@ -173,7 +174,8 @@ export default function BasicTabs() {
                                         ))}
                                     </Scatter>
                                 </ScatterChart>
-                            </ResponsiveContainer>
+                            </ResponsiveContainer> */}
+                            <ScatterGraph data={data[0]}/>
                         </div>
                     </div>
                     )
