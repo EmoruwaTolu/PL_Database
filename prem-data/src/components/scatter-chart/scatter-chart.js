@@ -50,7 +50,7 @@ function ScatterGraph({data}){
                 .attr('cx', d => xScale(d.totalXGD))
                 .attr('cy', d => yScale(d.points))
                 .attr('r', 2)
-                .style("fill", `${teamColours[d.clubname]}`)
+                .style("fill", d => `${teamColours[d.clubname]}`)
 
     }, [plotData])
 
