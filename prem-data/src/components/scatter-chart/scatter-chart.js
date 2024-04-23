@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { teamColours } from "../player-tab";
 import * as d3 from 'd3';
 
 function ScatterGraph({data}){
@@ -47,13 +48,11 @@ function ScatterGraph({data}){
             .enter()
             .append('circle')
                 .attr('cx', d => xScale(d.totalXGD))
-                .attr('cY', d => xScale(d.points))
+                .attr('cY', d => yScale(d.points))
                 .attr('r', 2)
-
+                .style("fill", `${teamColours[d.clubname]}`)
 
     }, [plotData])
-
-    console.log(plotData)
 
     return(
         <div>
