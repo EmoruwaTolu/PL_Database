@@ -30,9 +30,26 @@ function ScatterGraph({data}){
         svg.append('g')
             .call(xAxis)
             .attr('transform', `translate(0, ${h})`);
-        
         svg.append('g')
-            .call(yAxis)
+            .call(yAxis);
+
+        svg.append('text')
+            .attr('x', w/2)
+            .attr('y', h + 50)
+            .text('x')
+        svg.append('text')
+            .attr('y', h/2)
+            .attr('x', -50)
+            .text('y')
+
+        svg.selectAll()
+            .data(data)
+            .enter()
+            .append('circle')
+                .attr('cx', d => xScale(d.totalXGD))
+                .attr('cY', d => xScale(d.points))
+                .attr('r', 2)
+
 
     }, [plotData])
 
@@ -40,7 +57,7 @@ function ScatterGraph({data}){
 
     return(
         <div>
-            {/* <svg ref={svgRef}/> */}
+            <svg ref={svgRef}/>
         </div>
     )
 }
