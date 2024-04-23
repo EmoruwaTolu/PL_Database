@@ -43,7 +43,7 @@ function ScatterGraph({data}){
             .text('y')
 
         svg.selectAll()
-            .data(data)
+            .data(plotData)
             .enter()
             .append('circle')
                 .attr('cx', d => xScale(d.totalXGD))
