@@ -18,11 +18,11 @@ function ScatterGraph({data}){
             .style('margin-top', '100px')
 
         const xScale = d3.scaleLinear()
-            .domain([0, 100])
+            .domain([0, 50])
             .range([0, w])
 
         const yScale = d3.scaleLinear()
-            .domain([0, 200])
+            .domain([0, 100])
             .range([h, 0])
 
         const xAxis = d3.axisBottom(xScale).ticks(plotData.length)
