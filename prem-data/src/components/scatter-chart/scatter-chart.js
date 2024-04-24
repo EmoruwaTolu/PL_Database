@@ -15,8 +15,6 @@ function ScatterGraph({data}){
     const yScale = d3.scaleLinear().domain([0, 50]).range([w, 0]);
     const xScale = d3.scaleLinear().domain([0, 100]).range([h, 0]);
 
-    const MARGIN = { top: 60, right: 60, bottom: 60, left: 60 };
-
     const svgRef = useRef();
 
     var allShapes = plotData.map((d, i) => {
@@ -97,10 +95,11 @@ function ScatterGraph({data}){
                 <g
                     width={w}
                     height={h}
-                    transform={`translate(${[MARGIN.left, MARGIN.top].join(",")})`}
+                    // transform={`translate(${[MARGIN.left, MARGIN.top].join(",")})`}
                 >
                 <AxisLeft yScale={yScale} pixelsPerTick={40} width={w} />
-                <g transform={`translate(0, ${h})`}>
+                <g 
+                >
                     <AxisBottom
                     xScale={xScale}
                     pixelsPerTick={40}
