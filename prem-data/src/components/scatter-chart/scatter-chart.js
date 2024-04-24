@@ -54,7 +54,7 @@ function ScatterGraph({data}){
             .append('circle')
                 .attr('cx', d => xScale(d.totalXGD))
                 .attr('cy', d => yScale(d.points))
-                .attr('r', 2)
+                .attr('r', 7)
                 .style("fill", d => `${teamColours[d.clubname]}`)
                 
 
