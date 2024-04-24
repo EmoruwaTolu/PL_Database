@@ -14,13 +14,12 @@ function ScatterGraph({data}){
     const svgRef = useRef();
 
     useEffect(() => {
-        const w = 400
+        const w = 250
         const h = 300
         const svg = d3.select(svgRef.current)
             .attr('width', w)
             .attr('height', h)
             .style('overflow', 'visible')
-            .style('margin-top', '100px')
 
         const xScale = d3.scaleLinear()
             .domain([0, 50])
@@ -49,12 +48,12 @@ function ScatterGraph({data}){
             .text('y')
 
         svg.selectAll()
-            .data(plotData)
+            .data(data)
             .enter()
             .append('circle')
                 .attr('cx', d => xScale(d.totalXGD))
                 .attr('cy', d => yScale(d.points))
-                .attr('r', 7)
+                .attr('r', 4)
                 .style("fill", d => `${teamColours[d.clubname]}`)
                 
 
