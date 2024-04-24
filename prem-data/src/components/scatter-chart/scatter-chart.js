@@ -11,7 +11,7 @@ function ScatterGraph({data}){
     const h = 300
 
     const [plotData, setPlotData] =  useState(data);
-    const [interactionData, setInteractionData] = useState<interactionData | null>(null);
+    const [interactionData, setInteractionData] = useState();
     const yScale = d3.scaleLinear().domain([0, 50]).range([w, 0]);
     const xScale = d3.scaleLinear().domain([0, 100]).range([h, 0]);
 
@@ -30,14 +30,14 @@ function ScatterGraph({data}){
             fill={teamColours[d.clubname]}
             fillOpacity={0.2}
             strokeWidth={1}
-            onMouseEnter={() => // Each time the circle is hovered hover...
-                setInteractionData({ // ... update the interactionData state with the circle information
-                xPos: xScale(d.totalXGD),
-                yPos: yScale(d.points),
-                name: d.clubname,
-                })
-            }
-            onMouseLeave={() => setInteractionData(null)}
+            // onMouseEnter={() => // Each time the circle is hovered hover...
+            //     setInteractionData({ // ... update the interactionData state with the circle information
+            //     xPos: xScale(d.totalXGD),
+            //     yPos: yScale(d.points),
+            //     name: d.clubname,
+            //     })
+            // }
+            // onMouseLeave={() => setInteractionData(null)}
           />
         );
     });
