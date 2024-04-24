@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { teamColours } from "../player-tab";
+import { AxisBottom } from "./AxisBottom";
+import { AxisLeft } from "./AxisLeft";
 
 import * as d3 from 'd3';
 
@@ -90,7 +92,26 @@ function ScatterGraph({data}){
     return(
         <div>
             <svg ref={svgRef}>
+            <g
+                width={w}
+                height={h}
+                
+                >
+                {/* Y axis */}
+                <AxisLeft yScale={yScale} pixelsPerTick={40} width={w} />
+
+                {/* X axis, use an additional translation to appear at the bottom */}
+                <g >
+                    <AxisBottom
+                    xScale={xScale}
+                    pixelsPerTick={40}
+                    height={h}
+                    />
+                </g>
+
+                {/* Circles */}
                 {allShapes}
+            </g>
             </svg>
         </div>
     )
