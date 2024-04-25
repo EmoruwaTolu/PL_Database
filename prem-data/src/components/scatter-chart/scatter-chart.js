@@ -24,14 +24,16 @@ function ScatterGraph({data}){
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`); // Translate to accommodate margins
 
+        const xExtent = d3.extent(data, d => d.totalXGD);
         const xScale = d3.scaleLinear()
-            .domain([0, 50])
+            .domain([0, xExtent[1]]) // Set domain to start from 0 and end at the maximum x value
             .range([0, w]);
-
+    
+        const yExtent = d3.extent(data, d => d.points);
         const yScale = d3.scaleLinear()
-            .domain([0, 100])
+            .domain([0, yExtent[1]])
             .range([h, 0]);
-
+    
         const xAxis = d3.axisBottom(xScale).ticks(plotData.length);
         const yAxis = d3.axisLeft(yScale).ticks(10);
 
