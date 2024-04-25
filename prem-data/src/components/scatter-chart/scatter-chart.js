@@ -24,18 +24,18 @@ function ScatterGraph({data}){
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Dynamically compute xScale domain based on the actual data
         const xExtent = d3.extent(data, d => d.totalXGD);
+        const minCX = Math.min(0, xExtent[0]); // Get the minimum cx value
         const xScale = d3.scaleLinear()
-            .domain([0, Math.max(0, xExtent[1])]) // Ensure the domain starts from 0
-            .range([0, w - margin.right - margin.left]);
+            .domain([minCX, xExtent[1]]) // Adjust the domain to start from the minimum cx value
+            .range([0, w - margin.right - margin.left]); // Adjust range to fit within the margins
     
         const yExtent = d3.extent(data, d => d.points);
         const yScale = d3.scaleLinear()
             .domain([0, yExtent[1]])
             .range([h, 0]);
     
-        const xAxis = d3.axisBottom(xScale).ticks(plotData.length);
+        const xAxis = d3.axisBottom(xScale).ticks(data.length);
         const yAxis = d3.axisLeft(yScale).ticks(10);
 
         svg.append('g')
@@ -61,7 +61,7 @@ function ScatterGraph({data}){
             .data(data)
             .enter()
             .append('circle')
-            .attr('cx', d => Math.max(0, xScale(d.totalXGD))) 
+            .attr('cx', d => xScale(d.totalXGD)) 
             .attr('cy', d => yScale(d.points))
             .attr('r', 4)
             .style("fill", d => `${teamColours[d.clubname]}`);
