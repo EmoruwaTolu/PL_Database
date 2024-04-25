@@ -7,8 +7,8 @@ import * as d3 from 'd3';
 
 function ScatterGraph({data}){
 
-    const w = 400
-    const h = 300
+    const w = 500
+    const h = 400
     const margin = { top: 20, right: 20, bottom: 50, left: 50 };
 
 
