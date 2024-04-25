@@ -9,25 +9,26 @@ function ScatterGraph({data}){
 
     const w = 400
     const h = 300
+    const margin = { top: 20, right: 20, bottom: 50, left: 50 };
+
 
     const [plotData, setPlotData] =  useState(data);
     const svgRef = useRef();
 
     useEffect(() => {
-        const w = 250;
-        const h = 300;
         const margin = { top: 20, right: 20, bottom: 50, left: 50 }; // Add margins
 
         const svg = d3.select(svgRef.current)
-            .attr('width', w + margin.left + margin.right) // Adjust for margins
-            .attr('height', h + margin.top + margin.bottom) // Adjust for margins
+            .attr('width', w + margin.left + margin.right)
+            .attr('height', h + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`); // Translate to accommodate margins
+            .attr("transform", `translate(${margin.left},${margin.top})`);
 
+        // Dynamically compute xScale domain based on the actual data
         const xExtent = d3.extent(data, d => d.totalXGD);
         const xScale = d3.scaleLinear()
-            .domain([0, xExtent[1]]) // Set domain to start from 0 and end at the maximum x value
-            .range([0, w]);
+            .domain([0, Math.max(0, xExtent[1])]) // Ensure the domain starts from 0
+            .range([0, w - margin.right - margin.left]);
     
         const yExtent = d3.extent(data, d => d.points);
         const yScale = d3.scaleLinear()
