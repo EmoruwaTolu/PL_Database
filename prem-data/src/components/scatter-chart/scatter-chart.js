@@ -38,6 +38,8 @@ function ScatterGraph({data}){
         const xAxis = d3.axisBottom(xScale).ticks(data.length);
         const yAxis = d3.axisLeft(yScale).ticks(10);
 
+        svg.selectAll("*").remove();
+
         const tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
