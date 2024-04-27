@@ -11,6 +11,11 @@ function ScatterGraph({data}){
     const svgRef = useRef();
 
     useEffect(() => {
+        setPlotData(data); // Update plotData when data changes
+    }, [data]);
+
+    useEffect(() => {
+        console.log(plotData)
         const margin = { top: 20, right: 20, bottom: 50, left: 50 }; // Add margins
 
         const svg = d3.select(svgRef.current)
@@ -65,6 +70,7 @@ function ScatterGraph({data}){
             .attr('r', 4)
             .style("fill", d => `${teamColours[d.clubname]}`)
             .on("mouseover", function (event, d) {
+                console.log('entered')
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
