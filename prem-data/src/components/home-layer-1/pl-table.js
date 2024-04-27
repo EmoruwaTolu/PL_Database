@@ -129,8 +129,6 @@ export default function BasicTabs() {
     function changeView(id){
         setView(id);
     }
-
-    console.log(data[0]);
     
     //Aspect ratio is used on the Responsive container to prevent it from stretching to an awkward degree on different screens
 
