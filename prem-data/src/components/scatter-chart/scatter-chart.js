@@ -9,6 +9,45 @@ function ScatterGraph({data}){
 
     const [plotData, setPlotData] =  useState(data);
     const svgRef = useRef();
+    const MARGIN = { top: 60, right: 60, bottom: 60, left: 60 };
+
+    const boundsWidth = width - MARGIN.right - MARGIN.left;
+    const boundsHeight = height - MARGIN.top - MARGIN.bottom;
+
+    const testData = [
+        {
+          x: 2,
+          y: 4
+        },
+        {
+          x: 8,
+          y: 5
+        }
+    ]
+
+    const yScale = d3.scaleLinear()
+        .domain([0, 10]) // data goes from 0 to 10
+        .range([0, 10]);
+    
+    const xScale = d3.scaleLinear()
+        .domain([0, 10]) // data goes from 0 to 10
+        .range([0, 10]);
+
+    const allShapes = testData.map((d, i) => {
+        return (
+            <circle
+                key={i}
+                r={13}
+                cx={xScale(d.y)}
+                cy={yScale(d.x)}
+                opacity={1}
+                stroke="#cb1dd1"
+                fill="#cb1dd1"
+                fillOpacity={0.2}
+                strokeWidth={1}
+            />
+        );
+    });
 
     useEffect(() => {
         setPlotData(data); // Update plotData when data changes
@@ -92,7 +131,22 @@ function ScatterGraph({data}){
 
     return(
         <div>
-            <svg ref={svgRef}>    
+            <svg ref={svgRef} width={w} height={h}>
+                <g
+                    width={boundsWidth}
+                    height={boundsHeight}
+                    transform={`translate(${[MARGIN.left, MARGIN.top].join(',')})`}
+                >
+                    <AxisLeft yScale={yScale} pixelsPerTick={40} width={boundsWidth} />
+                    <g transform={`translate(0, ${boundsHeight})`}>
+                        <AxisBottom
+                        xScale={xScale}
+                        pixelsPerTick={40}
+                        height={boundsHeight}
+                        />
+                    </g>
+                {allShapes}
+                </g>
             </svg>
         </div>
     )
