@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import { ScaleLinear } from "d3";
 
-const TICK_LENGTH = 10;
+// tick length
+const TICK_LENGTH = 6;
 
-export const AxisLeft = ({ yScale, pixelsPerTick, width }) => {
+export const AxisLeft = ({ yScale, pixelsPerTick }) => {
   const range = yScale.range();
 
   const ticks = useMemo(() => {
@@ -18,32 +18,29 @@ export const AxisLeft = ({ yScale, pixelsPerTick, width }) => {
 
   return (
     <>
+      {/* Main vertical line */}
+      <path
+        d={["M", 0, range[0], "L", 0, range[1]].join(" ")}
+        fill="none"
+        stroke="white"
+      />
+
       {/* Ticks and labels */}
       {ticks.map(({ value, yOffset }) => (
-        <g
-          key={value}
-          transform={`translate(0, ${yOffset})`}
-          shapeRendering={"crispEdges"}
-        >
-          <line
-            x1={-TICK_LENGTH}
-            x2={width + TICK_LENGTH}
-            stroke="#D2D7D3"
-            strokeWidth={0.5}
-          />
+        <g key={value} transform={`translate(0, ${yOffset})`}>
+          <line x2={-TICK_LENGTH} stroke="currentColor" />
           <text
             key={value}
             style={{
-                fontSize: "10px",
-                textAnchor: "middle",
-                transform: "translateX(-20px)",
-                fill: "#D2D7D3",
-              }}
-            >
-              {value}
-            </text>
-          </g>
-        ))}
-      </>
-    );
+              fontSize: "20px",
+              textAnchor: "middle",
+              transform: "translateX(20px)",
+            }}
+          >
+            {value}
+          </text>
+        </g>
+      ))}
+    </>
+  );
 };

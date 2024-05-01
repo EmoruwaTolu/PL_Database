@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { teamColours } from "../player-tab";
-import { AxisBottom } from "./AxisBottom";
-import { AxisLeft } from './AxisLeft';
+import './chart.css'
 import * as d3 from 'd3';
 
 function ScatterGraph({data}){
@@ -11,45 +10,6 @@ function ScatterGraph({data}){
 
     const [plotData, setPlotData] =  useState(data);
     const svgRef = useRef();
-    const MARGIN = { top: 60, right: 60, bottom: 60, left: 60 };
-
-    const boundsWidth = w - MARGIN.right - MARGIN.left;
-    const boundsHeight = h - MARGIN.top - MARGIN.bottom;
-
-    const testData = [
-        {
-          x: 2,
-          y: 4
-        },
-        {
-          x: 8,
-          y: 5
-        }
-    ]
-
-    const yScale = d3.scaleLinear()
-        .domain([0, 10]) // data goes from 0 to 10
-        .range([0, 10]);
-    
-    const xScale = d3.scaleLinear()
-        .domain([0, 10]) // data goes from 0 to 10
-        .range([0, 10]);
-
-    const allShapes = testData.map((d, i) => {
-        return (
-            <circle
-                key={i}
-                r={13}
-                cx={xScale(d.y)}
-                cy={yScale(d.x)}
-                opacity={1}
-                stroke="#cb1dd1"
-                fill="#cb1dd1"
-                fillOpacity={0.2}
-                strokeWidth={1}
-            />
-        );
-    });
 
     useEffect(() => {
         setPlotData(data); // Update plotData when data changes
@@ -58,6 +18,7 @@ function ScatterGraph({data}){
     useEffect(() => {
         console.log(plotData)
         const margin = { top: 20, right: 20, bottom: 50, left: 50 }; // Add margins
+        d3.select(svgRef.current).selectAll("*").remove();
 
         const svg = d3.select(svgRef.current)
             .attr('width', w + margin.left + margin.right)
@@ -71,15 +32,14 @@ function ScatterGraph({data}){
             .domain([minCX, xExtent[1]]) // Adjust the domain to start from the minimum cx value
             .range([0, w - margin.right - margin.left]); // Adjust range to fit within the margins
     
-        const yExtent = d3.extent(data, d => d.points);
+        const yExtent = data;
+        yExtent.sort((a,b) => b.points - a)
         const yScale = d3.scaleLinear()
-            .domain([0, yExtent[1]])
+            .domain([0, yExtent[0].points])
             .range([h, 0]);
     
-        const xAxis = d3.axisBottom(xScale).ticks(data.length);
+        const xAxis = d3.axisBottom(xScale).ticks(data.length / 2);
         const yAxis = d3.axisLeft(yScale).ticks(10);
-
-        svg.selectAll("*").remove();
 
         const tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
@@ -87,22 +47,26 @@ function ScatterGraph({data}){
 
         svg.append('g')
             .attr('transform', `translate(0, ${h})`)
-            .call(xAxis);
+            .call(xAxis)
+            .style('stroke', 'rgb(192, 192, 192)');
 
         svg.append('g')
-            .call(yAxis);
+            .call(yAxis)
+            .style('stroke', 'rgb(192, 192, 192)');
 
         svg.append('text')
-            .attr('x', w / 2)
-            .attr('y', h + margin.bottom / 2) // Adjust for margin
-            .text('Expected Goal Difference');
+            .attr('x', w /4)
+            .attr('y', h + margin.bottom ) // Adjust for margin
+            .text('Expected Goal Difference')
+            .style('fill', 'rgb(192, 192, 192)');
 
         svg.append('text')
             .attr('transform', 'rotate(-90)')
             .attr('y', -margin.left) // Adjust for margin
             .attr('x', -h / 2)
             .attr('dy', '1em')
-            .text('Points');
+            .text('Points')
+            .style('fill', 'rgb(192, 192, 192)');
 
         svg.selectAll()
             .data(plotData)
@@ -133,22 +97,7 @@ function ScatterGraph({data}){
 
     return(
         <div>
-            <svg ref={svgRef} width={w} height={h}>
-                <g
-                    width={boundsWidth}
-                    height={boundsHeight}
-                    transform={`translate(${[MARGIN.left, MARGIN.top].join(',')})`}
-                >
-                    <AxisLeft yScale={yScale} pixelsPerTick={40} width={boundsWidth} />
-                    <g transform={`translate(0, ${boundsHeight})`}>
-                        <AxisBottom
-                        xScale={xScale}
-                        pixelsPerTick={40}
-                        height={boundsHeight}
-                        />
-                    </g>
-                {allShapes}
-                </g>
+            <svg ref={svgRef}>    
             </svg>
         </div>
     )

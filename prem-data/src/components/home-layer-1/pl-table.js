@@ -184,6 +184,11 @@ export default function BasicTabs() {
                     data.length === 3 && (
                     <div className='pl-home-container'>
                         <div className="table">
+                            <div className='season-container'>
+                                <button onClick={() => {setSeason("2021-22")}}>Previous</button>
+                                {season}
+                                <button>Next</button>
+                            </div>
                             <DataTable 
                                 columns={columns} 
                                 data={data[1].sort((a, b) => b.points - a.points)} 
@@ -194,7 +199,7 @@ export default function BasicTabs() {
                         </div>
                         <div className='graph'>
                             <div className='home-graph-header'>xGD/Points Table</div>
-                            <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
+                            {/* <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
                                 <ScatterChart >
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
@@ -207,7 +212,8 @@ export default function BasicTabs() {
                                         ))}
                                     </Scatter>
                                 </ScatterChart>
-                            </ResponsiveContainer>
+                            </ResponsiveContainer> */}
+                            <ScatterGraph data={data[1]}/>
                         </div>
                     </div>
                     )
@@ -217,6 +223,11 @@ export default function BasicTabs() {
                 <div className="pl-data">{
                     data.length === 3 && (
                     <div className='pl-home-container'>
+                        <div className='season-container'>
+                            <button onClick={() => {setSeason("2021-22")}}>Previous</button>
+                                {season}
+                            <button>Next</button>
+                        </div>
                         <div className="table">
                             <DataTable 
                                 columns={columns} 
@@ -228,7 +239,7 @@ export default function BasicTabs() {
                         </div>
                         <div className='graph'>
                             <div className='home-graph-header'>xGD/Points Table</div>
-                            <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
+                            {/* <ResponsiveContainer width="99%" height="90%" aspect={1.4}>
                                 <ScatterChart>
                                     <CartesianGrid />
                                     <ZAxis type="string" dataKey="clubname" name="club" />
@@ -242,8 +253,8 @@ export default function BasicTabs() {
                                         ))}
                                     </Scatter>
                                 </ScatterChart>
-                            </ResponsiveContainer>
-                            
+                            </ResponsiveContainer> */}
+                            <ScatterGraph data={data[2]}/>
                         </div>
                     </div>
                     )
