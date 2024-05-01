@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { teamColours } from "../player-tab";
+import { AxisBottom } from "./AxisBottom";
+import { AxisLeft } from './AxisLeft';
 import * as d3 from 'd3';
 
 function ScatterGraph({data}){
@@ -11,8 +13,8 @@ function ScatterGraph({data}){
     const svgRef = useRef();
     const MARGIN = { top: 60, right: 60, bottom: 60, left: 60 };
 
-    const boundsWidth = width - MARGIN.right - MARGIN.left;
-    const boundsHeight = height - MARGIN.top - MARGIN.bottom;
+    const boundsWidth = w - MARGIN.right - MARGIN.left;
+    const boundsHeight = h - MARGIN.top - MARGIN.bottom;
 
     const testData = [
         {
