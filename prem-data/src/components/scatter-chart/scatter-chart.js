@@ -3,22 +3,49 @@ import { teamColours } from "../player-tab";
 import './chart.css'
 import * as d3 from 'd3';
 
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+}
+
 function ScatterGraph({data}){
 
-    const w = 500
-    const h = 400
-
     const [plotData, setPlotData] =  useState(data);
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
     const svgRef = useRef();
 
     useEffect(() => {
-        setPlotData(data); // Update plotData when data changes
-    }, [data]);
-
-    useEffect(() => {
-        console.log(plotData)
+        var w ;
+        var h ;
+        var fontSize = '16px';
         const margin = { top: 20, right: 20, bottom: 50, left: 50 }; // Add margins
         d3.select(svgRef.current).selectAll("*").remove();
+
+        if(windowDimensions.width <= 1024){
+            w = windowDimensions.width * 0.9; // 80% of window width
+            h = windowDimensions.height * 0.5; // 60% of window height
+            if(windowDimensions.width <= 700){
+                fontSize = '0.7rem';
+            }
+            else{
+                fontSize = '1rem';
+            }
+            
+        }
+        else if (windowDimensions.width <= 1440 ** windowDimensions.width > 1024){
+            w = windowDimensions.width * 0.35; // 80% of window width
+            h = windowDimensions.height * 0.4; // 60% of window height
+        }
+        else{
+            w = windowDimensions.width * 0.38; // 80% of window width
+            h = Math.min(windowDimensions.height * 0.5, 820); // 60% of window height
+        }
+
+        console.log(w)
 
         const svg = d3.select(svgRef.current)
             .attr('width', w + margin.left + margin.right)
@@ -55,10 +82,11 @@ function ScatterGraph({data}){
             .style('stroke', 'rgb(192, 192, 192)');
 
         svg.append('text')
-            .attr('x', w /4)
-            .attr('y', h + margin.bottom ) // Adjust for margin
+            .attr('x', (w - margin.right - margin.left)/2 - 80)
+            .attr('y', h + margin.bottom - 5) // Adjust for margin
             .text('Expected Goal Difference')
-            .style('fill', 'rgb(192, 192, 192)');
+            .style('fill', 'rgb(192, 192, 192)')
+            .style('font-size', `${fontSize}`);
 
         svg.append('text')
             .attr('transform', 'rotate(-90)')
@@ -66,7 +94,8 @@ function ScatterGraph({data}){
             .attr('x', -h / 2)
             .attr('dy', '1em')
             .text('Points')
-            .style('fill', 'rgb(192, 192, 192)');
+            .style('fill', 'rgb(192, 192, 192)')
+            .style('font-size', `${fontSize}`);
 
         svg.selectAll()
             .data(plotData)
@@ -91,9 +120,18 @@ function ScatterGraph({data}){
                     .style("opacity", 0);
             });
 
-    }, [plotData])
+    }, [plotData, windowDimensions, data])
 
-    console.log(data);
+    useEffect(() => {
+        function handleResize() {
+          setWindowDimensions(getWindowDimensions());
+        }
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    console.log(windowDimensions);
 
     return(
         <div>

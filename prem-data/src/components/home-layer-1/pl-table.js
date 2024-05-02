@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import DataTable from 'react-data-table-component';
-import { Link } from 'react-router-dom';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { teamColours } from '../player-tab';
 import ScatterGraph from '../scatter-chart/scatter-chart';
 import './layer1-style.css';
 
@@ -223,12 +220,12 @@ export default function BasicTabs() {
                 <div className="pl-data">{
                     data.length === 3 && (
                     <div className='pl-home-container'>
-                        <div className='season-container'>
-                            <button onClick={() => {setSeason("2021-22")}}>Previous</button>
-                                {season}
-                            <button>Next</button>
-                        </div>
                         <div className="table">
+                            <div className='season-container'>
+                                <button onClick={() => {setSeason("2021-22")}}>Previous</button>
+                                    {season}
+                                <button>Next</button>
+                            </div>
                             <DataTable 
                                 columns={columns} 
                                 data={data[2].sort((a, b) => b.points - a.points)} 
