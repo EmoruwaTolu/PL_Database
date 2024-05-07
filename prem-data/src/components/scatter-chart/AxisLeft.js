@@ -3,44 +3,58 @@ import { useMemo } from "react";
 // tick length
 const TICK_LENGTH = 6;
 
-export const AxisLeft = ({ yScale, pixelsPerTick }) => {
-  const range = yScale.range();
+export const AxisLeft = ({ yScale, innerWidth, tickOffset }) =>
+  yScale.ticks().map((tickValue) => (
+    <g
+      key={tickValue}
+      className="tick"
+      transform={`translate(0,${yScale(tickValue)})`}
+    >
+      <line x2={innerWidth} stroke="white" />
+      <text style={{ textAnchor: "end", fill: "white" }} x={-tickOffset} dy=".32em">
+        {tickValue}
+      </text>
+    </g>
+));
 
-  const ticks = useMemo(() => {
-    const height = range[0] - range[1];
-    const numberOfTicksTarget = Math.floor(height / pixelsPerTick);
+// export const AxisLeft = ({ yScale, pixelsPerTick }) => {
+//   const range = yScale.range();
 
-    return yScale.ticks(numberOfTicksTarget).map((value) => ({
-      value,
-      yOffset: yScale(value),
-    }));
-  }, [yScale]);
+//   const ticks = useMemo(() => {
+//     const height = range[0] - range[1];
+//     const numberOfTicksTarget = Math.floor(height / pixelsPerTick);
 
-  return (
-    <>
-      {/* Main vertical line */}
-      <path
-        d={["M", 0, range[0], "L", 0, range[1]].join(" ")}
-        fill="none"
-        stroke="white"
-      />
+//     return yScale.ticks(numberOfTicksTarget).map((value) => ({
+//       value,
+//       yOffset: yScale(value),
+//     }));
+//   }, [yScale]);
 
-      {/* Ticks and labels */}
-      {ticks.map(({ value, yOffset }) => (
-        <g key={value} transform={`translate(0, ${yOffset})`}>
-          <line x2={-TICK_LENGTH} stroke="currentColor" />
-          <text
-            key={value}
-            style={{
-              fontSize: "20px",
-              textAnchor: "middle",
-              transform: "translateX(20px)",
-            }}
-          >
-            {value}
-          </text>
-        </g>
-      ))}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {/* Main vertical line */}
+//       <path
+//         d={["M", 0, range[0], "L", 0, range[1]].join(" ")}
+//         fill="none"
+//         stroke="white"
+//       />
+
+//       {/* Ticks and labels */}
+//       {ticks.map(({ value, yOffset }) => (
+//         <g key={value} transform={`translate(0, ${yOffset})`}>
+//           <line x2={-TICK_LENGTH} stroke="currentColor" />
+//           <text
+//             key={value}
+//             style={{
+//               fontSize: "20px",
+//               textAnchor: "middle",
+//               transform: "translateX(20px)",
+//             }}
+//           >
+//             {value}
+//           </text>
+//         </g>
+//       ))}
+//     </>
+//   );
+// };

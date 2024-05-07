@@ -59,3 +59,15 @@
         border-radius: 24px;
     }
 }
+
+@media screen and (min-width: 1800px) {
+    .bar-title{
+        font-size: 1.2em;
+    }
+    .inner-bar{
+        font-size: 1em;
+    }
+    .value{
+        font-size: 1em;
+    }
+}

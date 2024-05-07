@@ -22,12 +22,12 @@ function ScatterGraph({data}){
         var w ;
         var h ;
         var fontSize = '16px';
-        const margin = { top: 20, right: 20, bottom: 50, left: 50 }; // Add margins
-        d3.select(svgRef.current).selectAll("*").remove();
+        const margin = { top: 20, right: 20, bottom: 50, left: 50 };
+        d3.select("#graph-homepage").selectAll("*").remove();
 
         if(windowDimensions.width <= 1024){
-            w = windowDimensions.width * 0.9; // 80% of window width
-            h = windowDimensions.height * 0.5; // 60% of window height
+            w = windowDimensions.width * 0.9; 
+            h = windowDimensions.height * 0.5; 
             if(windowDimensions.width <= 700){
                 fontSize = '0.7rem';
             }
@@ -37,17 +37,20 @@ function ScatterGraph({data}){
             
         }
         else if (windowDimensions.width <= 1440 ** windowDimensions.width > 1024){
-            w = windowDimensions.width * 0.35; // 80% of window width
-            h = windowDimensions.height * 0.4; // 60% of window height
+            w = windowDimensions.width * 0.35;
+            h = windowDimensions.height * 0.4; 
         }
         else{
-            w = windowDimensions.width * 0.38; // 80% of window width
-            h = Math.min(windowDimensions.height * 0.5, 820); // 60% of window height
+            w = windowDimensions.width * 0.38; 
+            h = Math.min(windowDimensions.height * 0.5, 820);
         }
 
-        console.log(w)
+        const svg = d3.select("#graph-homepage")
+            .attr('width', w + margin.left + margin.right)
+            .attr('height', h + margin.top + margin.bottom)
+            .append("svg");
 
-        const svg = d3.select(svgRef.current)
+        const gMain = svg
             .attr('width', w + margin.left + margin.right)
             .attr('height', h + margin.top + margin.bottom)
             .append("g")
@@ -68,27 +71,23 @@ function ScatterGraph({data}){
         const xAxis = d3.axisBottom(xScale).ticks(data.length / 2);
         const yAxis = d3.axisLeft(yScale).ticks(10);
 
-        const tooltip = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
-        svg.append('g')
+        gMain.append('g')
             .attr('transform', `translate(0, ${h})`)
             .call(xAxis)
             .style('stroke', 'rgb(192, 192, 192)');
 
-        svg.append('g')
+        gMain.append('g')
             .call(yAxis)
             .style('stroke', 'rgb(192, 192, 192)');
 
-        svg.append('text')
+        gMain.append('text')
             .attr('x', (w - margin.right - margin.left)/2 - 80)
             .attr('y', h + margin.bottom - 5) // Adjust for margin
             .text('Expected Goal Difference')
             .style('fill', 'rgb(192, 192, 192)')
             .style('font-size', `${fontSize}`);
 
-        svg.append('text')
+        gMain.append('text')
             .attr('transform', 'rotate(-90)')
             .attr('y', -margin.left) // Adjust for margin
             .attr('x', -h / 2)
@@ -97,27 +96,49 @@ function ScatterGraph({data}){
             .style('fill', 'rgb(192, 192, 192)')
             .style('font-size', `${fontSize}`);
 
-        svg.selectAll()
-            .data(plotData)
+        // const tooltip = d3.select("#graph-homepage").append("div")
+        //     .attr("class", "tooltip")
+        //     .style("visibility", "hidden");
+
+        var tooltip = d3.select("#graph-homepage")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("background-color", "white")
+            .style("border", "solid")
+            .style("border-width", "2px")
+            .style("border-radius", "5px")
+            .style("padding", "5px")
+
+        gMain.selectAll()
+            .data(data)
             .enter()
             .append('circle')
+            .attr("id", d => `circle-${d.clubname}`)
             .attr('cx', d => xScale(d.totalXGD)) 
             .attr('cy', d => yScale(d.points))
             .attr('r', 4)
             .style("fill", d => `${teamColours[d.clubname]}`)
             .on("mouseover", function (event, d) {
-                console.log('entered')
+                console.log(d)
                 tooltip.transition()
                     .duration(200)
-                    .style("opacity", .9);
-                tooltip.html(`${d.clubname}<br/>Points: ${d.points}<br/>XGD: ${d.totalXGD}`)
-                    .style("left", (event.pageX) + "px")
-                    .style("top", (event.pageY - 28) + "px");
+                    .style("visibility", "visible")
+                    .style("opacity", 1);
+                tooltip.html(`Club: ${d.clubname}<br/>Points: ${d.points}<br/>xGD (Expected Goal Difference): ${d.totalXGD}`)
+                    .style('z-index', 99)
+                    .style("visibility", "visible")
+            })
+            .on("mousemove", function(event, d){
+                console.log(d3.pointer(event))
+                tooltip
+                    .style("left", (d3.pointer(event)[0]) + "px")
+                    .style("top", (d3.pointer(event)[1]) + "px");
             })
             .on("mouseout", function (d) {
                 tooltip.transition()
                     .duration(500)
-                    .style("opacity", 0);
+                    .style("visibility", "hidden");
             });
 
     }, [plotData, windowDimensions, data])
@@ -131,12 +152,8 @@ function ScatterGraph({data}){
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    console.log(windowDimensions);
-
     return(
-        <div>
-            <svg ref={svgRef}>    
-            </svg>
+        <div id="graph-homepage">
         </div>
     )
 }

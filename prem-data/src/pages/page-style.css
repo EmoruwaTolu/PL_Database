@@ -331,3 +331,28 @@
         height: 15vh;
     }
 }
+
+@media screen and (min-width: 1800px) {
+    .player-name{
+        font-size: 2em;
+    }
+    .player-page-club{
+        font-size: 1.4em;
+        margin-bottom: 0.5em;
+    }
+    .player-page-position{
+        font-size: 1.2em;
+    }
+    .chart-container p{
+        font-size: 1em;
+    }
+    .position-tabs button{
+        font-size: 1.2em;
+    }
+    .player-statistics{
+        min-width: 100%;
+    }
+    .player-header{
+        height: 15vh;
+    }
+}
