@@ -37,7 +37,6 @@ export default function CreatePageScatter({data, xAxisName, yAxisName}){
 
     const handleMouseMove = useCallback(
         (event) => {
-        console.log(event)
         const { clientX, clientY } = event;
         if(Math.abs(clientX - mousePosition.x > 4) || Math.abs(clientY - mousePosition.y)> 4){
             setHoveredValue(null)
@@ -92,7 +91,6 @@ export default function CreatePageScatter({data, xAxisName, yAxisName}){
             hideTooltip
         }) =>
             data.map((d, i) => (
-                // console.log(d.stat1)
               <>
                 <circle
                   key={`${d.playerName}`}

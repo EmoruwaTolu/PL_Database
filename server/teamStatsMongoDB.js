@@ -128,7 +128,6 @@ files2.forEach(file => {
             teamOverallStatsSplit[8], teamOverallStatsSplit[9], teamOverallStatsSplit[10], teamOverallStatsSplit[11], 
             teamOverallStatsSplit[12], teamOverallStatsSplit[13], season, count);
 
-        console.log(teamOverallStats);
         teamSeasonsOverall.push(teamOverallStats);
         count++;
 

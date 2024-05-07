@@ -60,7 +60,6 @@ app.get('/create/:statistic', async (req, res) => {
     const data = await cursor.toArray();
 
     // Log the retrieved data
-    console.log(data);
 
     // Respond with the data as JSON
     res.json(data);
@@ -114,7 +113,6 @@ app.get('/blog-posts', async(req,res) => {
     const collection = db.collection('BlogPosts');
 
     const data = await collection.find().toArray();
-    console.log(data)
     res.json(data)
   }
   catch(error){
@@ -169,10 +167,7 @@ app.get('/team/:name', async (req, res) => {
     const db = client.db(dbName);
     const collection = db.collection('2023Tester');
 
-    console.log(teamName)
-
     const data = await collection.find({club: teamName}).toArray();
-    console.log(data)
     res.json(data)
   }
   catch(error){
@@ -190,15 +185,10 @@ app.get('/player/:name', async (req, res) => {
 
     const playerName = req.params.name;
 
-    console.log(playerName)
-
     const db = client.db(dbName);
     const collection = db.collection('IndividualSeasons');
 
-    console.log(playerName)
-
     const data = await collection.find({name: playerName}).toArray();
-    console.log(data)
     res.json(data)
   }
   catch(error){

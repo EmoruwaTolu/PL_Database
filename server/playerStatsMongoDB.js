@@ -450,7 +450,6 @@ function seasonsGenerator(directoryPath){
       var clubName = clubNameHyphen.replace("-"," ")
       for (let i = 1; i < data.length - 1; i += 2) {
           const name = data[i];
-          console.log(name)
           var playerPosition;
           if(data[i+1]!==null){
               const stats = data[i+1].split(/\s+/);
@@ -483,7 +482,6 @@ function seasonsGenerator(directoryPath){
                 else{
                   var existingPlayer = players.find(playerInArray => playerInArray.name === player.name)
                   if(!existingPlayer.listOfSeasons.some((p) => p.season === playerNew.season)){
-                    console.log("ugh")
                     existingPlayer.addSeason(playerNew)
                     seasons.push(playerNew)
                   }
@@ -514,8 +512,6 @@ function seasonsGenerator(directoryPath){
 }
 
 seasonsGenerator(directoryPath)
-console.log(players.length)
-console.log(seasons.length)
 
 module.exports = seasons;
 

@@ -62,12 +62,10 @@ function Quiz(){
                 return [...prevSelected, player];
             }
         });
-        console.log(selectedButtons)
     };
 
     const handleSubmit = () => {
         if(selectedPlayers[0].group === selectedPlayers[1].group && selectedPlayers[0].group === selectedPlayers[2].group && selectedPlayers[0].group === selectedPlayers[3].group){
-            console.log(playerNames)
             let index1 = playerNames.indexOf(selectedPlayers[0])
             playerNames.splice(index1, 1)
             let index2 = playerNames.indexOf(selectedPlayers[1])
@@ -79,7 +77,6 @@ function Quiz(){
             let newArray =  playerNames
             let solvedGroup = solvedRowsList
             solvedGroup.push(selectedPlayers)
-            console.log(newArray)
             let update = solvedRows
             update++
 

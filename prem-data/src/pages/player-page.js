@@ -44,7 +44,6 @@ function PlayerPage() {
               setPlayerInfo(response.data);
               setSeason(arrayToCircularLinkedList(response.data).head)
               setSeasonLinkedList(arrayToCircularLinkedList(response.data))
-              console.log(response.data[response.data.length - 1].name);
             })
             .catch(error => {
               console.error("Error fetching player data:", error);
@@ -55,8 +54,6 @@ function PlayerPage() {
     if (playerInfo.length === 0) {
         return <p>Loading player data...</p>;
     }
-    console.log(player)
-    console.log(playerInfo)
 
     return(
       <div>

@@ -18,7 +18,6 @@ const cellDummyProps = {
 };
 
 const CustomTooltip = ({ active, payload, label }) => {
-    console.log(payload)
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
@@ -44,7 +43,6 @@ function dataAdjuster(players1, players2, option1, option2){
         var playerInfo2 = {playerName: players2[i].name , stat1: players2[i][option1][0], stat2: players2[i][option2][0], season: players2[i].season, playImage: players2[i].image}
         holder.push(playerInfo2)
     }
-    console.log(holder)
     return holder
 }
 
@@ -67,7 +65,6 @@ function Create(){
             
             let info = dataAdjuster(data1, data2,  option1, option2)
             setGraphInfo(info)
-            //console.log(data2)
         }
         catch(error){
             console.error('Error  fetching players', error);

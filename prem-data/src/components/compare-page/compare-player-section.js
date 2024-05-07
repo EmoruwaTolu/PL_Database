@@ -18,8 +18,6 @@ const ComparePlayerSection = () => {
     const [seasonPlayer1, setSeasonPlayer1] = useState(0);
     const [seasonPlayer2, setSeasonPlayer2] = useState(0);
 
-    console.log(player2)
-
     const handleCheckboxChange = (checkedItems) => {
         setSelectedItems(checkedItems);
     };
@@ -27,8 +25,6 @@ const ComparePlayerSection = () => {
     const handlePercentileToggle = event => {
         setIsPercentileMode(current => !current);
         if(isPercentileMode){
-            console.log(player1)
-            console.log(player2)
             setPercentileComparer1(0);
             setPercentileComparer2(0);
         }

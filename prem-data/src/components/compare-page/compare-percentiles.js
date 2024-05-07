@@ -5,8 +5,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 function ComparePercentiles({player, setSeasonPlayer1, seasonPlayer1, setPercentileComparer, isPercentileMode}){
 
-    console.log(player)
-
     return(
         <div>
             {player && <div className="select-menu">

@@ -58,7 +58,7 @@ export default function BasicTabs() {
     const columns = [
         {
             name: 'Club',
-            selector: row => <p onClick={() => {console.log(row.clubname)}}>{row.clubname}</p>,
+            selector: row => <p>{row.clubname}</p>,
             width: "15%",
         },
         {

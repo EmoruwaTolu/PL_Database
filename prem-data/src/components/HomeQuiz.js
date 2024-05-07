@@ -23,8 +23,6 @@ export default function HomeQuiz(){
         fetchData('');
     }, []);
 
-    console.log(posts[0])
-
     if(posts.length === 0){
         return <div>Loading data ...</div>
     }

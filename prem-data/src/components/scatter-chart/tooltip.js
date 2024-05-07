@@ -1,7 +1,6 @@
 import React from "react";
 
 export const Tooltip = ({ hoveredValue, mousePosition, labelX, labelY }) => {
-    console.log(hoveredValue)
     if (!hoveredValue) {
       return <div id="tooltip-container" style={{ visibility: "hidden" }}></div>;
     } else {

@@ -120,7 +120,6 @@ function ScatterGraph({data}){
             .attr('r', 4)
             .style("fill", d => `${teamColours[d.clubname]}`)
             .on("mouseover", function (event, d) {
-                console.log(d)
                 tooltip.transition()
                     .duration(200)
                     .style("visibility", "visible")
@@ -130,7 +129,6 @@ function ScatterGraph({data}){
                     .style("visibility", "visible")
             })
             .on("mousemove", function(event, d){
-                console.log(d3.pointer(event))
                 tooltip
                     .style("left", (d3.pointer(event)[0]) + "px")
                     .style("top", (d3.pointer(event)[1]) + "px");
