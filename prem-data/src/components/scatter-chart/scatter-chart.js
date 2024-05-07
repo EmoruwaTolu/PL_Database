@@ -3,7 +3,7 @@ import { teamColours } from "../player-tab";
 import './chart.css'
 import * as d3 from 'd3';
 
-function getWindowDimensions() {
+export function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
       width,

@@ -1,6 +1,7 @@
 import React from "react";
 
 export const Tooltip = ({ hoveredValue, mousePosition, labelX, labelY }) => {
+    console.log(hoveredValue)
     if (!hoveredValue) {
       return <div id="tooltip-container" style={{ visibility: "hidden" }}></div>;
     } else {
@@ -17,8 +18,8 @@ export const Tooltip = ({ hoveredValue, mousePosition, labelX, labelY }) => {
             </div>
             <hr />
             <div id="tooltip" data-year={hoveredValue.Year}>
-              <div>{labelX}: {hoveredValue.stat1}</div>
-              <div>{labelY}: {hoveredValue.stat2}</div>
+              <div>{labelX}(x): {hoveredValue.stat1}</div>
+              <div>{labelY}(y): {hoveredValue.stat2}</div>
             </div>
           </div>
         </div>

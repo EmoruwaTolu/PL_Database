@@ -193,8 +193,8 @@
     justify-content: space-between;
 }
 .create-graph{
-    width: 100%;
-    max-height: 50vh;
+    width: fit-content;
+    height: fit-content;
 }
 .season-menu{
     width: 40%;

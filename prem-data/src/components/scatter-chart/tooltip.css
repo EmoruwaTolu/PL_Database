@@ -6,12 +6,14 @@
     box-shadow: 2px 2px 2px;
     opacity: 0.9;
     padding: 10px;
-    width: 270px;
+    width: 300px;
 }
 #tooltip {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    font-size: 0.9rem;
+    flex-direction: column;
 }
   
 #tooltip-name {
