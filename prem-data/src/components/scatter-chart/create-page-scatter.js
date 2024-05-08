@@ -54,7 +54,7 @@ export default function CreatePageScatter({data, xAxisName, yAxisName}){
     const calculateSvgDimensions = () => {
         let svgWidth, svgHeight;
 
-        svgWidth = windowDimensions.width * 0.9;
+        svgWidth = windowDimensions.width * 0.8;
         svgHeight = windowDimensions.height * 0.5;
         if (windowDimensions.height <= 1024) {
             svgHeight = windowDimensions.height * 0.8;

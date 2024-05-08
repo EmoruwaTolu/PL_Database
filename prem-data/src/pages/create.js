@@ -120,21 +120,6 @@ function Create(){
                 </div>
                 <div className='create-graph'>
                             {option1.length !== 0 && option2 && graphInfo.length !== 0 &&
-                                // <ResponsiveContainer width="99%" height="90%" aspect={2}> 
-                                //     <ScatterChart>
-                                //         <CartesianGrid />
-                                //         <ZAxis type="string" dataKey="clubname" name="club" />
-                                //         <XAxis type="number" dataKey="stat1" name={option1} />
-                                //         <YAxis type="number" dataKey="stat2" name={option2} />
-                                //         <Tooltip cursor={{ strokeDasharray: '3 3' }} content={<CustomTooltip />}/>
-                                //         <Scatter name="clubname" data={graphInfo} fill="#8884d8" >
-                                //             {graphInfo.map((entry, index) => (
-                                //                 <Cell key={`cell-${entry}`} fill="#8884d8" {...cellDummyProps}/>
-                                //             ))}
-                                //         </Scatter>
-                                //     </ScatterChart>
-                                // </ResponsiveContainer>
-                                
                                 <CreatePageScatter xAxisName={option1} yAxisName={option2} data={graphInfo}/>
                                 }
                 </div>
